@@ -232,16 +232,16 @@ function preload () {
     game.load.image('normal', normalImg);//NEW
     game.load.image('nails', nailsImg);//NEW
     game.load.image('life', lifeImg);//NEW
-    game.load.image('left', '/games/games008/assets/left.png');//NEW
-    game.load.image('right', '/games/games008/assets/right.png');//NEW
+    game.load.image('left', '../games008/assets/left.png');//NEW
+    game.load.image('right', '../games008/assets/right.png');//NEW
     game.load.spritesheet('player', playerSprite, 49, 94);//NEW
     game.load.spritesheet('ceiling', ceilingImg, 800, 48);//NEW
     game.load.spritesheet('conveyorRight', conveyorRightSprite, 128, 32);//NEW
     game.load.spritesheet('conveyorLeft', conveyorLeftSprite, 128, 32);//NEW
     game.load.spritesheet('trampoline', trampolineSprite, 128, 44);//NEW
     game.load.spritesheet('fake', fakeSprite, 128, 60);//NEW
-    game.load.spritesheet('playbtn', '/games/games008/assets/playbtn.png', 100, 100, 2);//NEW
-    game.load.spritesheet('replaybtn', '/games/games008/assets/replaybtn.png', 185, 85, 2);//NEW
+    game.load.spritesheet('playbtn', '../games008/assets/playbtn.png', 100, 100, 2);//NEW
+    game.load.spritesheet('replaybtn', '../games008/assets/replaybtn.png', 185, 85, 2);//NEW
     game.load.audio('musicBg', BGM, true);
     game.load.audio('startSFX', startSFX, true);
     game.load.audio('conveyorSfx', conveyorSFX, true); 
