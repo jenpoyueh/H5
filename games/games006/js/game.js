@@ -23,7 +23,7 @@ var enemyBulletInterval = 500; //秒
 //敵方移動速度
 var enemyVel = 150;
 //敵方子彈速度
-var enemyBulletVel = 210;
+var enemyBulletVel = 250;
 //敵方生命
 var enemyLifeA = 3;
 var enemyLifeB = 5;
@@ -674,12 +674,12 @@ game.State.play={
               enemy.score = enemyScoreA;
           }else if(enemyIndex == 2){
               enemy.life = enemyLifeB;
-              enemy.bulletV = enemyBulletVel * 2;
+              enemy.bulletV = enemyBulletVel * 1.2;
               enemy.bulletTime = enemyBulletInterval*4;
               enemy.score = enemyScoreB;
           }else if(enemyIndex == 3){
               enemy.life = enemyLifeC;
-              enemy.bulletV = enemyBulletVel * 3;
+              enemy.bulletV = enemyBulletVel * 1.5;
               enemy.bulletTime = enemyBulletInterval*2;
               enemy.score = enemyScoreC;
           }
