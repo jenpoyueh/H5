@@ -33,11 +33,6 @@ background-color: black;
   background-color: black;
 }
 
-@media screen and (max-width: 480px) {
-  #game {
-    /* margin: 80px 0px 30px 0px; */
-  }
-}
 
 #kurasushi_select {
   width: 200px;
