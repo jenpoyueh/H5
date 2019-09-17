@@ -217,7 +217,7 @@ function sendfreeCount(COUNT){
 // boot state 對遊戲進行設置
 game.State.boot={
     preload:function(){
-        game.load.image('loading','/games/games010/assets/preloader.gif');
+        game.load.image('loading','../games010/assets/preloader.gif');
         // 螢幕自適應
         game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
         game.scale.pageAlignHorizontally = true;
@@ -244,38 +244,38 @@ game.State.load={
     preload:function(){
         var preloadSprite = game.add.sprite(game.width/2-220/2,game.height/2-19/2,'loading');
         game.load.setPreloadSprite(preloadSprite);
-        game.load.image('bg1', '/games/games012/assets/bg1.png');
-        game.load.image('bg2', '/games/games012/assets/bg2.png');
-        game.load.image('timeUp', '/games/games012/assets/timeUp.png');
-        game.load.image('fork', '/games/games012/assets/fork.png');
-        game.load.image('line', '/games/games012/assets/line.png');
-        game.load.image('thankBoard', '/games/games012/assets/thankBoard.png');
-        game.load.image('pointBoard1', '/games/games012/assets/pointBoard1.png');
-        game.load.image('pointBoard2', '/games/games012/assets/pointBoard2.png');
-        game.load.image('3', '/games/games012/assets/3.png');
-        game.load.image('2', '/games/games012/assets/2.png');
-        game.load.image('1', '/games/games012/assets/1.png');
-        game.load.image('0', '/games/games012/assets/0.png');
-        game.load.image('thanks1', '/games/games012/assets/thanks1.png');
-        game.load.spritesheet('phantom', '/games/games012/assets/phantom.png', 120, 110, 7);
-        game.load.spritesheet('phantomS', '/games/games012/assets/phantomS.png', 120, 110, 7);
-        game.load.spritesheet('die', '/games/games012/assets/die.png', 166, 34, 8);
-        game.load.spritesheet('startBtn', '/games/games012/assets/startBtn.png', 240, 160, 2);
-        game.load.spritesheet('yesBtn', '/games/games012/assets/yesBtn.png', 90, 50, 2);
-        game.load.spritesheet('noBtn', '/games/games012/assets/noBtn.png', 90, 50, 2);
-        game.load.spritesheet('freeBtn', '/games/games012/assets/freeBtn.png', 100, 60, 2);
-        game.load.spritesheet('backBtn', '/games/games012/assets/backBtn.png', 100, 60, 2);
-        game.load.spritesheet('thankBtn', '/games/games012/assets/thankBtn.png', 140, 100, 2);
-        game.load.audio('laugh', '/games/games012/assets/laugh.wav');
-        game.load.audio('pyo', '/games/games012/assets/pyo.mp3');
-        game.load.audio('attack', '/games/games012/assets/attack.mp3');
-        game.load.audio('start', '/games/games012/assets/start.mp3');
-        game.load.audio('enter', '/games/games012/assets/enter.mp3');
-        game.load.audio('cancel', '/games/games012/assets/cancel.mp3');
-        game.load.audio('bgm', '/games/games012/assets/bgm.mp3');
-        game.load.audio('reciprocal', '/games/games012/assets/reciprocal.mp3');
-        game.load.audio('timeUp', '/games/games012/assets/timeUp.mp3');
-        game.load.audio('timeUpBGM', '/games/games012/assets/timeUpBGM.mp3');
+        game.load.image('bg1', '../games012/assets/bg1.png');
+        game.load.image('bg2', '../games012/assets/bg2.png');
+        game.load.image('timeUp', '../games012/assets/timeUp.png');
+        game.load.image('fork', '../games012/assets/fork.png');
+        game.load.image('line', '../games012/assets/line.png');
+        game.load.image('thankBoard', '../games012/assets/thankBoard.png');
+        game.load.image('pointBoard1', '../games012/assets/pointBoard1.png');
+        game.load.image('pointBoard2', '../games012/assets/pointBoard2.png');
+        game.load.image('3', '../games012/assets/3.png');
+        game.load.image('2', '../games012/assets/2.png');
+        game.load.image('1', '../games012/assets/1.png');
+        game.load.image('0', '../games012/assets/0.png');
+        game.load.image('thanks1', '../games012/assets/thanks1.png');
+        game.load.spritesheet('phantom', '../games012/assets/phantom.png', 120, 110, 7);
+        game.load.spritesheet('phantomS', '../games012/assets/phantomS.png', 120, 110, 7);
+        game.load.spritesheet('die', '../games012/assets/die.png', 166, 34, 8);
+        game.load.spritesheet('startBtn', '../games012/assets/startBtn.png', 240, 160, 2);
+        game.load.spritesheet('yesBtn', '../games012/assets/yesBtn.png', 90, 50, 2);
+        game.load.spritesheet('noBtn', '../games012/assets/noBtn.png', 90, 50, 2);
+        game.load.spritesheet('freeBtn', '../games012/assets/freeBtn.png', 100, 60, 2);
+        game.load.spritesheet('backBtn', '../games012/assets/backBtn.png', 100, 60, 2);
+        game.load.spritesheet('thankBtn', '../games012/assets/thankBtn.png', 140, 100, 2);
+        game.load.audio('laugh', '../games012/assets/laugh.wav');
+        game.load.audio('pyo', '../games012/assets/pyo.mp3');
+        game.load.audio('attack', '../games012/assets/attack.mp3');
+        game.load.audio('start', '../games012/assets/start.mp3');
+        game.load.audio('enter', '../games012/assets/enter.mp3');
+        game.load.audio('cancel', '../games012/assets/cancel.mp3');
+        game.load.audio('bgm', '../games012/assets/bgm.mp3');
+        game.load.audio('reciprocal', '../games012/assets/reciprocal.mp3');
+        game.load.audio('timeUp', '../games012/assets/timeUp.mp3');
+        game.load.audio('timeUpBGM', '../games012/assets/timeUpBGM.mp3');
         
         // 用來預讀字型
         game.add.text(game.width/2-9999, -9999, "", style);
