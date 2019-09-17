@@ -24,32 +24,32 @@ var stepVelocity = 2;
 
 /***********圖料**********/
 
-var bgImg = '/games/games008/assets/background.png';
-var lifeImg = '/games/games008/assets/life.png';
-var wallImgL = '/games/games008/assets/wall_left.png';
-var wallImgR = '/games/games008/assets/wall_right.png';
-var ceilingImg = '/games/games008/assets/ceiling.png';
-var normalImg = '/games/games008/assets/normal.png';
-var nailsImg = '/games/games008/assets/nails.png';
-var playerSprite='/games/games008/assets/player.png';
-var conveyorRightSprite = '/games/games008/assets/conveyor_right.png';
-var conveyorLeftSprite = '/games/games008/assets/conveyor_left.png';
-var trampolineSprite = '/games/games008/assets/trampoline.png';
-var fakeSprite = '/games/games008/assets/fake.png';
+var bgImg = '../games008/assets/background.png';
+var lifeImg = '../games008/assets/life.png';
+var wallImgL = '../games008/assets/wall_left.png';
+var wallImgR = '../games008/assets/wall_right.png';
+var ceilingImg = '../games008/assets/ceiling.png';
+var normalImg = '../games008/assets/normal.png';
+var nailsImg = '../games008/assets/nails.png';
+var playerSprite='../games008/assets/player.png';
+var conveyorRightSprite = '../games008/assets/conveyor_right.png';
+var conveyorLeftSprite = '../games008/assets/conveyor_left.png';
+var trampolineSprite = '../games008/assets/trampoline.png';
+var fakeSprite = '../games008/assets/fake.png';
 
 /************************/
 
 /********音樂音效*********/
 
 //音樂音效來源
-var BGM = "/games/games008/assets/BGM.mp3";
-var conveyorSFX ="/games/games008/assets/conveyor.mp3";
-var hurtSFX ="/games/games008/assets/hurt.mp3";
-var deadSFX ="/games/games008/assets/dead.mp3";
-var stepSFX ="/games/games008/assets/step.mp3";
-var jumpSFX ="/games/games008/assets/jump.mp3";
-var fakeSFX ="/games/games008/assets/fake.mp3";
-var startSFX ="/games/games008/assets/start.mp3"
+var BGM = "../games008/assets/BGM.mp3";
+var conveyorSFX ="../games008/assets/conveyor.mp3";
+var hurtSFX ="../games008/assets/hurt.mp3";
+var deadSFX ="../games008/assets/dead.mp3";
+var stepSFX ="../games008/assets/step.mp3";
+var jumpSFX ="../games008/assets/jump.mp3";
+var fakeSFX ="../games008/assets/fake.mp3";
+var startSFX ="../games008/assets/start.mp3"
 
 //背景音樂
 var backgroundMusic;
