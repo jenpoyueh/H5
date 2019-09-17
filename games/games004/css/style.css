@@ -1,0 +1,140 @@
+* {
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  font-family: 微軟正黑體;
+}
+
+html, body {
+  margin: 0;
+  height: 100%;
+  /* overflow: hidden; */
+  /* background-color: #ddd; */
+  /* display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative; */
+}
+
+@font-face {
+  font-family: GrinchedRegular;
+  src: url('/games/Font/GrinchedRegular.otf');
+}
+
+#game {
+  /*  max-width: 100%;*/
+  /* margin: 150px 0px 30px 0px; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+@media screen and (max-width: 480px) {
+  #game {
+    /* margin: 80px 0px 30px 0px; */
+  }
+}
+
+#kurasushi_select {
+  width: 200px;
+  height: 80px;
+  position: absolute;
+  top: 75px;
+}
+
+#start {
+  position: absolute;
+  height: 30px;
+  width: 120px;
+  left: 50%;
+  top: 55%;
+  transform: translate(-50%, -50%);
+  padding: 10px 20px;
+  background-image: url('/games/games004/gameObject/btn_play.png');
+  color: white;
+  border-radius: 50px;
+  border: none;
+  outline: none;
+  font-size: 30px;
+  cursor: pointer;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+#start:hover {
+  background-image: url('/games/games004/gameObject/btn_play_hover.png');
+}
+
+#restart {
+  position: absolute;
+  height: 64px;
+  width: 256px;
+  left: 50%;
+  top: 45%;
+  transform: translate(-50%, -50%);
+  background-image: url('/games/games004/gameObject/btn_replay.png');
+  background-color: transparent;
+  border: none;
+  outline: none;
+  font-size: 30px;
+  cursor: pointer;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+#restart:hover {
+  background-image: url('/games/games004/gameObject/btn_replay_hover.png');
+}
+
+#select1 {
+  position: absolute;
+  width: 72px;
+  height: 75px;
+  left: 35px;
+  top: 20%;
+  /* transform: translate(-50%, -50%); */
+  background-image: url('/games/games004/gameObject/btn_select1.png');
+  background-color: transparent;
+  border: none;
+  outline: none;
+  font-size: 18px;
+  cursor: pointer;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+#select1:hover {
+  background-image: url('/games/games004/gameObject/btn_select1_hover.png');
+}
+
+#select2 {
+  position: absolute;
+  width: 72px;
+  height: 75px;
+  left: 100px;
+  /* right: 52px; */
+  /* left: 185px; */
+  top: 20%;
+  /* transform: translate(-50%, -50%); */
+  background-image: url('/games/games004/gameObject/btn_select2.png');
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+#select2:hover {
+  background-image: url('/games/games004/gameObject/btn_select2_hover.png');
+}

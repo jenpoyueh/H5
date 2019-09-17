@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<style type="text/css">
+		body {
+			margin: 0;
+			padding: 0;
+			/* background: #000000; */
+		}
+
+		@font-face {
+			/*文字字型導入*/
+			font-family: GrinchedRegular;
+			src: url('/games/Font/GrinchedRegular.otf');
+		}
+
+		#game {
+			margin: 100px 0px 30px 0px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			position: relative;
+			z-index: 1;
+		}
+
+		#btn {
+			position: absolute;
+			width: 300px;
+			height: 300px;
+			justify-content: center;
+			align-items: center;
+			background-image: none;
+			background-color: transparent;
+			border: none;
+			outline: none;
+			font-size: 18px;
+			cursor: pointer;
+			user-select: none;
+			-moz-user-select: none;
+			-webkit-user-select: none;
+			-ms-user-select: none;
+			z-index: 99;
+		}
+
+		@media screen and (max-width: 480px) {
+			#game {
+				margin: 40px 0px 30px 0px;
+			}
+		}
+	</style>
+	<!--phaser 遊戲框架-->
+	<script src='/games/Framework/phaser.min_v2.6.2.js'></script>
+	<!--jquery-->
+	<script src='/games/Framework/jquery.min_v3.3.1.js'></script>
+	<script src="/games/wheel/js/game.js"></script>
+</head>
+
+<body>
+	<div id="game">
+		<input type="button" onclick="location.href='https://dachuang.tw/'" id="btn">
+	</div>
+</body>
+
+</html>

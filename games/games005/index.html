@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script>
+        var URL = document.location.toString();
+        var useragent = navigator.userAgent;
+        useragent = useragent.toLowerCase();
+        if (useragent.indexOf('iphone') != -1) {
+            //location.replace("/game/game005");//iphone
+            console.log("ok");
+        } else if (useragent.indexOf('ipad') != -1 || useragent.indexOf('ipod') != -1) { //location.replace("/game/game005");//ipad
+            console.log("ok");
+        } else if (useragent.indexOf('android') != -1) {
+            if (ConsiderLimits()) {
+                //location.replace("/game/game005"); // android pad
+                console.log("ok");
+            } else {
+                //location.replace("/game/game005"); // android phone
+                console.log("ok");
+            }
+        } else {
+            location.replace("/game/game005_QRCode"); // PC
+        }
+
+        function ConsiderLimits() {
+            if (screen.width >= 1024 && screen.height >= 600)
+                return 1;
+            return 0;
+        }
+    </script>
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="yes" name="apple-touch-fullscreen" />
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+    <meta charset="utf-8" />
+
+    <title>大創UFO</title>
+    <style>
+        * {
+            user-select: none;
+            -moz-user-select: none;
+            -webkit-user-select: none;
+            -ms-user-select: none;
+        }
+        
+        html,
+        body {
+            margin: 0;
+            height: 100%;
+        }
+        
+        #game {
+            margin: 150px 0px 30px 0px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+        
+        @media screen and (max-width: 480px) {
+            #game {
+                margin: 70px 0px 30px 0px;
+            }
+        }
+        
+        body,
+        p,
+        div {
+            margin: 0;
+            padding: 0;
+        }
+        
+        canvas {
+            margin: 0 auto;
+        }
+    </style>
+    <link rel="stylesheet" href="/games/css/game_common.css">
+    <link rel=" stylesheet" href="/front/css/bootstrap.css">
+    <link rel=" stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
+    <script src='/games/Framework/phaser.min_v2.6.2.js'></script>
+    <script src='/games/Framework/jquery.min_v3.3.1.js'></script>
+
+</head>
+
+<body>
+    <!------------------- 首頁 MENU ------------------->
+    <div class="top-banner">
+        <div class="header">
+            <div class="container">
+                <div class="headr-left">
+                    <div class="social">
+                        <a href="https://dachuang.tw" target="_blank">
+                            <div class="social_logo"></div>
+                        </a>
+
+                        <a href="https://www.facebook.com/daisodoll" target="_blank">
+                            <div class="social_facebook"></div>
+                        </a>
+                        <a href="https://www.instagram.com/dachuang_grab/" target="_blank">
+                            <div class="social_instagram"></div>
+                        </a>
+                        <a href="#" id="header_loginContainer">
+                            <div class="social_user"></div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{--
+        <div id="header2">
+            <div class="Sidebar">
+                <div class="member-nav_point">
+                    <div class="member-nav_pointBox">
+                        <div class="col-sm-4">
+                            <div class="fas fa-circle"></div><span>999</span>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="fab fa-product-hunt"></div><span>99</span>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="fas fa-money-bill-alt"></div><span>1</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="member-nav_box">
+                    <div class="da_menu profile">
+                        <a href="/member/profile">
+                            <div>
+                                <div class="member_icon fas fa-user-ninja"></div><span>會員</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="da_menu changePassword">
+                        <a href="">
+                            <div>
+                                <div class="member_icon fab fa-product-hunt"></div><span>儲值</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="da_menu" data-toggle="modal" data-target="#scanModal">
+                        <a>
+                            <div>
+                                <div class="member_icon fas fa-qrcode"></div><span>掃描</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="da_menu member_activity">
+                        <a href="">
+                            <div>
+                                <div class="member_icon fas fa-star"></div><span>活動</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="da_menu referrer">
+                        <a href="/member/redemptionMall">
+                            <div>
+                                <div class="member_icon fas fa-gift"></div><span>兌換</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="da_menu">
+                        <a href="">
+                            <div>
+                                <div class="member_icon fas fa-question"></div><span>未開放</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- <div class="member-nav_login">
+						  <div class="member-nav_loginBox">
+							  <p>登入/註冊</p>
+						  </div>
+			  </div>  -->
+
+                <div class="member-nav_login">
+                    <div class="member-nav_loginBox">
+                        <p>登出</p>
+                    </div>
+                </div>
+            </div>
+        </div> --}}
+        <div class="clearfix"></div>
+    </div>
+    <!--------------------------------------------->
+
+
+    <div id="game"></div>
+    <script src="/games/games005/js/game.js"></script>
+    <script>
+        $(document).ready(function() {
+            $("#header_loginContainer").click(function() {
+                $("#header2").toggle();
+            })
+            $(window).resize(function() {
+                wdth = $(window).width();
+                //        console.log(wdth)
+                if (wdth > 480) {
+                    $("#header2").css("display", "block");
+                } else {
+                    $("#header2").css("display", "none");
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
