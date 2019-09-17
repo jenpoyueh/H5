@@ -11,7 +11,7 @@ var phpsuccess =false;
  /***********************ajax調用database.php連線取得資料庫設定數值***********************/
    $(function () {
              $.ajax({
-                 url: '/games/games005/php/database.php',//連接的URL
+                 url: '../games005/php/database.php',//連接的URL
                  data: "{}",//夾帶的參數
                  dataType: 'json', //資料格式
                  success: function (data) //傳送成功的function
@@ -42,7 +42,7 @@ var phpsuccess =false;
 
      $(function () {
              $.ajax({
-                 url: '/games/games005/php/send.php',//連接的URL
+                 url: '../games005/php/send.php',//連接的URL
                  method:'POST',
                          data:{
                          score:SCORE     
