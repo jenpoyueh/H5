@@ -1,5 +1,5 @@
 // 遊戲畫布
-var game= new Phaser.Game(800, 800, Phaser.CANVAS, "game");
+var game= new Phaser.Game(300, 300, Phaser.CANVAS, "game");
 // 透明背景
 game.transparent = true;
 // 遊戲階段
@@ -15,7 +15,7 @@ var degrees;
 // 得到獎項
 var getPrize ={};
 // 圖片比例
-var spriteScale = 1;
+var spriteScale = 3/8;
  
 /**************************** ajax調用send.php再傳入資料庫方法 **********************/ 
  
