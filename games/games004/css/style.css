@@ -6,29 +6,31 @@
   font-family: 微軟正黑體;
 }
 
-html, body {
+html,body {
   margin: 0;
-  height: 100%;
-  /* overflow: hidden; */
-  /* background-color: #ddd; */
-  /* display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative; */
+  padding: 0;
+  background-color: #000;
 }
 
 @font-face {
+  /*文字字型導入*/
   font-family: GrinchedRegular;
-  src: url('/games/Font/GrinchedRegular.otf');
+  src: url('../Font/GrinchedRegular.otf');
 }
 
+/* #game {
+position: absolute;
+top: 0; left: 0; bottom: 0; right: 0;
+background-color: black;
+} */
+
 #game {
-  /*  max-width: 100%;*/
-  /* margin: 150px 0px 30px 0px; */
+
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
+  background-color: black;
 }
 
 @media screen and (max-width: 480px) {
@@ -52,7 +54,7 @@ html, body {
   top: 55%;
   transform: translate(-50%, -50%);
   padding: 10px 20px;
-  background-image: url('/games/games004/gameObject/btn_play.png');
+  background-image: url('../games004/gameObject/btn_play.png');
   color: white;
   border-radius: 50px;
   border: none;
@@ -66,7 +68,7 @@ html, body {
 }
 
 #start:hover {
-  background-image: url('/games/games004/gameObject/btn_play_hover.png');
+  background-image: url('../games004/gameObject/btn_play_hover.png');
 }
 
 #restart {
@@ -76,7 +78,7 @@ html, body {
   left: 50%;
   top: 45%;
   transform: translate(-50%, -50%);
-  background-image: url('/games/games004/gameObject/btn_replay.png');
+  background-image: url('..../games004/gameObject/btn_replay.png');
   background-color: transparent;
   border: none;
   outline: none;
@@ -89,7 +91,7 @@ html, body {
 }
 
 #restart:hover {
-  background-image: url('/games/games004/gameObject/btn_replay_hover.png');
+  background-image: url('..../games004/gameObject/btn_replay_hover.png');
 }
 
 #select1 {
@@ -99,7 +101,7 @@ html, body {
   left: 35px;
   top: 20%;
   /* transform: translate(-50%, -50%); */
-  background-image: url('/games/games004/gameObject/btn_select1.png');
+  background-image: url('../games004/gameObject/btn_select1.png');
   background-color: transparent;
   border: none;
   outline: none;
@@ -112,7 +114,7 @@ html, body {
 }
 
 #select1:hover {
-  background-image: url('/games/games004/gameObject/btn_select1_hover.png');
+  background-image: url('../games004/gameObject/btn_select1_hover.png');
 }
 
 #select2 {
@@ -124,7 +126,7 @@ html, body {
   /* left: 185px; */
   top: 20%;
   /* transform: translate(-50%, -50%); */
-  background-image: url('/games/games004/gameObject/btn_select2.png');
+  background-image: url('../games004/gameObject/btn_select2.png');
   background-color: transparent;
   border: none;
   outline: none;
@@ -136,5 +138,5 @@ html, body {
 }
 
 #select2:hover {
-  background-image: url('/games/games004/gameObject/btn_select2_hover.png');
+  background-image: url('../games004/gameObject/btn_select2_hover.png');
 }
