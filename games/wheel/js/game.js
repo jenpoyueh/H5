@@ -1,5 +1,5 @@
 // 遊戲畫布
-var game= new Phaser.Game(300, 300, Phaser.CANVAS, "game");
+var game= new Phaser.Game(800, 800, Phaser.CANVAS, "game");
 // 透明背景
 game.transparent = true;
 // 遊戲階段
@@ -161,7 +161,7 @@ game.State.play={
                /********** ajax調用database.php連線取得資料庫設定數值 **********/
                $(function () {
                     $.ajax({
-                         url: '/games/wheel/php/database.php',//連接的URL
+                         url: '../wheel/php/database.php',//連接的URL
                          data: "{}",//夾帶的參數
                          dataType: 'json', //資料格式
                          success: function (data) //傳送成功的function
