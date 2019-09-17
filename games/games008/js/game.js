@@ -295,7 +295,7 @@ function create () {
     game.left.scale.setTo(spriteScale);
     game.right = game.add.sprite(155,0,'right');
     game.left.scale.setTo(spriteScale);
-    game.left.inputEnabled = true;
+    game.left.inputEnabled = false;
     game.left.input.priorityID = 1;
     game.left.events.onInputDown.add(function(){
         isLeft = true;
@@ -313,7 +313,7 @@ function create () {
             keyboard.right.isDown = false;
         }
     });
-    game.right.inputEnabled = true;
+    game.right.inputEnabled = false;
     game.right.input.priorityID = 1;
     game.right.events.onInputDown.add(function(){
         isLeft = false;
@@ -334,7 +334,7 @@ function create () {
     });
 
     //開始按鍵
-    game.startBtn = game.add.button(game.width/2,game.height/2,'playbtn',start,this,0,1,0);
+    game.startBtn = game.add.button(game.width/2,game.height/2,'playbtn',start,this,0,0,1);
     game.startBtn.anchor.setTo(0.5);
 }
 
@@ -440,6 +440,8 @@ function start(){
   game.startBtn.kill();
   isPlay = true;
   createPlayer();
+  game.left.inputEnabled = true;
+  game.right.inputEnabled = true;
   keyboard.right.isDown = false;
   keyboard.left.isDown = false;
 }
@@ -866,7 +868,7 @@ function restart () {
         }
     });
     //開始按鍵
-    game.startBtn = game.add.button(game.width/2,game.height/2,'playbtn',start,this,0,1,0);
+    game.startBtn = game.add.button(game.width/2,game.height/2,'playbtn',start,this,0,0,1);
     game.startBtn.anchor.setTo(0.5);
 }
 
