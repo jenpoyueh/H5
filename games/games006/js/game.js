@@ -343,9 +343,9 @@ game.State.play={
         this.myplane.animations.play('fly',12,true);
         game.physics.arcade.enable(this.myplane);
         //虛擬手把設置
-        game.pad = this.game.plugins.add(Phaser.VirtualJoystick);
-        game.stick =game.pad.addStick(0, 0, 200, 'arcade');
-        game.stick.showOnTouch = true;
+        // game.pad = this.game.plugins.add(Phaser.VirtualJoystick);
+        // game.stick =game.pad.addStick(0, 0, 200, 'arcade');
+        // game.stick.showOnTouch = true;
         //讓我方物件會碰撞世界邊界
         this.myplane.body.collideWorldBounds = true;     
         //我方飛到底部的動畫
@@ -412,14 +412,14 @@ game.State.play={
         //     this.myplane.body.velocity.y = 0;
         // }  
     /********************* 虛擬手把 ******************************/ 
-        if (game.stick.isDown)
-        {
-            game.physics.arcade.velocityFromRotation(game.stick.rotation, game.stick.force * myMaxSpeed, this.myplane.body.velocity);
-        }
-        else
-        {
-            this.myplane.body.velocity.set(0);
-        }
+        // if (game.stick.isDown)
+        // {
+        //     game.physics.arcade.velocityFromRotation(game.stick.rotation, game.stick.force * myMaxSpeed, this.myplane.body.velocity);
+        // }
+        // else
+        // {
+        //     this.myplane.body.velocity.set(0);
+        // }
 
     /***********************************************************/      
 
@@ -556,8 +556,8 @@ game.State.play={
     //開始遊戲
     onStart: function(){
         //允許我方被滑鼠拖曳
-        // this.myplane.inputEnabled =true;//允許輸入訊號
-        // this.myplane.input.enableDrag(false);
+        this.myplane.inputEnabled =true;//允許輸入訊號
+        this.myplane.input.enableDrag(false);
         this.myplane.myStartFire = true;//開火FLAG
         this.myplane.life = myLife;
         this.myplane.lastBulletTime = 0;
