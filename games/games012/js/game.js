@@ -4,7 +4,7 @@
 var againTime = 1500;
 
 // 遊玩時間
-var timer = 10;
+var timer = 60;
 
 // 幽靈產生間格時間
 var phatom1IntervalLim = 3000;

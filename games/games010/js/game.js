@@ -15,7 +15,7 @@ var velocityRJump = 280;
 // 關卡分數條件
 var level1 = 5;
 var level2 = 10;
-var level3 = 20;
+var level3 = 15;
 
 /***********************************************************/
 
