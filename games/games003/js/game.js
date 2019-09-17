@@ -183,7 +183,7 @@ btn.onclick = function () {
 		left.style.display = 'flex';
 		right.style.display = 'flex';
 		score.style.display = 'flex';
-		container.style.backgroundImage = "url('/../games003/img/background_1.png')";
+		container.style.backgroundImage = "url('../games003/img/background_1.png')";
 		level += 1;
 
 		//重置生命
