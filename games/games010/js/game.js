@@ -223,29 +223,29 @@ game.State.load={
     preload:function(){
         var preloadSprite = game.add.sprite(game.width/2-220/2,game.height/2-19/2,'loading');
         game.load.setPreloadSprite(preloadSprite);
-        game.load.image('left', '/games/games010/assets/left.png');
-        game.load.image('right', '/games/games010/assets/right.png');
-        game.load.image('turtorial', '/games/games010/assets/turtorial.png');
-        game.load.image('gameOver', '/games/games010/assets/gameOver.png');
-        game.load.image('bg', '/games/games010/assets/bg.png');
-        game.load.image('ground', '/games/games010/assets/ground.png');
-        game.load.image('pointBoard1', '/games/games010/assets/pointBoard1.png');
-        game.load.image('pointBoard2', '/games/games010/assets/pointBoard2.png');
-        game.load.image('unok', '/games/games010/assets/unok.png');
-        game.load.spritesheet('rabbitA', '/games/games010/assets/rabbitA.png', 200, 200, 11);
-        game.load.spritesheet('rabbitB', '/games/games010/assets/rabbitB.png', 200, 200, 11);
-        game.load.spritesheet('boom', '/games/games010/assets/boom.png', 100, 100, 2);
-        game.load.spritesheet('okbutton', '/games/games010/assets/okbutton.png', 140, 80, 2);
-        game.load.spritesheet('startbutton', '/games/games010/assets/startbutton.png', 240, 80, 2);
-        game.load.spritesheet('freebutton', '/games/games010/assets/freebutton.png', 240, 80, 2)
-        game.load.spritesheet('againbutton', '/games/games010/assets/againbutton.png', 240, 80, 2);
-        game.load.spritesheet('cancel', '/games/games010/assets/cancel.png', 140, 80, 2);
-        game.load.audio('bgm', '/games/games010/assets/bgm.mp3');
-        game.load.audio('get', '/games/games010/assets/get.mp3');
-        game.load.audio('enter', '/games/games010/assets/enter.mp3');
-        game.load.audio('cancel', '/games/games010/assets/cancel.mp3');
-        game.load.audio('jump', '/games/games010/assets/jump.mp3');
-        game.load.audio('boom', '/games/games010/assets/boom.mp3');
+        game.load.image('left', '../games/games010/assets/left.png');
+        game.load.image('right', '../games/games010/assets/right.png');
+        game.load.image('turtorial', '../games/games010/assets/turtorial.png');
+        game.load.image('gameOver', '../games/games010/assets/gameOver.png');
+        game.load.image('bg', '../games/games010/assets/bg.png');
+        game.load.image('ground', '../games/games010/assets/ground.png');
+        game.load.image('pointBoard1', '../games/games010/assets/pointBoard1.png');
+        game.load.image('pointBoard2', '../games/games010/assets/pointBoard2.png');
+        game.load.image('unok', '../games/games010/assets/unok.png');
+        game.load.spritesheet('rabbitA', '../games/games010/assets/rabbitA.png', 200, 200, 11);
+        game.load.spritesheet('rabbitB', '../games/games010/assets/rabbitB.png', 200, 200, 11);
+        game.load.spritesheet('boom', '../games/games010/assets/boom.png', 100, 100, 2);
+        game.load.spritesheet('okbutton', '../games/games010/assets/okbutton.png', 140, 80, 2);
+        game.load.spritesheet('startbutton', '../games/games010/assets/startbutton.png', 240, 80, 2);
+        game.load.spritesheet('freebutton', '../games/games010/assets/freebutton.png', 240, 80, 2)
+        game.load.spritesheet('againbutton', '../games/games010/assets/againbutton.png', 240, 80, 2);
+        game.load.spritesheet('cancel', '../games/games010/assets/cancel.png', 140, 80, 2);
+        game.load.audio('bgm', '../games/games010/assets/bgm.mp3');
+        game.load.audio('get', '../games/games010/assets/get.mp3');
+        game.load.audio('enter', '../games/games010/assets/enter.mp3');
+        game.load.audio('cancel', '../games/games010/assets/cancel.mp3');
+        game.load.audio('jump', '../games/games010/assets/jump.mp3');
+        game.load.audio('boom', '../games/games010/assets/boom.mp3');
         // 用來預讀字型
         game.add.text(game.width/2-9999, -9999, "", style);
     },
