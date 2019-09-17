@@ -83,7 +83,7 @@ game.States.boot = function(){
 
     },   
     this.create = function(){  
-        game.state.start('load');
+        game.state.start('preload');
     }
 }
 
