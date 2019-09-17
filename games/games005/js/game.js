@@ -81,23 +81,23 @@ game.States.preload = function(){
 		var preloadSprite = game.add.sprite(35,game.height/2,'loading'); //loading進度條
 		game.load.setPreloadSprite(preloadSprite);
 		//以下為要加載的資源
-		game.load.image('background','/games/games005/assets/background.png'); //北景
-    	game.load.image('ground','/games/games005/assets/ground.png'); //地面
-    	game.load.image('title','/games/games005/assets/title.png'); //遊戲標題
-    	game.load.spritesheet('bird','/games/games005/assets/bird.png',51,36,3); //鳥(幽浮)
-    	game.load.image('btn','/games/games005/assets/start-button.png');  //按鈕
-    	game.load.spritesheet('pipe','/games/games005/assets/pipes300.png',54,300,2); //管道(柱子)
-    	game.load.bitmapFont('flappy_font', '/games/games005/assets/fonts/flappyfont/flappyfont.png', '/games/games005/assets/fonts/flappyfont/flappyfont.fnt');
-        game.load.audio('bgm', '/games/games005/assets/bgm5.mp3');
-    	game.load.audio('fly_sound', '/games/games005/assets/flap.mp3');//飛翔的音效
-    	game.load.audio('score_sound', '/games/games005/assets/score.mp3');//得分的音效
-    	game.load.audio('hit_pipe_sound', '/games/games005/assets/pipe-hit.mp3'); //撞擊管道的音效
-    	game.load.audio('hit_ground_sound', '/games/games005/assets/ouch.mp3'); //撞擊地面的音效
+		game.load.image('background','../games005/assets/background.png'); //北景
+    	game.load.image('ground','../games005/assets/ground.png'); //地面
+    	game.load.image('title','../games005/assets/title.png'); //遊戲標題
+    	game.load.spritesheet('bird','../games005/assets/bird.png',51,36,3); //鳥(幽浮)
+    	game.load.image('btn','../games005/assets/start-button.png');  //按鈕..
+    	game.load.spritesheet('pipe','../games005/assets/pipes300.png',54,300,2); //管道(柱子)
+    	game.load.bitmapFont('flappy_font', '../games005/assets/fonts/flappyfont/flappyfont.png', '../games005/assets/fonts/flappyfont/flappyfont.fnt');
+        game.load.audio('bgm', '../games005/assets/bgm5.mp3');
+    	game.load.audio('fly_sound', '../games005/assets/flap.mp3');//飛翔的音效
+    	game.load.audio('score_sound', '../games005/assets/score.mp3');//得分的音效
+    	game.load.audio('hit_pipe_sound', '../games005/assets/pipe-hit.mp3'); //撞擊管道的音效
+    	game.load.audio('hit_ground_sound', '../games005/assets/ouch.mp3'); //撞擊地面的音效
 
-    	game.load.image('ready_text','/games/games005/assets/get-ready.png');
-    	game.load.image('play_tip','/games/games005/assets/instructions.png');
-    	game.load.image('game_over','/games/games005/assets/gameover.png');
-    	game.load.image('score_board','/games/games005/assets/scoreboard.png');
+    	game.load.image('ready_text','../games005/assets/get-ready.png');
+    	game.load.image('play_tip','../games005/assets/instructions.png');
+    	game.load.image('game_over','../games005/assets/gameover.png');
+    	game.load.image('score_board','../games005/assets/scoreboard.png');
 	}
 	this.create = function(){
 		game.state.start('menu');
