@@ -33,7 +33,7 @@ var normalImg = '../games004/gameObject/normal.png';
 var nailsImg = '../games004/gameObject/nails.png';
 var SplayerSprite='../games004/gameObject/splayer.png';
 var NplayerSprite='../games004/gameObject/nplayer.png';
-var conveyorRightSprite = '/games/games004/gameObject/conveyor_right.png';
+var conveyorRightSprite = '../games004/gameObject/conveyor_right.png';
 var conveyorLeftSprite = '../games004/gameObject/conveyor_left.png';
 var trampolineSprite = '../games004/gameObject/trampoline.png';
 var fakeSprite = '../games004/gameObject/fake.png';
@@ -443,8 +443,8 @@ function select1(){
   text3.setText('Agile: '+speedInfo);
   sen = true;
   na = false;
-  $("#select1").css("background-image", "url(../games004/gameObject/btn_select1_hover.png)");
-  $("#select2").css("background-image", "url(../games004/gameObject/btn_select2.png)");
+  $("#select1").css("background-image", "url(/../games004/gameObject/btn_select1_hover.png)");
+  $("#select2").css("background-image", "url(/../games004/gameObject/btn_select2.png)");
 }
 
 //選擇角色娜娜
@@ -460,8 +460,8 @@ function select2(){
   text3.setText('Agile: '+speedInfo);
   sen = false;
   na = true;
-  $("#select2").css("background-image", "url(../games004/gameObject/btn_select2_hover.png)");
-  $("#select1").css("background-image", "url(../games004/gameObject/btn_select1.png)");
+  $("#select2").css("background-image", "url(/../games004/gameObject/btn_select2_hover.png)");
+  $("#select1").css("background-image", "url(/../games004/gameObject/btn_select1.png)");
 }
 
 //重設一般階梯的隨機範圍數值
