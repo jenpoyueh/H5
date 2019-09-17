@@ -323,7 +323,7 @@ game.State.play={
     },
     preload:function(){
         //虛擬手把圖片
-        this.load.atlas('arcade', '../games006/assets/arcade-joystick.png', '/games/games006/assets/arcade-joystick.json');
+        this.load.atlas('arcade', '../games006/assets/arcade-joystick.png', '../games/games006/assets/arcade-joystick.json');
     },
     create:function(){
         //分數
