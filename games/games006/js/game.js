@@ -21,7 +21,7 @@ var enemyInterval = 800; //秒
 //敵方子彈間格時間
 var enemyBulletInterval = 500; //秒
 //敵方移動速度
-var enemyVel = 200;
+var enemyVel = 150;
 //敵方子彈速度
 var enemyBulletVel = 210;
 //敵方生命
