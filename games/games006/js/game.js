@@ -225,16 +225,29 @@ game.pad;
 //boot state 對遊戲進行設置
 game.State.boot={
     preload:function(){
-        game.load.image('loading','../games006/assets/preloader.gif');
-        if(!game.device.desktop){//行動平台螢幕適應
-			this.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
-			this.scale.forcePortrait = false;
-			this.scale.refresh();
-		}
+        game.load.image('loading','../games010/assets/preloader.gif');
+        //行動平台螢幕適應
+        game.scale.pageAlignHorizontally = true;
+        game.scale.pageAlignVertically = true;
+        game.stage.backgroundColor = '#000000';
+        this.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
+        this.scale.forcePortrait = true;
+        this.scale.refresh();   
+        // if(!game.device.desktop){
+        //     //行動平台螢幕適應
+        //     game.scale.pageAlignHorizontally = true;
+        //     game.scale.pageAlignVertically = true;
+        //     game.stage.backgroundColor = '#000000';
+        //     this.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
+        //     this.scale.forcePortrait = true;
+		// 	this.scale.refresh();
+        // }
+        // 自定義螢幕縮放
+        // this.scale.scaleMode = Phaser.ScaleManager.USER_SCALE;
+        // this.scale.setUserScale(0.5,0.5,0,0);
 
-    },
-    
-    create:function(){
+    },   
+    create:function(){  
         game.state.start('load');
     }
 }
