@@ -332,11 +332,11 @@ function create () {
             keyboard.right.isDown = false;
         }
     });
-    game.left.inputEnabled = false;
-    game.right.inputEnabled = false;
+
     //開始按鍵
     game.startBtn = game.add.button(game.width/2,game.height/2,'playbtn',start,this,0,0,1);
     game.startBtn.anchor.setTo(0.5);
+    game.startBtn.input.priorityID = 2;
 }
 
 //遊戲更新
@@ -441,8 +441,6 @@ function start(){
   game.startBtn.kill();
   isPlay = true;
   createPlayer();
-  game.left.inputEnabled = true;
-  game.right.inputEnabled = true;
   keyboard.right.isDown = false;
   keyboard.left.isDown = false;
 }
