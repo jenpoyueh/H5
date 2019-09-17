@@ -147,7 +147,7 @@ function sendScore(SCORE,POINTCOSTFLAG,FREECOUNTCOSTFLAG){
             url: '/game/score', //分數儲存的位址
             type: 'POST', //使用 POST 傳送
             data:{
-                game: 'games010',
+                game: 'games012',
                 score: SCORE,
                 pointCostFlag:POINTCOSTFLAG,
                 freeCountCostFlag:FREECOUNTCOSTFLAG
