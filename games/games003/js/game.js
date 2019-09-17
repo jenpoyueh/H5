@@ -183,7 +183,7 @@ btn.onclick = function () {
 		left.style.display = 'flex';
 		right.style.display = 'flex';
 		score.style.display = 'flex';
-		container.style.backgroundImage = "url('/games/games003/img/background_1.png')";
+		container.style.backgroundImage = "url('../games003/img/background_1.png')";
 		level += 1;
 
 		//重置生命
@@ -198,13 +198,13 @@ btn.onclick = function () {
 			newLi.style.float = 'left';
 			newImg.style.display = 'block';
 			newImg.style.width = 100 + '%';
-			newImg.src = '/games/games003/img/' + rand(1, 3) + '.png';
+			newImg.src = '../games003/img/' + rand(1, 3) + '.png';
 			newLi.style.backgroundColor = 'rgb(' + rand(160, 255) + ',' + rand(160, 255) + ',' + rand(160, 255) + ')';
 		}
 
 		var x = rand(0, level * level - 1);//賦予一個隨機數給正確圖案放置
 		var imgs1 = document.querySelectorAll('img');
-		imgs1[x].src = '/games/games003/img/A.png';	// 隨機一張圖片變成正確圖案						
+		imgs1[x].src = '../games003/img/A.png';	// 隨機一張圖片變成正確圖案						
 		var li = document.querySelectorAll('li');
 		$("li").click(function () {
 			// //生命值變化特效

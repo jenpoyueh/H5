@@ -26,29 +26,29 @@ var stepVelocity = 2;
 
 /***********圖料**********/
 
-var bgImg = '/games/games004/gameObject/background.png';
-var wallImg = '/games/games004/gameObject/wall.png';
-var ceilingImg = '/games/games004/gameObject/ceiling.png';
-var normalImg = '/games/games004/gameObject/normal.png';
-var nailsImg = '/games/games004/gameObject/nails.png';
-var SplayerSprite='/games/games004/gameObject/splayer.png';
-var NplayerSprite='/games/games004/gameObject/nplayer.png';
+var bgImg = '../games004/gameObject/background.png';
+var wallImg = '../games004/gameObject/wall.png';
+var ceilingImg = '../games004/gameObject/ceiling.png';
+var normalImg = '../games004/gameObject/normal.png';
+var nailsImg = '../games004/gameObject/nails.png';
+var SplayerSprite='../games004/gameObject/splayer.png';
+var NplayerSprite='../games004/gameObject/nplayer.png';
 var conveyorRightSprite = '/games/games004/gameObject/conveyor_right.png';
-var conveyorLeftSprite = '/games/games004/gameObject/conveyor_left.png';
-var trampolineSprite = '/games/games004/gameObject/trampoline.png';
-var fakeSprite = '/games/games004/gameObject/fake.png';
+var conveyorLeftSprite = '../games004/gameObject/conveyor_left.png';
+var trampolineSprite = '../games004/gameObject/trampoline.png';
+var fakeSprite = '../games004/gameObject/fake.png';
 /************************/
 
 /********音樂音效*********/
 
 //音樂音效來源
-var BGM = "/games/games004/gameObject/Here_We_Go.mp3";
-var conveyorSFX ="/games/games004/gameObject/conveyor.mp3";
-var hurtSFX ="/games/games004/gameObject/hurt.mp3";
-var deadSFX ="/games/games004/gameObject/dead.mp3";
-var stepSFX ="/games/games004/gameObject/step.mp3";
-var jumpSFX ="/games/games004/gameObject/jump.mp3";
-var fakeSFX ="/games/games004/gameObject/fake.mp3";
+var BGM = "../games004/gameObject/Here_We_Go.mp3";
+var conveyorSFX ="../games004/gameObject/conveyor.mp3";
+var hurtSFX ="../games004/gameObject/hurt.mp3";
+var deadSFX ="../games004/gameObject/dead.mp3";
+var stepSFX ="../games004/gameObject/step.mp3";
+var jumpSFX ="../games004/gameObject/jump.mp3";
+var fakeSFX ="../games004/gameObject/fake.mp3";
 
 //背景音樂
 var backgroundMusic;
@@ -443,8 +443,8 @@ function select1(){
   text3.setText('Agile: '+speedInfo);
   sen = true;
   na = false;
-  $("#select1").css("background-image", "url(/games/games004/gameObject/btn_select1_hover.png)");
-  $("#select2").css("background-image", "url(/games/games004/gameObject/btn_select2.png)");
+  $("#select1").css("background-image", "url(../games004/gameObject/btn_select1_hover.png)");
+  $("#select2").css("background-image", "url(../games004/gameObject/btn_select2.png)");
 }
 
 //選擇角色娜娜
@@ -460,8 +460,8 @@ function select2(){
   text3.setText('Agile: '+speedInfo);
   sen = false;
   na = true;
-  $("#select2").css("background-image", "url(/games/games004/gameObject/btn_select2_hover.png)");
-  $("#select1").css("background-image", "url(/games/games004/gameObject/btn_select1.png)");
+  $("#select2").css("background-image", "url(../games004/gameObject/btn_select2_hover.png)");
+  $("#select1").css("background-image", "url(../games004/gameObject/btn_select1.png)");
 }
 
 //重設一般階梯的隨機範圍數值
