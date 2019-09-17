@@ -23,7 +23,7 @@ var enemyBulletInterval = 500; //秒
 //敵方移動速度
 var enemyVel = 200;
 //敵方子彈速度
-var enemyBulletVel = 300;
+var enemyBulletVel = 210;
 //敵方生命
 var enemyLifeA = 3;
 var enemyLifeB = 5;
@@ -323,7 +323,7 @@ game.State.play={
     },
     preload:function(){
         //虛擬手把圖片
-        this.load.atlas('arcade', '/games/games006/assets/arcade-joystick.png', '/games/games006/assets/arcade-joystick.json');
+        this.load.atlas('arcade', '../games006/assets/arcade-joystick.png', '/games/games006/assets/arcade-joystick.json');
     },
     create:function(){
         //分數
