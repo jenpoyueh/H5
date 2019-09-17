@@ -225,7 +225,7 @@ game.pad;
 //boot state 對遊戲進行設置
 game.State.boot={
     preload:function(){
-        game.load.image('loading','/games/games006/assets/preloader.gif');
+        game.load.image('loading','../games006/assets/preloader.gif');
         if(!game.device.desktop){//行動平台螢幕適應
 			this.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
 			this.scale.forcePortrait = false;
@@ -244,38 +244,38 @@ game.State.load={
     preload:function(){
         var preloadSprite = game.add.sprite(game.width/2-220/2,game.height/2-19/2,'loading');
         game.load.setPreloadSprite(preloadSprite);
-        game.load.image('background', '/games/games006/assets/bg.jpg');
-        game.load.spritesheet('myplane', '/games/games006/assets/myplane.png', 80, 80, 4);
-        game.load.spritesheet('startbutton', '/games/games006/assets/startbutton.png', 200, 50, 2);
-        game.load.spritesheet('replaybutton', '/games/games006/assets/replaybutton.png', 300, 75, 2);
-        game.load.image('mybullet', '/games/games006/assets/mybullet.png');
-        game.load.image('bullet', '/games/games006/assets/bullet.png');
+        game.load.image('background', '../games006/assets/bg.jpg');
+        game.load.spritesheet('myplane', '../games006/assets/myplane.png', 80, 80, 4);
+        game.load.spritesheet('startbutton', '../games006/assets/startbutton.png', 200, 50, 2);
+        game.load.spritesheet('replaybutton', '../games006/assets/replaybutton.png', 300, 75, 2);
+        game.load.image('mybullet', '../games006/assets/mybullet.png');
+        game.load.image('bullet', '../games006/assets/bullet.png');
         /*****************************************************************/
-        game.load.image('enemy1', '/games/games006/assets/enemy1.png');
-        game.load.image('enemy2', '/games/games006/assets/enemy2.png');
-        game.load.image('enemy3', '/games/games006/assets/enemy3.png');
+        game.load.image('enemy1', '../games006/assets/enemy1.png');
+        game.load.image('enemy2', '../games006/assets/enemy2.png');
+        game.load.image('enemy3', '../games006/assets/enemy3.png');
         /*****************************************************************/
-        game.load.spritesheet('enemyA1', '/games/games006/assets/enemyA1.png', 64, 64, 4);
-        game.load.spritesheet('enemyA2', '/games/games006/assets/enemyA2.png', 80, 80, 4);
-        game.load.spritesheet('enemyA3', '/games/games006/assets/enemyA3.png', 80, 100, 4);
+        game.load.spritesheet('enemyA1', '../games006/assets/enemyA1.png', 64, 64, 4);
+        game.load.spritesheet('enemyA2', '../games006/assets/enemyA2.png', 80, 80, 4);
+        game.load.spritesheet('enemyA3', '../games006/assets/enemyA3.png', 80, 100, 4);
         /*****************************************************************/
-        game.load.spritesheet('explode1', '/games/games006/assets/explode1.png', 64, 64, 3);
-        game.load.spritesheet('explode2', '/games/games006/assets/explode2.png', 80, 80, 3);
-        game.load.spritesheet('explode3', '/games/games006/assets/explode3.png', 80, 80, 3);
-        game.load.spritesheet('myexplode', '/games/games006/assets/myexplode.png', 80, 80, 3);
-        game.load.spritesheet('atkect', '/games/games006/assets/atkect.png', 16, 16, 4);
-        game.load.audio('diemusic', '/games/games006/sounds/diemusic.mp3');        
-        game.load.audio('playback', '/games/games006/sounds/playback.mp3');
-        game.load.audio('fashe', '/games/games006/sounds/fashe.mp3');
-        game.load.audio('hurt', '/games/games006/sounds/hurt.mp3');
-        game.load.audio('crash1', '/games/games006/sounds/crash1.mp3');
-        game.load.audio('crash2', '/games/games006/sounds/crash2.mp3');
-        game.load.audio('crash3', '/games/games006/sounds/crash3.mp3');
-        game.load.audio('die', '/games/games006/sounds/die.mp3');
-        game.load.audio('bullet', '/games/games006/sounds/bullet.mp3');
-        game.load.audio('deng', '/games/games006/sounds/deng.mp3');       
-        game.load.image('award','/games/games006/assets/award.png');
-        game.load.image('bg','/games/games006/assets/bg.jpg');
+        game.load.spritesheet('explode1', '../games006/assets/explode1.png', 64, 64, 3);
+        game.load.spritesheet('explode2', '../games006/assets/explode2.png', 80, 80, 3);
+        game.load.spritesheet('explode3', '../games006/assets/explode3.png', 80, 80, 3);
+        game.load.spritesheet('myexplode', '../games006/assets/myexplode.png', 80, 80, 3);
+        game.load.spritesheet('atkect', '../games006/assets/atkect.png', 16, 16, 4);
+        game.load.audio('diemusic', '../games006/sounds/diemusic.mp3');        
+        game.load.audio('playback', '../games006/sounds/playback.mp3');
+        game.load.audio('fashe', '../games006/sounds/fashe.mp3');
+        game.load.audio('hurt', '../games006/sounds/hurt.mp3');
+        game.load.audio('crash1', '../games006/sounds/crash1.mp3');
+        game.load.audio('crash2', '../games006/sounds/crash2.mp3');
+        game.load.audio('crash3', '../games006/sounds/crash3.mp3');
+        game.load.audio('die', '../games006/sounds/die.mp3');
+        game.load.audio('bullet', '../games006/sounds/bullet.mp3');
+        game.load.audio('deng', '../games006/sounds/deng.mp3');       
+        game.load.image('award','../games006/assets/award.png');
+        game.load.image('bg','../games006/assets/bg.jpg');
     },
     create:function(){
     keyboard = game.input.keyboard.addKeys({
