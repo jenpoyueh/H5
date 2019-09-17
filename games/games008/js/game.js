@@ -797,7 +797,8 @@ function gameOver () {
     }
     status = 'gameOver';
     isPlay=false;
-    game.restartBtn = game.add.button(game.width/2,game.height/2,'replaybtn',restart,this,1,0,1);
+    game.restartBtn = game.add.button(game.width/2,game.height/2,'replaybtn',restart,this,0,0,1);
+    game.restartBtn.input.priorityID = 2;
     game.restartBtn.anchor.setTo(0.5);
     backgroundMusic.stop();
     deadSe = game.add.audio('deadSfx', 0.2);
@@ -869,5 +870,6 @@ function restart () {
     //開始按鍵
     game.startBtn = game.add.button(game.width/2,game.height/2,'playbtn',start,this,0,0,1);
     game.startBtn.anchor.setTo(0.5);
+    game.startBtn.input.priorityID = 2;
 }
 
