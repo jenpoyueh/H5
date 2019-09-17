@@ -217,7 +217,7 @@ function sendfreeCount(COUNT){
 // boot state 對遊戲進行設置
 game.State.boot={
     preload:function(){
-        game.load.image('loading','../games010/assets/preloader.gif');
+        game.load.image('loading','../games012/assets/preloader.gif');
         // 螢幕自適應
         game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
         game.scale.pageAlignHorizontally = true;

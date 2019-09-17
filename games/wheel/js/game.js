@@ -15,7 +15,7 @@ var degrees;
 // 得到獎項
 var getPrize ={};
 // 圖片比例
-var spriteScale = 3/8;
+var spriteScale = 1;
  
 /**************************** ajax調用send.php再傳入資料庫方法 **********************/ 
  
@@ -23,7 +23,7 @@ var spriteScale = 3/8;
  
          $(function () {
              $.ajax({
-                 url: '/games/wheel/php/send.php',//連接的URL
+                 url: '../wheel/php/send.php',//連接的URL
                  method:'POST',
                       data:{
                          signal:Signal     
@@ -50,27 +50,27 @@ game.State.load={
                this.scale.refresh();
           }
           // 資材導入
-          game.load.image("wheel", "/games/wheel/assets/wheel.png");
-          game.load.image("wheelFrame", "/games/wheel/assets/wheelFrame.png");
-          game.load.image("pin", "/games/wheel/assets/pin.png");
-          game.load.image("getPrizeA1", "/games/wheel/assets/A1.png");
-          game.load.image("getPrizeA2", "/games/wheel/assets/A2.png");
-          game.load.image("getPrizeB1", "/games/wheel/assets/B1.png");
-          game.load.image("getPrizeB2", "/games/wheel/assets/B2.png");
-          game.load.image("getPrizeC", "/games/wheel/assets/C.png");
-          game.load.image("getPrizeD", "/games/wheel/assets/D.png");
-          game.load.image("getPrizeE1", "/games/wheel/assets/E1.png");
-          game.load.image("getPrizeE2", "/games/wheel/assets/E2.png");
-          game.load.image("getPrizeF", "/games/wheel/assets/F.png");
-          game.load.image("getPrizeG1", "/games/wheel/assets/G1.png");
-          game.load.image("getPrizeG2", "/games/wheel/assets/G2.png");
-          game.load.image("getPrizeG3", "/games/wheel/assets/G3.png");
-          game.load.image("getPrizeH", "/games/wheel/assets/H.png");
-          game.load.image("check", "/games/wheel/assets/check.png");
-          game.load.spritesheet("yes", "/games/wheel/assets/yes.png", 160, 75, 2);
-          game.load.spritesheet("return", "/games/wheel/assets/return.png", 160, 75, 2);
-          game.load.audio("bgm", "/games/wheel/assets/BGM.mp3");
-          game.load.audio("prize", "/games/wheel/assets/prize.mp3");
+          game.load.image("wheel", "../wheel/assets/wheel.png");
+          game.load.image("wheelFrame", "../wheel/assets/wheelFrame.png");
+          game.load.image("pin", "../wheel/assets/pin.png");
+          game.load.image("getPrizeA1", "../wheel/assets/A1.png");
+          game.load.image("getPrizeA2", "../wheel/assets/A2.png");
+          game.load.image("getPrizeB1", "../wheel/assets/B1.png");
+          game.load.image("getPrizeB2", "../wheel/assets/B2.png");
+          game.load.image("getPrizeC", "../wheel/assets/C.png");
+          game.load.image("getPrizeD", "../wheel/assets/D.png");
+          game.load.image("getPrizeE1", "../wheel/assets/E1.png");
+          game.load.image("getPrizeE2", "../wheel/assets/E2.png");
+          game.load.image("getPrizeF", "../wheel/assets/F.png");
+          game.load.image("getPrizeG1", "../wheel/assets/G1.png");
+          game.load.image("getPrizeG2", "../wheel/assets/G2.png");
+          game.load.image("getPrizeG3", "../wheel/assets/G3.png");
+          game.load.image("getPrizeH", "../wheel/assets/H.png");
+          game.load.image("check", "../wheel/assets/check.png");
+          game.load.spritesheet("yes", "../wheel/assets/yes.png", 160, 75, 2);
+          game.load.spritesheet("return", "../wheel/assets/return.png", 160, 75, 2);
+          game.load.audio("bgm", "../wheel/assets/BGM.mp3");
+          game.load.audio("prize", "../wheel/assets/prize.mp3");
      },
      create:function(){
          game.state.start('start');
