@@ -319,7 +319,7 @@ game.State.play={
     
     init: function () {
         //像素顯示在整數位置 (round pixel: 整數位置)，避免 Phaser 使用子像素位置 (Sub-pixel) 顯示，以免模糊
-        this.game.renderer.renderSession.roundPixels = true;
+        // this.game.renderer.renderSession.roundPixels = true;
     },
     preload:function(){
         // //虛擬手把圖片
