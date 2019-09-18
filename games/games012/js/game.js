@@ -175,7 +175,7 @@ function sendPonit(POINT){
             url: '/game/score', //分數儲存的位址
             type: 'POST', //使用 POST 傳送
             data:{
-                game: 'games010',
+                game: 'games012',
                 point: POINT
             }, //送出 game 參數(值為遊戲識別名稱)、score 參數(值為分數)
             success: function (data) //傳送成功的 function
@@ -332,12 +332,25 @@ game.State.start={
         // 伺服器連接成功flag 
         phpsuccess = false;
 
-    /******** 條件 *********/
+        /******* 遊戲數值設定 ********/
+        phantomY1 = 300;
+        phantomY2 = 400;
+        phantomY3 = 500;
+        scoreBonus = 1;
+        phantomScale = 0.9;
+        combo = 0;
+        /***************************/
+
+        /******** 條件 *********/
+        // 倒數條件
+        reciprocalFlag = true;
         // 生產幽靈條件
         generate= true;
+
         // 按鍵
-        thankFlag = true;
         startFlag = true;
+        thankFlag = true;
+
         // 可再插條件
         atk = true;
         // 可殺幽靈條件
@@ -346,7 +359,7 @@ game.State.start={
         generate = false;
         // mask條件
         maskFlag = true;
-    /**********************/
+        /**********************/
 
     /********************* 取得資料庫設定數值 *********************/
     // (淑貞看這)
@@ -358,28 +371,52 @@ game.State.start={
                 }, //權限TOKEN
                 url: '/game/data', //取得遊戲參數的位址
                 data: {
-                    game: 'games010'
+                    game: 'games012'
                 }, //送出 game 參數(值為遊戲識別名稱)
                 type: 'POST', //使用 POST傳送
                 success: function (data) //傳送成功的function
                 {
                   
-                    // 各關卡移動速度
-                    velocity = parseInt(data.velocity);
-                    velocityLV1 = parseInt(data.velocityLV1);
-                    velocityLV2 = parseInt(data.velocityLV2);
-                    velocityLV3 = parseInt(data.velocityLV3);
+                    // 叉子攻擊間格時間
+                    againTime = parseInt(data.velocity);
 
-                    // 進入關卡分數條件
-                    level1 = parseInt(data.level1);
-                    level2 = parseInt(data.level2);
-                    level3 = parseInt(data.level3);
+                    // 遊玩時間
+                    timer = parseInt(data.velocity);
 
-                    console.log('各關卡移動速度：' + parseInt(data.velocity),parseInt(data.velocityLV1),parseInt(data.velocityLV2),parseInt(data.velocityLV3));
-                    console.log('進入關卡分數條件：' + parseInt(data.level1),parseInt(data.level2),parseInt(data.level3));
-                    
+                    // 幽靈產生間格時間
+                    phatom1IntervalLim = parseInt(data.phatom1IntervalLim);
+                    phatom1IntervalMax = parseInt(data.phatom1IntervalMax);
+                    phatom2IntervalLim = parseInt(data.phatom2IntervalLim);
+                    phatom2IntervalMax = parseInt(data.phatom2IntervalMax);
+                    phatom3IntervalLim = parseInt(data.phatom3IntervalLim);
+                    phatom3IntervalMax = parseInt(data.phatom3IntervalMax);
+                    phatomSIntervalLim = parseInt(data.phatomSIntervalLim);
+                    phatomSIntervalMax = parseInt(data.phatomSIntervalMax);
+
+                    // 幽靈移動速度
+                    phantomVelocityLim = parseInt(data.phantomVelocityLim);
+                    phantomVelocityMax = parseInt(data.phantomVelocityMax);
+                    phantomSVelocityLim = parseInt(data.phantomSVelocityLim);
+                    phantomSVelocityMax = parseInt(data.phantomSVelocityMax);
+
+                    // 幽靈分數
+                    phantomScore = parseInt(data.phantomScore);
+                    phantomScoreS = parseInt(data.phantomScoreS);
+
+                    // 打印
+                    console.log('叉子攻擊間格時間：' + parseInt(data.velocity));
+                    console.log('遊玩時間：' + parseInt(data.velocity));
+                    console.log('幽靈產生間格時間(幽靈1範圍)：' + parseInt(data.phatom1IntervalLim),parseInt(data.phatom1IntervalMax));
+                    console.log('幽靈產生間格時間(幽靈2範圍)：' + parseInt(data.phatom2IntervalLim),parseInt(data.phatom2IntervalMax));
+                    console.log('幽靈產生間格時間(幽靈3範圍)：' + parseInt(data.phatom3IntervalLim),parseInt(data.phatom3IntervalMax));
+                    console.log('幽靈產生間格時間(幽靈S範圍)：' + parseInt(data.phatomSIntervalLim),parseInt(data.phatomSIntervalMax));
+                    console.log('幽靈移動速度(範圍)：' + parseInt(data.phantomVelocityLim),parseInt(data.phantomVelocityMax));
+                    console.log('幽靈S移動速度(範圍)：' + parseInt(data.phantomSVelocityLim),parseInt(data.phantomSVelocityMax));
+                    console.log('幽靈分數：' + parseInt(data.phantomScore));
+                    console.log('幽靈S分數：' + parseInt(data.phantomScoreS));
+        
                     // 伺服器連接成功flag 
-                    phpsuccess = true; 
+                    phpsuccess = true;
                 }
             });
         });
