@@ -449,15 +449,15 @@ game.State.start={
                     // }, 300);                                
                 }else{
                     // 延遲0.3秒開始
-                    setTimeout(function(){
-                        // 會員點數相關 state
-                        game.state.start('cost'); 
-                    }, 300);
-                    // 延遲0.3秒開始
                     // setTimeout(function(){
-                    //     // 開始遊戲
-                    //     game.state.start('play'); 
-                    // }, 300);                 
+                    //     // 會員點數相關 state
+                    //     game.state.start('cost'); 
+                    // }, 300);
+                    // 延遲0.3秒開始
+                    setTimeout(function(){
+                        // 開始遊戲
+                        game.state.start('play'); 
+                    }, 300);                 
                 }
 
             });
@@ -939,7 +939,7 @@ game.State.play={
                 setTimeout(function(){
                     console.log('可以按了');
                     backBtn.inputEnabled = true;
-                }, 3800);
+                }, 3500);
             }
             console.log('time up');
         }
