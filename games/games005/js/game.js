@@ -66,7 +66,7 @@ game.States.boot = function(){
         game.scale.pageAlignVertically = true;
         game.stage.backgroundColor = '#000000';
         this.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
-        this.scale.forcePortrait = true;
+        this.scale.forcePortrait = false;
         this.scale.refresh();   
         // if(!game.device.desktop){
         //     //行動平台螢幕適應

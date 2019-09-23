@@ -297,7 +297,7 @@ game.State.boot={
         game.scale.pageAlignVertically = true;
         game.stage.backgroundColor = '#000000';
         this.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
-        this.scale.forcePortrait = true;
+        this.scale.forcePortrait = false;
         this.scale.refresh();
         // if(!game.device.desktop){
         //     //行動平台螢幕適應
@@ -397,7 +397,7 @@ game.State.load={
         game.load.spritesheet('cancel', '../games009/assets/cancel.png', 30, 30, 2);
         game.load.audio('bgm', '../games009/assets/bgm.mp3');
         game.load.audio('hit', '../games009/assets/hit.mp3');
-        game.load.audio('readyGo', '../games009/assets/readyGo.mp3');
+        // game.load.audio('readyGo', '../games009/assets/readyGo.mp3');
         game.load.audio('heavyHit', '../games009/assets/heavyHit.mp3');
         game.load.audio('shot', '../games009/assets/shot.mp3');
         game.load.audio('boom', '../games009/assets/boom.mp3');
@@ -843,12 +843,12 @@ game.State.turtorial={
                 var infoBoard = game.add.tween(game.infoBoard).to({y:-450},1500,Phaser.Easing.Sinusoidal.InOut,true,0, 0, false);
                 skip.onComplete.addOnce(function(){
                     // Ready Go 音效
-                    var timer = setTimeout(function(){
-                        this.go = game.add.audio('readyGo', 0.5, false);
-                        try{
-                            this.go.play();
-                        }catch(e){}
-                    },1200);
+                    // var timer = setTimeout(function(){
+                    //     this.go = game.add.audio('readyGo', 0.5, false);
+                    //     try{
+                    //         this.go.play();
+                    //     }catch(e){}
+                    // },1200);
                     // Ready Go
                     var readyGo = game.add.tween(game.day1).to({ alpha: 1 }, 1500, Phaser.Easing.Bounce.In, true, 300, 0, false);
                     readyGo.onComplete.addOnce(function(){
@@ -981,12 +981,12 @@ game.State.turtorial={
                                                                                         // 教學板子收回
                                                                                         var infoBoard = game.add.tween(game.infoBoard).to({y:-450},1500,Phaser.Easing.Sinusoidal.InOut,true,0, 0, false);
                                                                                         // Ready Go 音效
-                                                                                        var timer = setTimeout(function(){
-                                                                                            this.go = game.add.audio('readyGo', 0.5, false);
-                                                                                            try{
-                                                                                                this.go.play();
-                                                                                            }catch(e){}
-                                                                                        },1200);
+                                                                                        // var timer = setTimeout(function(){
+                                                                                        //     this.go = game.add.audio('readyGo', 0.5, false);
+                                                                                        //     try{
+                                                                                        //         this.go.play();
+                                                                                        //     }catch(e){}
+                                                                                        // },1200);
                                                                                         // Ready Go
                                                                                         var readyGo = game.add.tween(game.day1).to({ alpha: 1 }, 1500, Phaser.Easing.Bounce.In, true, 300, 0, false);
                                                                                         readyGo.onComplete.addOnce(function(){

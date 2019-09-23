@@ -15,7 +15,7 @@ html,body {
 @font-face {
   /*文字字型導入*/
   font-family: GrinchedRegular;
-  src: url('../Font/GrinchedRegular.otf');
+  src: url('../../Font/GrinchedRegular.otf');
 }
 
 /* #game {
@@ -49,7 +49,7 @@ background-color: black;
   top: 55%;
   transform: translate(-50%, -50%);
   padding: 10px 20px;
-  background-image: url('/../games004/gameObject/btn_play.png');
+  background-image: url('../../games004/gameObject/btn_play.png');
   color: white;
   border-radius: 50px;
   border: none;
@@ -63,7 +63,7 @@ background-color: black;
 }
 
 #start:hover {
-  background-image: url('/../games004/gameObject/btn_play_hover.png');
+  background-image: url('../../games004/gameObject/btn_play_hover.png');
 }
 
 #restart {
@@ -73,7 +73,7 @@ background-color: black;
   left: 50%;
   top: 45%;
   transform: translate(-50%, -50%);
-  background-image: url('/../games004/gameObject/btn_replay.png');
+  background-image: url('../../games004/gameObject/btn_replay.png');
   background-color: transparent;
   border: none;
   outline: none;
@@ -86,7 +86,7 @@ background-color: black;
 }
 
 #restart:hover {
-  background-image: url('/../games004/gameObject/btn_replay_hover.png');
+  background-image: url('../../games004/gameObject/btn_replay_hover.png');
 }
 
 #select1 {
@@ -96,7 +96,7 @@ background-color: black;
   left: 35px;
   top: 20%;
   /* transform: translate(-50%, -50%); */
-  background-image: url('/../games004/gameObject/btn_select1.png');
+  background-image: url('../gameObject/btn_select1.png');
   background-color: transparent;
   border: none;
   outline: none;
@@ -109,7 +109,7 @@ background-color: black;
 }
 
 #select1:hover {
-  background-image: url('/../games004/gameObject/btn_select1_hover.png');
+  background-image: url('../gameObject/btn_select1_hover.png');
 }
 
 #select2 {
@@ -121,7 +121,7 @@ background-color: black;
   /* left: 185px; */
   top: 20%;
   /* transform: translate(-50%, -50%); */
-  background-image: url('/../games004/gameObject/btn_select2.png');
+  background-image: url('../gameObject/btn_select2.png');
   background-color: transparent;
   border: none;
   outline: none;
@@ -133,5 +133,5 @@ background-color: black;
 }
 
 #select2:hover {
-  background-image: url('/../games004/gameObject/btn_select2_hover.png');
+  background-image: url('../gameObject/btn_select2_hover.png');
 }

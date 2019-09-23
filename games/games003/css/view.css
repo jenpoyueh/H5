@@ -8,7 +8,7 @@
 
 @font-face {
 	font-family: GrinchedRegular;
-	src: url('../Font/GrinchedRegular.otf');
+	src: url('../../Font/GrinchedRegular.otf');
 }
 
 #back {
@@ -44,7 +44,7 @@ h1 a {
 	#back {
 		width: 294px;
 		height: 400px;
-		margin: 80px auto;
+		margin: 40px auto;
 	}
 	h1 {
 		width: 294px;
@@ -64,7 +64,7 @@ h1 a {
 	/* padding: 50px 50px 0; */
 	border-radius: 30px;
 	border: 5px solid #e0bebe;
-	background-image: url('../games003/img/background.png');
+	background-image: url('../../games003/img/background.png');
 	/*background-repeat: repeat-x;*/
 	/*background-size: cover;*/
 }
@@ -72,16 +72,16 @@ h1 a {
 @media screen and (max-width: 480px) {
 	.photoHunt_container {
 		position: relative;
-		width: 400px;
-		height: 550px;
+		width: 294px;
+		height: 400px;
 		background: #BA4A00;
-		margin: 150px auto;
+		margin: 40px auto;
 		/* padding: 50px 50px 0; */
 		border-radius: 30px;
 		border: 5px solid #e0bebe;
-		background-image: url('../games003/img/background.png');
+		background-image: url('../../games003/img/background.png');
 		/*background-repeat: repeat-x;*/
-		/*background-size: cover;*/
+		background-size: cover;
 	}
 }
 
@@ -93,7 +93,7 @@ h1 a {
 	border: 0;
 	border-radius: 30px;
 	text-align: right;
-	background-image: url('../games003/img/upFrame.png');
+	background-image: url('../../games003/img/upFrame.png');
 	/*background: #ce9c9c;*/
 	color: #ffffff;
 	font-size: 20px;
@@ -115,7 +115,7 @@ h1 a {
 	height: 40px;
 	border: 0;
 	border-radius: 30px;
-	background-image: url('../games003/img/upFrame_1.png');
+	background-image: url('../../games003/img/upFrame_1.png');
 	/*background: #ce9c9c;*/
 	color: #ffffff;
 	font-size: 20px;
@@ -172,7 +172,7 @@ button {
 	height: 50px;
 	border: 0;
 	border-radius: 20px;
-	background-image: url('../games003/img/playBtn.png');
+	background-image: url('../../games003/img/playBtn.png');
 	/*background: linear-gradient(#ad627c,#8c6270);*/
 	color: #ffffff;
 	font-size: 20px;
@@ -184,13 +184,14 @@ button {
 
 @media screen and (max-width: 480px) {
 	button {
-		top: 180px;
-		width: 200px;
+		top: 100px;
+		width: 160px;
 		margin: 15px auto 0px;
-		height: 50px;
+		height: 40px;
 		border: 0;
 		border-radius: 20px;
-		background-image: url('../games003/img/playBtn.png');
+		background-image: url('../../games003/img/playBtn.png');
+		background-size: cover;
 		/*background: linear-gradient(#ad627c,#8c6270);*/
 		color: #ffffff;
 		font-size: 20px;
@@ -202,7 +203,7 @@ button {
 }
 
 button:hover {
-	background-image: url('../games003/img/playBtnH.png');
+	background-image: url('../../games003/img/playBtnH.png');
 }
 
 #score {
@@ -211,7 +212,7 @@ button:hover {
 	height: 40px;
 	border: 0;
 	border-radius: 30px;
-	background-image: url('../games003/img/score.png');
+	background-image: url('../../games003/img/score.png');
 	/*background: #ce9c9c;*/
 	color: #ffffff;
 	font-size: 24px;
@@ -236,16 +237,17 @@ button:hover {
 
 @media screen and (max-width: 480px) {
 	#score {
-		width: 200px;
+		width: 160px;
 		margin: 0 auto;
-		height: 40px;
+		height: 32px;
 		border: 0;
 		border-radius: 30px;
-		background-image: url('../games003/img/score.png');
+		background-image: url('../../games003/img/score.png');
+		background-size: cover;
 		/*background: #ce9c9c;*/
 		color: #ffffff;
 		font-size: 24px;
-		top: 400px;
+		top: 330px;
 		left: 50%;
 		-webkit-transform: translateX(-50%);
 		-ms-transform: translateX(-50%);

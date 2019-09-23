@@ -219,7 +219,7 @@ function preload () {
 
     //行動平台螢幕適應
     this.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
-    this.scale.forcePortrait = true;
+    this.scale.forcePortrait = false;
     this.scale.refresh();
     game.scale.pageAlignHorizontally = true;
     game.scale.pageAlignVertically = true;
@@ -283,9 +283,8 @@ function create () {
     });
     createBounders();
     createTextsBoard();
-    //預設玩家角色為森森
 
-    backgroundMusic = game.add.audio('musicBg', 0.3,true);
+    backgroundMusic = game.add.audio('musicBg', 0.8,true);
     startSe = game.add.audio('startSFX', 0.5,false);
 
     // 虛擬按鍵

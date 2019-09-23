@@ -939,7 +939,7 @@ game.State.play={
                 setTimeout(function(){
                     console.log('可以按了');
                     backBtn.inputEnabled = true;
-                }, 3500);
+                }, 500);
             }
             console.log('time up');
         }
