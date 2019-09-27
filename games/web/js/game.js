@@ -48,7 +48,7 @@ game.State.boot={
 // 預載遊戲資材
 game.State.web={
     preload:function(){
-        var preloadSprite = game.add.sprite(game.width/2,game.height/2,'loading');
+        var preloadSprite = game.add.sprite(game.width/2-220/2,game.height/2-19/2,'loading');
         game.load.setPreloadSprite(preloadSprite);
         game.load.image('bg', '../web/assets/bg.png');
         game.load.image('map', '../web/assets/map.png');
