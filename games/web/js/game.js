@@ -77,6 +77,12 @@ game.State.web={
         this.dot02.alpha = 0;
         game.add.tween(this.dot02).to({ alpha: 1 }, 1500, Phaser.Easing.Linear.None, true, 1000, -1, true);
 
+
+        // game.left.inputEnabled = true;
+        // game.left.input.priorityID = 1;
+        // game.left.events.onInputDown.add
+
+
         this.pipi02 = this.map.addChild(game.add.sprite(-290,-70,'pipi02'));
         this.pipi02.alpha = 0;
         game.add.tween(this.pipi02).to({ alpha: 1 }, 1200, Phaser.Easing.Linear.None, true, 0, -1, true);
@@ -88,7 +94,8 @@ game.State.web={
 
         this.moon02 = this.map.addChild(game.add.sprite(-80,-410,'moon02'));
         this.moon02.alpha = 0;
-        game.add.tween(this.moon02).to({ alpha: 1 }, 1200, Phaser.Easing.Linear.None, true, 0, -1, true);
+
+        // game.add.tween(this.moon02).to({ alpha: 1 }, 1200, Phaser.Easing.Linear.None, true, 0, -1, true);
         this.moon = this.map.addChild(game.add.button(-80,-410,'moon',function(){
             setTimeout(function(){
                 window.location.href = '../games010/index.html';
