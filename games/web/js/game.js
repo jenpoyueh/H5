@@ -89,7 +89,7 @@ game.State.web={
         // 閃亮亮點點02
         this.dot02 = game.add.sprite(0,0,'dot02');
         this.dot02.alpha = 0;
-        game.add.tween(this.dot02).to({ alpha: 1 }, 1500, Phaser.Easing.Linear.None, true, 1500, -1, true);
+        game.add.tween(this.dot02).to({ alpha: 1 }, 1500, Phaser.Easing.Linear.None, true, 0, -1, true);
 
         // pipi
         this.pipiBtn = this.map.addChild(game.add.sprite(-215,5,'pipiBtn'));
