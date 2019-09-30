@@ -89,7 +89,7 @@ game.State.web={
         // 閃亮亮點點02
         this.dot02 = game.add.sprite(0,0,'dot02');
         this.dot02.alpha = 0;
-        game.add.tween(this.dot02).to({ alpha: 1 }, 1500, Phaser.Easing.Linear.None, true, 1000, -1, true);
+        game.add.tween(this.dot02).to({ alpha: 1 }, 1500, Phaser.Easing.Linear.None, true, 1500, -1, true);
 
         // pipi
         this.pipiBtn = this.map.addChild(game.add.sprite(-215,5,'pipiBtn'));
@@ -109,13 +109,10 @@ game.State.web={
             this.moonBtnTween.stop();
             this.waterBtnTween.stop();
             this.ghostBtnTween.stop();
-            this.pipiBtn.scale.setTo(1);
             var pipiBtnTween = game.add.tween(this.pipiBtn.scale).to({x:1,y:1}, 500, Phaser.Easing.Sinusoidal.InOut, true, 0, 0, false);
+            var pipiBtnTween = game.add.tween(this.pipiBtn).to({alpha: 0}, 800, Phaser.Easing.Linear.None, true, 0, 0, false);
             pipiBtnTween.onComplete.add(function(){
-                var pipiBtnTween = game.add.tween(this.pipiBtn).to({alpha: 0}, 800, Phaser.Easing.Linear.None, true, 0, 0, false);
-                pipiBtnTween.onComplete.add(function(){
-                    window.location.href = '../games008/index.html';
-                },this);
+                window.location.href = '../games008/index.html';
             },this);
         },this);
 
@@ -137,13 +134,10 @@ game.State.web={
             this.moonBtnTween.stop();
             this.waterBtnTween.stop();
             this.ghostBtnTween.stop();
-            this.cactusBtn.scale.setTo(1);
             var cactusBtnTween = game.add.tween(this.cactusBtn.scale).to({x:1,y:1}, 500, Phaser.Easing.Sinusoidal.InOut, true, 0, 0, false);
+            var cactusBtnTween = game.add.tween(this.cactusBtn).to({alpha: 0}, 800, Phaser.Easing.Linear.None, true, 0, 0, false);
             cactusBtnTween.onComplete.add(function(){
-                var cactusBtnTween = game.add.tween(this.cactusBtn).to({alpha: 0}, 800, Phaser.Easing.Linear.None, true, 0, 0, false);
-                cactusBtnTween.onComplete.add(function(){
-                    window.location.href = '../games009/index.html';
-                },this);
+                window.location.href = '../games009/index.html';
             },this);
         },this);
 
@@ -153,7 +147,7 @@ game.State.web={
         this.moonBtn.input.priorityID = 1;
         this.moonBtn.anchor.setTo(0.5);
         this.moonBtn.scale.setTo(0.8);
-        this.moonBtnTween = game.add.tween(this.moonBtn.scale).to({x:0.85,y:0.85}, 800, Phaser.Easing.Linear.None, true, 0, -1, true);
+        this.moonBtnTween = game.add.tween(this.moonBtn.scale).to({x:0.9,y:0.9}, 800, Phaser.Easing.Linear.None, true, 0, -1, true);
         this.moonBtn.events.onInputDown.add(function(){
             this.soundFx('enter',0.5,false);
             this.moonBtnTween.stop();
@@ -165,13 +159,10 @@ game.State.web={
             this.cactusBtnTween.stop();
             this.waterBtnTween.stop();
             this.ghostBtnTween.stop();
-            this.moonBtn.scale.setTo(1);
-            var moonBtnTween = game.add.tween(this.moonBtn.scale).to({x:1,y:1}, 500, Phaser.Easing.Sinusoidal.InOut, true, 0, 0, false);
+            var moonBtnTween = game.add.tween(this.moonBtn.scale).to({x:1.1,y:1.1}, 500, Phaser.Easing.Sinusoidal.InOut, true, 0, 0, false);
+            var moonBtnTween = game.add.tween(this.moonBtn).to({alpha: 0}, 800, Phaser.Easing.Linear.None, true, 0, 0, false);
             moonBtnTween.onComplete.add(function(){
-                var moonBtnTween = game.add.tween(this.moonBtn).to({alpha: 0}, 800, Phaser.Easing.Linear.None, true, 0, 0, false);
-                moonBtnTween.onComplete.add(function(){
-                    window.location.href = '../games010/index.html';
-                },this);
+                window.location.href = '../games010/index.html';
             },this);
         },this);
 
@@ -182,7 +173,7 @@ game.State.web={
         this.waterBtn.input.priorityID = 1;
         this.waterBtn.anchor.setTo(0.5);
         this.waterBtn.scale.setTo(0.8);
-        this.waterBtnTween = game.add.tween(this.waterBtn.scale).to({x:0.85,y:0.85}, 800, Phaser.Easing.Linear.None, true, 0, -1, true);
+        this.waterBtnTween = game.add.tween(this.waterBtn.scale).to({x:0.9,y:0.9}, 800, Phaser.Easing.Linear.None, true, 0, -1, true);
         this.waterBtn.events.onInputDown.add(function(){
             this.soundFx('enter',0.5,false);
             this.waterBtnTween.stop();
@@ -194,13 +185,10 @@ game.State.web={
             this.cactusBtnTween.stop();
             this.moonBtnTween.stop();
             this.ghostBtnTween.stop();
-            this.waterBtn.scale.setTo(1);
-            var waterBtnTween = game.add.tween(this.waterBtn.scale).to({x:1,y:1}, 500, Phaser.Easing.Sinusoidal.InOut, true, 0, 0, false);
+            var waterBtnTween = game.add.tween(this.waterBtn.scale).to({x:1.1,y:1.1}, 500, Phaser.Easing.Sinusoidal.InOut, true, 0, 0, false);
+            var waterBtnTween = game.add.tween(this.waterBtn).to({alpha: 0}, 800, Phaser.Easing.Linear.None, true, 0, 0, false);
             waterBtnTween.onComplete.add(function(){
-                var waterBtnTween = game.add.tween(this.waterBtn).to({alpha: 0}, 800, Phaser.Easing.Linear.None, true, 0, 0, false);
-                waterBtnTween.onComplete.add(function(){
-                    window.location.href = '../games011/index.html';
-                },this);
+                window.location.href = '../games011/index.html';
             },this);
         },this);
 
@@ -222,13 +210,10 @@ game.State.web={
             this.cactusBtnTween.stop();
             this.moonBtnTween.stop();
             this.waterBtnTween.stop();
-            this.ghostBtn.scale.setTo(1);
             var ghostBtnTween = game.add.tween(this.ghostBtn.scale).to({x:1,y:1}, 500, Phaser.Easing.Sinusoidal.InOut, true, 0, 0, false);
+            var ghostBtnTween = game.add.tween(this.ghostBtn).to({alpha: 0}, 800, Phaser.Easing.Linear.None, true, 0, 0, false);
             ghostBtnTween.onComplete.add(function(){
-                var ghostBtnTween = game.add.tween(this.ghostBtn).to({alpha: 0}, 800, Phaser.Easing.Linear.None, true, 0, 0, false);
-                ghostBtnTween.onComplete.add(function(){
-                    window.location.href = '../games012/index.html';
-                },this);
+                window.location.href = '../games012/index.html';
             },this);
         },this);
     },
