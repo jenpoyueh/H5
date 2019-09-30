@@ -301,10 +301,10 @@ game.State.start={
         // 背景介面按鈕
         game.add.image(0,0,'bg1');
         game.add.image(0,0,'bg2');
-        game.thankBtn =game.add.button(870,570,'thankBtn',this.specialThank,this,1,0,1);
-        game.thankBtn.anchor.setTo(0.5,0.5);
-        game.thankBtn.alpha = 0;
-        game.add.tween(game.thankBtn).to({ alpha: 1 }, 300, Phaser.Easing.Linear.None, true, 0, 0, false);
+        // game.thankBtn =game.add.button(870,570,'thankBtn',this.specialThank,this,1,0,1);
+        // game.thankBtn.anchor.setTo(0.5,0.5);
+        // game.thankBtn.alpha = 0;
+        // game.add.tween(game.thankBtn).to({ alpha: 1 }, 300, Phaser.Easing.Linear.None, true, 0, 0, false);
         game.startBtn = game.add.button(480,320,'startBtn',this.onStartClick,this,1,0,1);
         game.startBtn.anchor.setTo(0.5,0.5);
         game.startBtn.alpha = 0;
@@ -432,7 +432,7 @@ game.State.start={
             try{
                 this.enter.play();
             }catch(e){}
-            game.add.tween(game.thankBtn).to({ alpha: 0 }, 300, Phaser.Easing.Linear.None, true, 0, 0, false);
+            // game.add.tween(game.thankBtn).to({ alpha: 0 }, 300, Phaser.Easing.Linear.None, true, 0, 0, false);
             var tween = game.add.tween(game.startBtn).to({ alpha: 0 }, 300, Phaser.Easing.Linear.None, true, 0, 0, false);
             tween.onComplete.add(function(){
                 // 判斷有無連結資料庫(淑貞看這)
