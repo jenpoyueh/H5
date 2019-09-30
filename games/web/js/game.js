@@ -18,7 +18,7 @@ var height = 960;
 var game =new Phaser.Game(width, height, Phaser.CANVAS, 'game');
 
 /******** 遊戲物件 ********/
-var bgm = document.getElementById("bgm");
+// var bgm = document.getElementById("bgm");
 // 遊戲階段
 game.State={};
 
@@ -76,7 +76,7 @@ game.State.web={
     create:function(){
 
         // 背景音樂
-        bgm.play();
+        // bgm.play();
         // this.soundFx('bgm',0.5,true);
         
         // 背景
