@@ -85,6 +85,7 @@ game.State.web={
         this.pipiBtn = this.map.addChild(game.add.sprite(-215,5,'pipiBtn'));
         this.pipiBtn.inputEnabled = true;
         this.pipiBtn.input.priorityID = 1;
+        this.pipiBtn.input.useHandCursor = true;// 手指指標
         this.pipiBtn.anchor.setTo(0.5);
         this.pipiBtn.scale.setTo(0.8);
         this.pipiBtnTween = game.add.tween(this.pipiBtn.scale).to({x:0.85,y:0.85}, 800, Phaser.Easing.Linear.None, true, 0, -1, true);
@@ -110,6 +111,7 @@ game.State.web={
         this.cactusBtn = this.map.addChild(game.add.sprite(-75,-145,'cactusBtn'));
         this.cactusBtn.inputEnabled = true;
         this.cactusBtn.input.priorityID = 2;
+        this.cactusBtn.input.useHandCursor = true;// 手指指標
         this.cactusBtn.anchor.setTo(0.5);
         this.cactusBtn.scale.setTo(0.8);
         this.cactusBtnTween = game.add.tween(this.cactusBtn.scale).to({x:0.85,y:0.85}, 800, Phaser.Easing.Linear.None, true, 0, -1, true);
@@ -135,6 +137,7 @@ game.State.web={
         this.moonBtn = this.map.addChild(game.add.sprite(125,-205,'moonBtn'));
         this.moonBtn.inputEnabled = true;
         this.moonBtn.input.priorityID = 1;
+        this.moonBtn.input.useHandCursor = true;// 手指指標
         this.moonBtn.anchor.setTo(0.5);
         this.moonBtn.scale.setTo(0.8);
         this.moonBtnTween = game.add.tween(this.moonBtn.scale).to({x:0.9,y:0.9}, 800, Phaser.Easing.Linear.None, true, 0, -1, true);
@@ -161,6 +164,7 @@ game.State.web={
         this.waterBtn = this.map.addChild(game.add.sprite(75,195,'waterBtn'));
         this.waterBtn.inputEnabled = true;
         this.waterBtn.input.priorityID = 1;
+        this.waterBtn.input.useHandCursor = true;// 手指指標
         this.waterBtn.anchor.setTo(0.5);
         this.waterBtn.scale.setTo(0.8);
         this.waterBtnTween = game.add.tween(this.waterBtn.scale).to({x:0.9,y:0.9}, 800, Phaser.Easing.Linear.None, true, 0, -1, true);
@@ -186,6 +190,7 @@ game.State.web={
         this.ghostBtn = this.map.addChild(game.add.sprite(165,-65,'ghostBtn'));
         this.ghostBtn.inputEnabled = true;
         this.ghostBtn.input.priorityID = 1;
+        this.ghostBtn.input.useHandCursor = true;// 手指指標
         this.ghostBtn.anchor.setTo(0.5);
         this.ghostBtn.scale.setTo(0.8);
         this.ghostBtnTween = game.add.tween(this.ghostBtn.scale).to({x:0.85,y:0.85}, 800, Phaser.Easing.Linear.None, true, 0, -1, true);
