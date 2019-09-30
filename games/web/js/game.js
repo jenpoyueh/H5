@@ -67,7 +67,7 @@ game.State.web={
 
         // 背景音樂
         // bgm.play();
-        // this.soundFx('bgm',0.5,true);
+        this.soundFx('bgm',0.5,true);
         
         // 背景
         this.bg = game.add.image(0,0,'bg');
