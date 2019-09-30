@@ -54,21 +54,11 @@ game.State.web={
         game.load.image('map', '../web/assets/map.png');
         game.load.image('dot01', '../web/assets/dot01.png');
         game.load.image('dot02', '../web/assets/dot02.png');
-        game.load.image('cactus02', '../web/assets/cactus02.png');
-        game.load.image('pipi02', '../web/assets/pipi02.png');
-        game.load.image('water02', '../web/assets/water02.png');
-        game.load.image('moon02', '../web/assets/moon02.png');
-        game.load.image('ghost02', '../web/assets/ghost02.png');
         game.load.image('cactusBtn', '../web/assets/cactusBtn.png');
         game.load.image('pipiBtn', '../web/assets/pipiBtn.png');
         game.load.image('waterBtn', '../web/assets/waterBtn.png');
         game.load.image('moonBtn', '../web/assets/moonBtn.png');
         game.load.image('ghostBtn', '../web/assets/ghostBtn.png');
-        game.load.spritesheet('pipi', '../web/assets/pipi.png', 150, 150, 3);
-        game.load.spritesheet('moon', '../web/assets/moon.png', 410, 410, 3);
-        game.load.spritesheet('water', '../web/assets/water.png', 150, 150, 3);
-        game.load.spritesheet('ghost', '../web/assets/ghost.png', 230, 230, 3);
-        game.load.spritesheet('cactus', '../web/assets/cactus.png', 150, 150, 3);
         game.load.audio('bgm', '../web/assets/bgm.mp3');
         game.load.audio('enter', '../web/assets/enter.mp3');
 
