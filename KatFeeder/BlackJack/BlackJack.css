@@ -1,0 +1,176 @@
+p {
+    margin: 0px;
+    font-family: '微軟正黑體', 'Times New Roman', Times, serif;
+}
+h1 {
+    text-align: center;
+}
+#view {
+    width: 1000px;
+    height: 600px;
+    /* background-color: rgb(245, 200, 133); */
+    margin: 0 auto;
+}
+#game {
+    width: 560px;
+    height: 560px;
+    margin: 8px 8px;
+    padding: 10px;
+    border-width: 2px;
+    border-style: solid;
+    background-color: rgb(129, 255, 148);
+    float: left;
+}
+#dealerView {
+    height: 100px;
+}
+#dealerState {
+    height: 100px;
+    background-color: rgb(38, 176, 255);
+}
+#tableView {
+    height: 360px;
+}
+#newGameView > p {
+    height: 150px;
+    line-height: 200px;
+    font-size: 50px;
+    font-weight: bolder;
+    text-align: center;
+}
+#newGame {
+    height: 100px;
+    width: 300px;
+    margin: 0 auto;
+    background-color: silver;
+    font-size: 70px;
+    line-height: 100px;
+    font-weight: bolder;
+    text-align: center;
+    color: black;
+    font-family: '微軟正黑體', 'Times New Roman', Times, serif;
+}
+#newGame:hover {
+    color: white;
+    cursor: pointer;
+}
+#playerView {
+    background-color: rgb(38, 176, 255);
+}
+#playerState {
+    height: 100px;
+    background-color: rgb(38, 176, 255);
+}
+.people {
+    height:80px;
+    width: 150px;
+    margin: 10px 40px;
+    float: left;
+    font-size: 60px;
+    line-height: 80px;
+    font-weight: bolder;
+    text-align: center;
+    color: black;
+    font-family: '微軟正黑體', 'Times New Roman', Times, serif;
+}
+.win {
+    background-color: rgb(255, 52, 52);
+}
+#playerState > p {
+    height:45px;
+    width: 250px;
+    margin: 2px 0px 2px 60px;
+    float: left;
+    font-size: 30px;
+    line-height: 45px;
+    font-weight: bolder;
+    color: black;
+}
+#tableView > p {
+    height:50px;
+    font-size: 40px;
+    line-height: 80px;
+    font-weight: bolder;
+    text-align: center;
+    color: black;
+}
+.betcoin {
+    height:80px;
+    width: 80px;
+    margin: 40px 5px;
+    font-size: 30px;
+    line-height: 80px;
+    border-radius: 90px;
+    font-weight: 900;
+    color: black;
+    background-color: rgb(226, 193, 3);
+    display: inline-block;
+}
+.betcoin:hover {
+    background-color: rgb(255, 217, 0);
+    cursor: pointer;
+}
+.bet {
+    text-align: center;
+}
+.betting {
+    height:60px;
+    width: 100px;
+    margin:0px 20px;
+    font-size: 30px;
+    line-height: 60px;
+    font-weight: 900;
+    text-align: center;
+    color: black;
+    background-color: rgb(199, 53, 53);
+    display: inline-block;
+    font-family: '微軟正黑體', 'Times New Roman', Times, serif;
+}
+.betting:hover {
+    color: white;
+    cursor: pointer;
+}
+.cards {
+    height: 150px;
+    width: 560px;
+    padding: 15px 0px;
+}
+.card {
+    margin: 0px 4px;
+    float: left;
+}
+.hitAndStand {
+    margin: 0px 4px;
+    float: left;
+    width: 100px;
+}
+.hitOrStand {
+    height:50px;
+    width: 80px;
+    margin: 15px 10px;
+    font-size: 30px;
+    line-height: 50px;
+    font-weight: 900;
+    text-align: center;
+    color: black;
+    background-color: rgb(199, 53, 53);
+    font-family: '微軟正黑體', 'Times New Roman', Times, serif;
+}
+.hitOrStand:hover {
+    color: white;
+    cursor: pointer;
+}
+#textBox {
+    width: 360px;
+    height: 560px;
+    margin: 8px 8px;
+    padding: 10px;
+    border-width: 2px;
+    border-style: solid;
+    background-color: white;
+    float: left;
+    overflow: auto;
+}
+#textBox > p {
+    font-size: 18px;
+}

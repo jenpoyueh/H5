@@ -1,0 +1,211 @@
+<!DOCTYPE HTML>
+<!--
+	Editorial by HTML5 UP111
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+<head>
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+
+    <!--include the highcharts library-->
+    <script src="http://code.highcharts.com/highcharts.js"></script>
+
+    <!-- Bootstrap css and js -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+
+</head>
+<body class="">
+	<title>Iot_KatFeeder</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+		<link rel="stylesheet" href="assets/css/main.css">
+	
+	
+    <script>
+        function highcharsinit() {
+            $('#container').highcharts({
+                title: {
+                    text: '飲食習慣',
+                    x: -20
+                },
+                subtitle: {
+                    text: '貓咪食量',
+                    x: -20
+                },
+                xAxis: {
+                    title: {
+                        text: 'Time'
+                    },
+                    categories: time,
+                    labels: { //隱藏X軸的標籤
+                        enabled: false,
+                    }
+                },
+                yAxis: {
+                    title: {
+                        text: '食量(克)',
+                    }
+                },
+                //圖表的資料
+                series: [{
+                    name: '前十餐',
+                    data: values
+                }]
+            });
+        }
+    </script>
+    <script> // main jQuery function
+        $(function () {
+            $.ajax({
+                url: 'database.php',//連接的URL
+                data: "{}",//夾帶的參數
+                dataType: 'json', //資料格式
+                success: function (data)    //傳送成功的function
+                {
+                    values = [];
+                    time = [];
+
+                    for (var i = data.length - 10; i < data.length; i++) {
+                        if (parseInt(data[i]['status']) == 0)
+                            values.push({ y: parseInt(data[i]['startWeight']-data[i]['endWeight']), color: '#FF0000' });
+                        else
+                            values.push({ y: parseInt(data[i]['startWeight']-data[i]['endWeight']), color: '#FF0000' });
+                        time.push(data[i]['time']);
+                    }
+                    highcharsinit();
+                    callEAModel();
+                    newDA();
+                }
+            });
+        });
+
+    </script>
+    <div id="wrapper">
+
+                <!-- Main -->
+                    <div id="main">
+                        <div class="inner">
+
+                            <!-- Header -->
+                            <header id="header">
+                                    <a href="index.html" class="logo"><strong>Kat</strong></a>
+                                    <ul class="icons">
+                                        
+                                        <li><a target="_blank" href="https://www.facebook.com/pg/siilpm/posts/" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+                                        
+                                        <li><a target="_blank" href="https://www.instagram.com/explore/tags/%E4%B8%AD%E8%88%88%E5%A4%A7%E5%AD%B8/" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+                                        
+                                    </ul>
+                                </header>    
+
+                            <!-- Banner -->
+                                <section id="banner">
+                                    <div class="content">
+                                         <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto">Highchart_01</div>
+                                    </div>
+
+                                </section>
+
+                            <!-- Section -->
+                                
+
+                            <!-- Section -->
+                                <section>
+                                    <header class="major">
+                                        
+                                    </header>
+                                    
+                                </section>
+
+                        </div>
+                    </div>
+
+                <!-- Sidebar -->
+                    <div id="sidebar">
+                        <div class="inner" style="">
+
+
+                            <!-- Menu -->
+                                <nav id="menu">
+                                    <header class="major">
+                                        <h2>Menu</h2>
+                                    </header>
+                                    <ul>
+                                        <li><a href="index.html">首頁</a></li>
+                                        
+                                        
+                                        <li>
+                                            <span class="opener">產品</span>
+                                            <ul>
+                                                <li><a href="FlowChart.html">KatFeeder</a></li>
+                                                
+                                                
+                                                
+                                            </ul>
+                                        </li>
+                                        
+                                        
+                                        <li>
+                                            <span class="opener">寵物日記</span>
+                                            <ul>
+                                                <li><a href="highchart.html">飲食習慣</a></li>
+                                                <li><a href="highchart2.html">日夜區分</a></li>
+                                                <li><a href="highchart3.html">每日統計</a></li>
+                                                
+                                            </ul>
+                                        </li>
+                                        
+                                        
+                                        
+                                    <li>
+                                            <span class="opener">工作人員</span>
+                                            <ul>
+                                                <li><a href="LIN.html">林建翰</a></li>
+                                                <li><a href="JEN.html">任柏岳</a></li>
+                                                <li><a href="WU.html">吳遠松</a></li>
+                                                <li><a href="HAO.html">柯浩之</a></li>
+                                            </ul>
+                                        </li></ul>
+                                </nav>
+
+                            <!-- Section -->
+                                
+
+                            <!-- Section -->
+                                <section>
+                                    <header class="major">
+                                        <h2>聯絡我們</h2>
+                                    </header>
+                                    <p>所有有關KatFeeder智慧餵食器的問題，歡迎與我們聯繫，客服人員將為您服務。</p>
+                                    <ul class="contact">
+                                        <li class="fa-envelope-o"><a href="#">nchuiii@gmail.com</a></li>
+                                        <li class="fa-phone">(04) 2285-5506</li>
+                                        <li class="fa-home">臺中市南區興大路145號(綜合教學大樓-院辦公室9樓934、企劃行銷組8樓)</li>
+                                    </ul>
+                                </section>
+
+                            <!-- Footer -->
+                                <footer id="footer">
+                                    <p class="copyright">© Untitled. All rights reserved. Demo Images: <a href="https://unsplash.com">Unsplash</a>. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+                                </footer>
+
+                        </div>
+                    <a href="#sidebar" class="toggle">Toggle</a><a href="#sidebar" class="toggle">Toggle</a><a href="#sidebar" class="toggle">Toggle</a></div>
+
+    </div>    
+		<!-- Wrapper -->
+
+
+		<!-- Scripts -->
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	
+</body></html>

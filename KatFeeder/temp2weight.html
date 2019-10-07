@@ -1,0 +1,85 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>EA System</title>
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+
+
+
+
+
+</head>
+
+<body>
+    <form>
+        輸入溫度:<br>
+        <input id='tempin' type="text" name="tempin">
+        <a href="images/EA_System.png" target="_blank" title="流程">流程</a>
+        <br> 預測食量:
+        <br>
+        <input id='eatout' type="text" name="eatout" disabled>
+        <input id='submit' type="button" value="輸入" onclick="TempShow()">
+    </form>
+
+    <script>
+        submit = document.getElementById("submit");
+        eatout = document.getElementById("eatout");
+        tempin = document.getElementById("tempin");
+
+        function TempShow() {
+            
+            ttt = "TempChange.php?temp=" + tempin.value;
+            $.ajax({
+                url: (ttt),//連接的URL
+                data: "{}",//夾帶的參數
+                dataType: 'json', //資料格式
+                complete: function ()	//傳送成功的function
+                {
+
+                    TempShow2();
+                }
+
+            });
+        }
+
+        function TempShow2() {
+            $.ajax({
+                url: 'call_su.php',//連接的URL
+                data: "{}",//夾帶的參數
+                dataType: 'json', //資料格式
+                complete: function ()	//傳送成功的function
+                {
+                    
+
+
+                    TempShow3();
+                }
+
+            });
+        }
+
+        function TempShow3() {
+
+            $.ajax({
+                url: 'TempCheck.php',
+                data: '{}',
+                dataType: 'json',
+                success: function (data) {
+                    
+                    eatout.value = data[0]['will_eat'];
+
+
+
+                }
+            });
+
+
+        }
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,333 @@
+<!DOCTYPE HTML>
+<!--
+	Editorial by HTML5 UP111
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+<head>
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+
+    <!--include the highcharts library-->
+    <script src="http://code.highcharts.com/highcharts.js"></script>
+
+    <!-- Bootstrap css and js -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+</head>
+<body class="">
+	<title>Iot_KatFeeder</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+		<link rel="stylesheet" href="assets/css/main.css">
+	
+	
+
+       <script language="JavaScript">
+        function highcharsinit() {
+            $(document).ready(function () {
+                var chart = {
+                    type: 'column'
+                };
+                var title = {
+                    text: '日夜比較',
+                    style: {
+                            fontSize: "16px",
+                            color: '#3d3d3d'
+                    }
+                };
+                var xAxis = {
+                    //橫軸:放日期  最近七天
+                    categories: ['7', '6', '5', '4', '3','2','1'],
+                    labels: {
+                        style: {
+                            color: '#4588c6',
+                            fontSize: "16px",
+                            fontWeight: "blod",
+                            fontFamily: "Courier new"
+                        }
+                    },
+                    title: {
+                        //貓的食量  白天+晚上
+                        text: '前幾天資料',
+                        style: {
+                            fontSize: "16px",
+                            color: '#3d3d3d'
+                        }
+                    }
+                };
+                var yAxis = {
+                    min: 0,
+                    title: {
+                        //貓的食量  白天+晚上
+                        text: '飼料總量',
+                        style: {
+                            fontSize: "16px",
+                            color: '#3d3d3d'
+                        }
+                    },
+                    stackLabels: {
+                        enabled: true,
+                        style: {
+                            fontWeight: 'bold',
+                            color: (Highcharts.theme && Highcharts.theme.textColor) || 'gray'
+                        }
+                    },
+                    labels: {
+                        style: {
+                            color: '#4588c6',
+                            fontSize: "16px",
+                            fontWeight: "blod",
+                            fontFamily: "Courier new"
+                        }
+                    }
+                };
+                var legend = {
+                    align: 'right',
+                    x: -30,
+                    verticalAlign: 'top',
+                    y: 25,
+                    floating: true,
+                    backgroundColor: (Highcharts.theme && Highcharts.theme.background2) || 'white',
+                    borderColor: '#CCC',
+                    borderWidth: 1,
+                    shadow: false
+                };
+                var tooltip = {
+                    formatter: function () {
+                        return '<b>' + this.x + '</b><br/>' +
+                            this.series.name + ': ' + this.y + '<br/>' +
+                            'Total: ' + this.point.stackTotal;
+                    }
+                };
+                var plotOptions = {
+                    column: {
+                        stacking: 'normal',
+                        dataLabels: {
+                            enabled: true,
+                            color: (Highcharts.theme && Highcharts.theme.dataLabelsColor) || 'white',
+                            style: {
+                                textShadow: '0 0 0.5px black'
+                            }
+                        }
+                    }
+                };
+                var credits = {
+                    enabled: false
+                };
+                var series = [{
+                    name: 'DAY',
+                    color: '#41d3d0',
+                    data: BN_values
+                }, {
+                    name: 'NIGHT',
+                    color: '#3a3a3a',
+                    data: AN_values
+                }];
+
+
+                var json = {};
+                json.chart = chart;
+                json.title = title;
+                json.xAxis = xAxis;
+                json.yAxis = yAxis;
+                json.legend = legend;
+                json.tooltip = tooltip;
+                json.plotOptions = plotOptions;
+                json.credits = credits;
+                json.series = series;
+                $('#container').highcharts(json);
+
+            });
+        }
+    </script>
+
+    <script>
+
+        $(function () {
+            $.ajax({
+                url: 'dataBeforeNoon.php',//連接的URL
+                data: "{}",//夾帶的參數
+                dataType: 'json', //資料格式
+                success: function (data)    //傳送成功的function
+                {
+                    // highcharsinit();
+                    BN_values = [];
+                    time = [];
+
+                    for (var i = 0; i < data.length; i++) {
+                        // if (parseInt(data[i]['status']) == 0)
+                        //     values.push({ y: parseInt(data[i]['value1'] - data[i]['value2']), color: '#FF0000' });
+                        // else
+                        //     values.push({ y: parseInt(data[i]['value1'] - data[i]['value2']), color: '#FF0000' });
+                        // time.push(data[i]['time']);
+
+                        BN_values.push({ y: parseInt(data[i]['sum(startWeight)'] - data[i]['sum(endWeight)']) });
+
+                    }
+                    BN_values=BN_values.reverse();
+                    night();
+                }
+
+
+
+            });
+
+
+
+        });
+        function night() {
+            $.ajax({
+                url: 'dataAfterNoon.php',//連接的URL
+                data: "{}",//夾帶的參數
+                dataType: 'json', //資料格式
+                success: function (data)    //傳送成功的function
+                {
+                    // highcharsinit();
+                    AN_values = [];
+                    time = [];
+
+                    for (var i = 0; i < data.length; i++) {
+                        // if (parseInt(data[i]['status']) == 0)
+                        //     values.push({ y: parseInt(data[i]['value1'] - data[i]['value2']), color: '#FF0000' });
+                        // else
+                        //     values.push({ y: parseInt(data[i]['value1'] - data[i]['value2']), color: '#FF0000' });
+                        // time.push(data[i]['time']);
+
+                        AN_values.push({ y: parseInt(data[i]['sum(startWeight)'] - data[i]['sum(endWeight)']) });
+
+                    }
+                    AN_values=AN_values.reverse();
+                    highcharsinit();
+                }
+            });
+        }
+
+
+    </script>
+    <div id="wrapper">
+
+                <!-- Main -->
+                    <div id="main">
+                        <div class="inner">
+
+                            <!-- Header -->
+                                <header id="header">
+                                    <a href="index.html" class="logo"><strong>Kat</strong></a>
+                                    <ul class="icons">
+                                        
+                                        <li><a target="_blank" href="https://www.facebook.com/pg/siilpm/posts/" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+                                        
+                                        <li><a target="_blank" href="https://www.instagram.com/explore/tags/%E4%B8%AD%E8%88%88%E5%A4%A7%E5%AD%B8/" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+                                        
+                                    </ul>
+                                </header>          
+
+                            <!-- Banner -->
+                                <section id="banner">
+                                    <div class="content">
+                                         <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto">Highchart_01</div>
+                                    </div>
+
+                                </section>
+
+                            <!-- Section -->
+                                
+
+                            <!-- Section -->
+                                <section>
+                                    <header class="major">
+                                        
+                                    </header>
+                                    
+                                </section>
+
+                        </div>
+                    </div>
+
+                <!-- Sidebar -->
+                    <div id="sidebar">
+                        <div class="inner" style="">
+
+                            <!-- Menu -->
+                                <nav id="menu">
+                                    <header class="major">
+                                        <h2>Menu</h2>
+                                    </header>
+                                    <ul>
+                                        <li><a href="index.html">首頁</a></li>
+                                        
+                                        
+                                        <li>
+                                            <span class="opener">產品</span>
+                                            <ul>
+                                                <li><a href="FlowChart.html">KatFeeder</a></li>
+                                                
+                                                
+                                                
+                                            </ul>
+                                        </li>
+                                        
+                                        
+                                        <li>
+                                            <span class="opener">寵物日記</span>
+                                            <ul>
+                                                <li><a href="highchart.html">飲食習慣</a></li>
+                                                <li><a href="highchart2.html">日夜區分</a></li>
+                                                <li><a href="highchart3.html">每日統計</a></li>
+                                                
+                                            </ul>
+                                        </li>
+                                        
+                                        
+                                        
+                                    <li>
+                                            <span class="opener">工作人員</span>
+                                            <ul>
+                                                <li><a href="LIN.html">林建翰</a></li>
+                                                <li><a href="JEN.html">任柏岳</a></li>
+                                                <li><a href="WU.html">吳遠松</a></li>
+                                                <li><a href="HAO.html">柯浩之</a></li>
+                                            </ul>
+                                        </li></ul>
+                                </nav>
+
+                            <!-- Section -->
+                                
+
+                            <!-- Section -->
+                                <section>
+                                    <header class="major">
+                                        <h2>聯絡我們</h2>
+                                    </header>
+                                    <p>所有有關KatFeeder智慧餵食器的問題，歡迎與我們聯繫，客服人員將為您服務。</p>
+                                    <ul class="contact">
+                                        <li class="fa-envelope-o"><a href="#">nchuiii@gmail.com</a></li>
+                                        <li class="fa-phone">(04) 2285-5506</li>
+                                        <li class="fa-home">臺中市南區興大路145號(綜合教學大樓-院辦公室9樓934、企劃行銷組8樓)</li>
+                                    </ul>
+                                </section>
+
+                            <!-- Footer -->
+                                <footer id="footer">
+                                    <p class="copyright">© Untitled. All rights reserved. Demo Images: <a href="https://unsplash.com">Unsplash</a>. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+                                </footer>
+
+                        </div>
+                    <a href="#sidebar" class="toggle">Toggle</a><a href="#sidebar" class="toggle">Toggle</a><a href="#sidebar" class="toggle">Toggle</a></div>
+
+    </div>    
+		<!-- Wrapper -->
+
+
+		<!-- Scripts -->
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	
+</body></html>

@@ -1,0 +1,90 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HighChart</title>
+
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+
+    <!--include the highcharts library-->
+    <script src="http://code.highcharts.com/highcharts.js"></script>
+
+    <!-- Bootstrap css and js -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+    <script>
+        function highcharsinit() {
+            $('#container').highcharts({
+                title: {
+                    text: '飼料重量感測表',
+                    x: -20
+                },
+                subtitle: {
+                    text: '貓咪食量',
+                    x: -20
+                },
+                xAxis: {
+                    title: {
+                        text: 'Time'
+                    },
+                    categories: time,
+                    labels: { //隱藏X軸的標籤
+                        enabled: false,
+                    }
+                },
+                yAxis: {
+                    title: {
+                        text: '食量(克)',
+                    }
+                },
+                //圖表的資料
+                series: [{
+                    name: '前10次餵食',
+                    data: values
+                }]
+            });
+        }
+    </script>
+
+    <script> // main jQuery function
+        $(function () {
+            $.ajax({
+                url: 'database.php',//連接的URL
+                data: "{}",//夾帶的參數
+                dataType: 'json', //資料格式
+                success: function (data)	//傳送成功的function
+                {
+                    values = [];
+                    time = [];
+
+                    for (var i = data.length - 10; i < data.length; i++) {
+                        if (parseInt(data[i]['status']) == 0)
+                            values.push({ y: parseInt(data[i]['startWeight']-data[i]['endWeight']), color: '#FF0000' });
+                        else
+                            values.push({ y: parseInt(data[i]['startWeight']-data[i]['endWeight']), color: '#FF0000' });
+                        time.push(data[i]['time']);
+                    }
+                    highcharsinit();
+                    callEAModel();
+                    newDA();
+                }
+            });
+        });
+
+    </script>
+
+</head>
+
+<body>
+
+
+    <div class="container">
+        <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto">Insert Highchart Here</div>
+
+    </div>
+</body>
+
+</html>

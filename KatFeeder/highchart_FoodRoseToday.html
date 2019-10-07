@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/highcharts-more.js"></script>
+    <script src="https://code.highcharts.com/modules/data.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    <style>
+        tspan {
+            font-family: "微軟正黑體", "Microsoft JhengHei", "Segoe UI Semibold", "Segoe UI";
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container" style="min-width: 420px; max-width: 600px; height: 400px; margin: 0 auto"></div>
+
+    <div style="display:none">
+        <table id="freq" border="0" cellspacing="0" cellpadding="0">
+        </table>
+    </div>
+
+    <script>
+        var foodData = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16,];
+        while (foodData.length < 24) foodData.push(0);
+            var highChart_food_rose = document.getElementById("freq");
+        var highChart_food_rose_content = '<tr nowrap><th colspan="9" class="hdr">Table of food intake (g)</th></tr>' +
+            '<tr nowrap><th class="freq">Direction</th><th class="freq">貓咪食量 (g)</th></tr>';
+        for (var index = 0; index < 24; index++) {
+            highChart_food_rose_content += '<tr nowrap><td class="dir">' + index + '</td><td class="data">' + foodData[index] + '</td></tr>';
+        }
+        highChart_food_rose.innerHTML = highChart_food_rose_content;
+    </script>
+
+    <script>
+        // Parse the data from an inline table using the Highcharts Data plugin
+        Highcharts.chart('container', {
+            data: {
+                table: 'freq',
+                startRow: 1,
+                endRow: 25,
+                endColumn: 1
+            },
+
+            chart: {
+                polar: true,
+                type: 'column'
+            },
+
+            title: {
+                text: '今日的貓咪食量'
+            },
+
+            subtitle: {
+                text: 'KatFeeder™'
+            },
+
+            pane: {
+                size: '85%'
+            },
+
+            legend: {
+                align: 'right',
+                verticalAlign: 'top',
+                y: 100,
+                layout: 'vertical'
+            },
+
+            xAxis: {
+                tickmarkPlacement: 'between',
+                tickAmount: 13
+            },
+
+            yAxis: {
+                min: 0,
+                endOnTick: false,
+                showLastLabel: true,
+                title: {
+                    text: ''
+                },
+                labels: {
+                    formatter: function () {
+                        return this.value + ' g';
+                    }
+                },
+                reversedStacks: false
+            },
+
+            tooltip: {
+                valueSuffix: 'g',
+
+            },
+
+            plotOptions: {
+                series: {
+                    stacking: 'null',
+                    shadow: true,
+                    groupPadding: 0,
+                    pointPlacement: 'between',
+                }
+            }
+        });
+    </script>
+
+</body>
+
+</html>

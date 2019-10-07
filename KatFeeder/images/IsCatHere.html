@@ -1,0 +1,48 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    
+</head>
+
+<body>
+        <script>
+
+                setInterval(fun, 1000);
+
+                function fun() {
+                    $.ajax({
+                        url: 'StateCheck.php',
+                        data: '{}',
+                        dataType: 'json',
+                        success: function (data) {
+
+                            cat_pic(data);
+        
+        
+        
+                        }
+                    });
+                }
+        
+                function cat_pic(data) {
+                    var test = document.getElementById("test");
+                    input_pic = "";
+                    input_pic += "<img width='90' height='90' src='images/"; 
+                    //input_pic += "cat";
+                    input_pic += data[0]['Yes_No'].toString();
+                    input_pic += ".png'>";
+                    test.innerHTML = input_pic;
+                }
+        
+        
+            </script>
+    <div width="90" height="90" id="test"></div>
+
+</body>
+
+</html>
