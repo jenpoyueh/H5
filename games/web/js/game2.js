@@ -163,8 +163,8 @@ game.State.web={
         // this.waterBtn.inputEnabled = true;
         // this.waterBtn.input.priorityID = 1;
         // this.waterBtn.input.useHandCursor = true;// 手指指標
-        // this.waterBtn.anchor.setTo(0.5);
-        // this.waterBtn.scale.setTo(0.8);
+        this.waterBtn.anchor.setTo(0.5);
+        this.waterBtn.scale.setTo(0.8);
         // this.waterBtnTween = game.add.tween(this.waterBtn.scale).to({x:0.9,y:0.9}, 800, Phaser.Easing.Linear.None, true, 0, -1, true);
         // this.waterBtn.events.onInputDown.add(function(){
         //     this.soundFx('enter',0.5,false);
