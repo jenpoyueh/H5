@@ -40,13 +40,12 @@ game.State.boot={
     },   
 
     create:function(){  
-        game.state.start('web');
+        game.state.start('load');
     }
 
 }
 
-
-game.State.web={
+game.State.load={
 
     preload:function(){
         // var preloadSprite = game.add.sprite(game.width/2-220/2,game.height/2-19/2,'loading');
@@ -55,6 +54,11 @@ game.State.web={
         game.load.image('title', '../resume/assets/title.png');
         game.load.image('light01', '../resume/assets/light01.png');
         game.load.image('light02', '../resume/assets/light02.png');
+        game.load.image('film', '../resume/assets/film.png');
+        game.load.image('movie_bg', '../resume/assets/movie_bg.png');
+        game.load.image('movie_ai', '../resume/assets/movie_ai.png');
+        game.load.image('movie_ps', '../resume/assets/movie_ps.png');
+        game.load.image('movie_sai', '../resume/assets/movie_sai.png');
         game.load.spritesheet('cancel', '../resume/assets/cancel.png', 60, 60, 2);
         game.load.spritesheet('pageL', '../resume/assets/pageL.png', 50, 80, 2);
         game.load.spritesheet('pageR', '../resume/assets/pageR.png', 50, 80, 2);
@@ -66,10 +70,17 @@ game.State.web={
         // game.load.audio('enter', '../resume/assets/enter.mp3');
 
     },
+    create:function(){  
+        game.state.start('web');
+    }
+}
+
+
+game.State.web={
+
     create:function(){
         // 背景
         this.bg = game.add.image(0,0,'bg');
-        this.title = game.add.image(0,-10,'title');
         // 閃亮亮01
         this.light01 = game.add.sprite(0,0,'light01');
         game.add.tween(this.light01).to({ alpha: 0 }, 500, Phaser.Easing.Linear.None, true, 0, -1, true);
@@ -77,8 +88,10 @@ game.State.web={
         this.light02 = game.add.sprite(0,0,'light02');
         this.light02.alpha = 0;
         game.add.tween(this.light02).to({ alpha: 1 }, 500, Phaser.Easing.Linear.None, true, 0, -1, true);
-        //按鈕們
-        this.buttonA = game.add.button(110,820,'buttonA',this.pageA,this,0,1,1);
+        // 標題
+        this.title = game.add.image(0,-10,'title');
+        // 按鈕們
+        this.buttonA = game.add.button(110,820,'buttonA',this.pageA,this,1,1,1);
         this.buttonB = game.add.button(250,820,'buttonB',this.pageB,this,1,0,1);
         this.buttonc = game.add.button(390,820,'buttonC',this.pageC,this,1,0,1);
     },
@@ -105,7 +118,8 @@ game.State.works = {
     create:function(){
         // 背景
         this.bg = game.add.image(0,0,'bg');
-        this.title = game.add.image(0,0,'title');
+        this.film = game.add.image(0,0,'film');
+
         // 閃亮亮01
         this.light01 = game.add.sprite(0,0,'light01');
         game.add.tween(this.light01).to({ alpha: 0 }, 500, Phaser.Easing.Linear.None, true, 0, -1, true);
@@ -113,10 +127,19 @@ game.State.works = {
         this.light02 = game.add.sprite(0,0,'light02');
         this.light02.alpha = 0;
         game.add.tween(this.light02).to({ alpha: 1 }, 500, Phaser.Easing.Linear.None, true, 0, -1, true);
-        //按鈕們
-        this.buttonA = game.add.button(100,850,'buttonA',this.pageA,this,1,0,1);
-        this.buttonB = game.add.button(200,850,'buttonB',this.pageB,this,1,0,1);
-        this.buttonc = game.add.button(300,850,'buttonC',this.pageC,this,1,0,1);
+        // 作品按鈕們
+        this.ai = game.add.button(game.width/2,game.height/2-195,'movie_ai',this.pageAi,this,0,0,0);
+        this.ps = game.add.button(game.width/2,game.height/2+36,'movie_ps',this.pagePs,this,0,0,0);
+        this.sai = game.add.button(game.width/2,game.height/2+266,'movie_sai',this.pageSai,this,0,0,0);
+        this.ai.anchor.setTo(0.5);
+        this.ps.anchor.setTo(0.5);
+        this.sai.anchor.setTo(0.5);
+        // 標題
+        this.title = game.add.image(0,-10,'title');
+        // 按鈕們
+        this.buttonA = game.add.button(110,820,'buttonA',this.pageA,this,1,0,1);
+        this.buttonB = game.add.button(250,820,'buttonB',this.pageB,this,1,1,1);
+        this.buttonc = game.add.button(390,820,'buttonC',this.pageC,this,1,0,1);
     },
     // 聲音播放
     soundFx: function(name,value,loopFlag){
@@ -134,11 +157,88 @@ game.State.works = {
     pageC:function(){
         game.state.start('games');
     },
+    pageAi:function(){
+        game.state.start('works_ai');
+    },
+    pagePs:function(){
+        game.state.start('works_ps');
+    },
+    pageSai:function(){
+        game.state.start('works_sai');
+    },
 }
+
+game.State.works_ai={
+    create:function(){
+
+        this.picWorks = [0,1,2,3,4];
+        // 背景
+        this.bg = game.add.image(0,0,'movie_bg');
+        // 取消按鈕
+        this.cancel = game.add.button(550,30,'cancel',this.pageB,this,1,0,1);
+        // 切頁按鈕
+        this.L = game.add.button(game.width/2-70,850,'pageL',this.paintWorksL,this,0,1,0);
+        this.R = game.add.button(game.width/2+70,850,'pageR',this.paintWorksR,this,1,0,1);
+        this.L.anchor.setTo(0.5);
+        this.R.anchor.setTo(0.5);
+    },
+    update:function(){
+
+    },
+    pageB:function(){
+        game.state.start('works');
+    },
+    paintWorksL:function(){
+        console.log('左');
+    },
+    paintWorksR:function(){
+        console.log('右');
+    }
+}
+game.State.works_ps={
+    create:function(){
+        // 背景
+        this.bg = game.add.image(0,0,'movie_bg');
+        // 取消按鈕
+        this.cancel = game.add.button(550,30,'cancel',this.pageB,this,1,0,1);
+        
+    },
+    pageB:function(){
+        game.state.start('works');
+    },
+}
+game.State.works_sai={
+    create:function(){
+        // 背景
+        this.bg = game.add.image(0,0,'movie_bg');
+        // 取消按鈕
+        this.cancel = game.add.button(550,30,'cancel',this.pageB,this,1,0,1);
+    },
+    pageB:function(){
+        game.state.start('works');
+    },
+}
+
+
+
 
 game.State.games = {
     create:function(){
-        
+        // 背景
+        this.bg = game.add.image(0,0,'bg');
+        // 閃亮亮01
+        this.light01 = game.add.sprite(0,0,'light01');
+        game.add.tween(this.light01).to({ alpha: 0 }, 500, Phaser.Easing.Linear.None, true, 0, -1, true);
+        // 閃亮亮02
+        this.light02 = game.add.sprite(0,0,'light02');
+        this.light02.alpha = 0;
+        game.add.tween(this.light02).to({ alpha: 1 }, 500, Phaser.Easing.Linear.None, true, 0, -1, true);
+        //標題
+        this.title = game.add.image(0,-10,'title');
+        //按鈕們
+        this.buttonA = game.add.button(110,820,'buttonA',this.pageA,this,1,0,1);
+        this.buttonB = game.add.button(250,820,'buttonB',this.pageB,this,1,0,1);
+        this.buttonc = game.add.button(390,820,'buttonC',this.pageC,this,1,1,1);
     },
     // 聲音播放
     soundFx: function(name,value,loopFlag){
@@ -161,8 +261,12 @@ game.State.games = {
 /*************** 加入state ******************/
 
 game.state.add('boot',game.State.boot);
+game.state.add('load',game.State.load);
 game.state.add('web',game.State.web);
 game.state.add('works',game.State.works);
+game.state.add('works_ai',game.State.works_ai);
+game.state.add('works_ps',game.State.works_ps);
+game.state.add('works_sai',game.State.works_sai);
 game.state.add('games',game.State.games);
 game.state.start('boot');
 
