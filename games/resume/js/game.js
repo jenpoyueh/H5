@@ -29,7 +29,7 @@ game.State={};
 game.State.boot={
 
     preload:function(){
-        game.load.image('loading','../resume/assets/preloader.gif');
+        // game.load.image('loading','../resume/assets/preloader.gif');
         //行動平台螢幕適應
         game.scale.pageAlignHorizontally = true;
         game.scale.pageAlignVertically = true;
@@ -49,7 +49,7 @@ game.State.boot={
 game.State.web={
 
     preload:function(){
-        var preloadSprite = game.add.sprite(game.width/2-220/2,game.height/2-19/2,'loading');
+        // var preloadSprite = game.add.sprite(game.width/2-220/2,game.height/2-19/2,'loading');
         game.load.setPreloadSprite(preloadSprite);
         game.load.image('bg', '../resume/assets/bg.png');
         game.load.image('title', '../resume/assets/title.png');
@@ -69,7 +69,7 @@ game.State.web={
     create:function(){
         // 背景
         this.bg = game.add.image(0,0,'bg');
-        this.title = game.add.image(0,0,'title');
+        this.title = game.add.image(0,-10,'title');
         // 閃亮亮01
         this.light01 = game.add.sprite(0,0,'light01');
         game.add.tween(this.light01).to({ alpha: 0 }, 500, Phaser.Easing.Linear.None, true, 0, -1, true);
@@ -78,7 +78,7 @@ game.State.web={
         this.light02.alpha = 0;
         game.add.tween(this.light02).to({ alpha: 1 }, 500, Phaser.Easing.Linear.None, true, 0, -1, true);
         //按鈕們
-        this.buttonA = game.add.button(110,820,'buttonA',this.pageA,this,0,1,0);
+        this.buttonA = game.add.button(110,820,'buttonA',this.pageA,this,0,1,1);
         this.buttonB = game.add.button(250,820,'buttonB',this.pageB,this,1,0,1);
         this.buttonc = game.add.button(390,820,'buttonC',this.pageC,this,1,0,1);
     },
