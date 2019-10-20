@@ -56,9 +56,17 @@ game.State.load={
         game.load.image('light02', '../resume/assets/light02.png');
         game.load.image('film', '../resume/assets/film.png');
         game.load.image('movie_bg', '../resume/assets/movie_bg.png');
-        game.load.image('movie_ai', '../resume/assets/movie_ai.png');
-        game.load.image('movie_ps', '../resume/assets/movie_ps.png');
-        game.load.image('movie_sai', '../resume/assets/movie_sai.png');
+        game.load.image('01', '../resume/assets/01.png');
+        game.load.image('02', '../resume/assets/02.png');
+        game.load.image('03', '../resume/assets/03.png');
+        game.load.image('04', '../resume/assets/04.png');
+        game.load.image('05', '../resume/assets/05.png');
+        game.load.image('06', '../resume/assets/06.png');
+        game.load.image('07', '../resume/assets/07.png');
+        game.load.image('08', '../resume/assets/08.png');
+        game.load.spritesheet('movie_ai', '../resume/assets/movie_ai_sprite.png', 350, 220, 2);
+        game.load.spritesheet('movie_ps', '../resume/assets/movie_ps_sprite.png', 350, 220, 2);
+        game.load.spritesheet('movie_sai', '../resume/assets/movie_sai_sprite.png', 350, 220, 2);
         game.load.spritesheet('cancel', '../resume/assets/cancel.png', 60, 60, 2);
         game.load.spritesheet('pageL', '../resume/assets/pageL.png', 50, 80, 2);
         game.load.spritesheet('pageR', '../resume/assets/pageR.png', 50, 80, 2);
@@ -93,7 +101,7 @@ game.State.web={
         // 按鈕們
         this.buttonA = game.add.button(110,820,'buttonA',this.pageA,this,1,1,1);
         this.buttonB = game.add.button(250,820,'buttonB',this.pageB,this,1,0,1);
-        this.buttonc = game.add.button(390,820,'buttonC',this.pageC,this,1,0,1);
+        this.buttonC = game.add.button(390,820,'buttonC',this.pageC,this,1,0,1);
     },
 
     // 聲音播放
@@ -110,7 +118,8 @@ game.State.web={
         game.state.start('works');
     },
     pageC:function(){
-        game.state.start('games');
+        // game.state.start('games');
+        window.location.href = '../web/index.html';
     },
 }
 
@@ -128,9 +137,9 @@ game.State.works = {
         this.light02.alpha = 0;
         game.add.tween(this.light02).to({ alpha: 1 }, 500, Phaser.Easing.Linear.None, true, 0, -1, true);
         // 作品按鈕們
-        this.ai = game.add.button(game.width/2,game.height/2-195,'movie_ai',this.pageAi,this,0,0,0);
-        this.ps = game.add.button(game.width/2,game.height/2+36,'movie_ps',this.pagePs,this,0,0,0);
-        this.sai = game.add.button(game.width/2,game.height/2+266,'movie_sai',this.pageSai,this,0,0,0);
+        this.ai = game.add.button(game.width/2,game.height/2-195,'movie_ai',this.pageAi,this,1,0,1);
+        this.ps = game.add.button(game.width/2,game.height/2+36,'movie_ps',this.pagePs,this,1,0,1);
+        this.sai = game.add.button(game.width/2,game.height/2+266,'movie_sai',this.pageSai,this,1,0,1);
         this.ai.anchor.setTo(0.5);
         this.ps.anchor.setTo(0.5);
         this.sai.anchor.setTo(0.5);
@@ -155,7 +164,8 @@ game.State.works = {
         game.state.start('works');
     },
     pageC:function(){
-        game.state.start('games');
+        // game.state.start('games');
+        window.location.href = '../web/index.html';
     },
     pageAi:function(){
         game.state.start('works_ai');
@@ -170,10 +180,18 @@ game.State.works = {
 
 game.State.works_ai={
     create:function(){
-
-        this.picWorks = [0,1,2,3,4];
         // 背景
         this.bg = game.add.image(0,0,'movie_bg');
+        this.picpage = 0;
+        this.page0 = game.add.image(0,0,'01');
+        this.page1 = game.add.image(0,0,'02');
+        this.page2 = game.add.image(0,0,'03');
+        this.page3 = game.add.image(0,0,'04');
+        this.page0.alpha = 0;
+        this.page1.alpha = 0;
+        this.page2.alpha = 0;
+        this.page3.alpha = 0;
+
         // 取消按鈕
         this.cancel = game.add.button(550,30,'cancel',this.pageB,this,1,0,1);
         // 切頁按鈕
@@ -183,15 +201,47 @@ game.State.works_ai={
         this.R.anchor.setTo(0.5);
     },
     update:function(){
+        if(this.picpage === 0){
+            this.page0.alpha = 1;
+            this.page1.alpha = 0;
+            this.page2.alpha = 0;
+            this.page3.alpha = 0;
+        }
+        if(this.picpage === 1){
+            this.page0.alpha = 0;
+            this.page1.alpha = 1;
+            this.page2.alpha = 0;
+            this.page3.alpha = 0;
+        }
+        if(this.picpage === 2){
+            this.page0.alpha = 0;
+            this.page1.alpha = 0;
+            this.page2.alpha = 1;
+            this.page3.alpha = 0;
+        }
+        if(this.picpage === 3){
+            this.page0.alpha = 0;
+            this.page1.alpha = 0;
+            this.page2.alpha = 0;
+            this.page3.alpha = 1;
+        }
 
     },
     pageB:function(){
         game.state.start('works');
     },
     paintWorksL:function(){
+        this.picpage--;
+        if(this.picpage<0){
+            this.picpage = 0;
+        }
         console.log('左');
     },
     paintWorksR:function(){
+        this.picpage++;
+        if(this.picpage>3){
+            this.picpage = 3;
+        }
         console.log('右');
     }
 }
@@ -199,13 +249,68 @@ game.State.works_ps={
     create:function(){
         // 背景
         this.bg = game.add.image(0,0,'movie_bg');
+        this.picpage = 0;
+        this.page0 = game.add.image(0,0,'05');
+        this.page1 = game.add.image(0,0,'06');
+        this.page2 = game.add.image(0,0,'07');
+        this.page3 = game.add.image(0,0,'08');
+        this.page0.alpha = 0;
+        this.page1.alpha = 0;
+        this.page2.alpha = 0;
+        this.page3.alpha = 0;
+
         // 取消按鈕
         this.cancel = game.add.button(550,30,'cancel',this.pageB,this,1,0,1);
-        
+        // 切頁按鈕
+        this.L = game.add.button(game.width/2-70,850,'pageL',this.paintWorksL,this,0,1,0);
+        this.R = game.add.button(game.width/2+70,850,'pageR',this.paintWorksR,this,1,0,1);
+        this.L.anchor.setTo(0.5);
+        this.R.anchor.setTo(0.5);
+    },
+    update:function(){
+        if(this.picpage === 0){
+            this.page0.alpha = 1;
+            this.page1.alpha = 0;
+            this.page2.alpha = 0;
+            this.page3.alpha = 0;
+        }
+        if(this.picpage === 1){
+            this.page0.alpha = 0;
+            this.page1.alpha = 1;
+            this.page2.alpha = 0;
+            this.page3.alpha = 0;
+        }
+        if(this.picpage === 2){
+            this.page0.alpha = 0;
+            this.page1.alpha = 0;
+            this.page2.alpha = 1;
+            this.page3.alpha = 0;
+        }
+        if(this.picpage === 3){
+            this.page0.alpha = 0;
+            this.page1.alpha = 0;
+            this.page2.alpha = 0;
+            this.page3.alpha = 1;
+        }
+
     },
     pageB:function(){
         game.state.start('works');
     },
+    paintWorksL:function(){
+        this.picpage--;
+        if(this.picpage<0){
+            this.picpage = 0;
+        }
+        console.log('左');
+    },
+    paintWorksR:function(){
+        this.picpage++;
+        if(this.picpage>3){
+            this.picpage = 3;
+        }
+        console.log('右');
+    }
 }
 game.State.works_sai={
     create:function(){

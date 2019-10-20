@@ -58,6 +58,7 @@ game.State.web={
         game.load.image('waterBtn', '../web/assets/waterBtn.png');
         game.load.image('moonBtn', '../web/assets/moonBtn.png');
         game.load.image('ghostBtn', '../web/assets/ghostBtn.png');
+        game.load.spritesheet('cancel', '../resume/assets/cancel.png', 60, 60, 2);
         game.load.audio('bgm', '../web/assets/bgm.mp3');
         game.load.audio('enter', '../web/assets/enter.mp3');
 
@@ -209,6 +210,8 @@ game.State.web={
                 window.location.href = '../games012/index.html';
             },this);
         },this);
+         // 取消按鈕
+         this.cancel = game.add.button(550,30,'cancel',this.resume,this,1,0,1);
     },
     update:function(){
 
@@ -220,6 +223,9 @@ game.State.web={
             soundFx.play();
         }catch(e){}
     },
+    resume:function(){
+        window.location.href = '../resume/index.html';
+    }
 }
 
 
