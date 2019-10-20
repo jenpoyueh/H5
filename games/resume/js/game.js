@@ -195,8 +195,8 @@ game.State.works_ai={
         // 取消按鈕
         this.cancel = game.add.button(550,30,'cancel',this.pageB,this,1,0,1);
         // 切頁按鈕
-        this.L = game.add.button(game.width/2-70,850,'pageL',this.paintWorksL,this,0,1,0);
-        this.R = game.add.button(game.width/2+70,850,'pageR',this.paintWorksR,this,1,0,1);
+        this.L = game.add.button(game.width/2-70,850,'pageL',this.paintWorksL,this,0,1,0,1);
+        this.R = game.add.button(game.width/2+70,850,'pageR',this.paintWorksR,this,1,0,1,0);
         this.L.anchor.setTo(0.5);
         this.R.anchor.setTo(0.5);
     },
@@ -262,8 +262,8 @@ game.State.works_ps={
         // 取消按鈕
         this.cancel = game.add.button(550,30,'cancel',this.pageB,this,1,0,1);
         // 切頁按鈕
-        this.L = game.add.button(game.width/2-70,850,'pageL',this.paintWorksL,this,0,1,0);
-        this.R = game.add.button(game.width/2+70,850,'pageR',this.paintWorksR,this,1,0,1);
+        this.L = game.add.button(game.width/2-70,850,'pageL',this.paintWorksL,this,0,1,0,1);
+        this.R = game.add.button(game.width/2+70,850,'pageR',this.paintWorksR,this,1,0,1,0);
         this.L.anchor.setTo(0.5);
         this.R.anchor.setTo(0.5);
     },
