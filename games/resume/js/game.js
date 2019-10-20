@@ -50,7 +50,7 @@ game.State.web={
 
     preload:function(){
         // var preloadSprite = game.add.sprite(game.width/2-220/2,game.height/2-19/2,'loading');
-        game.load.setPreloadSprite(preloadSprite);
+        // game.load.setPreloadSprite(preloadSprite);
         game.load.image('bg', '../resume/assets/bg.png');
         game.load.image('title', '../resume/assets/title.png');
         game.load.image('light01', '../resume/assets/light01.png');
@@ -62,8 +62,8 @@ game.State.web={
         game.load.spritesheet('buttonA', '../resume/assets/buttonA.png', 130, 130, 2);
         game.load.spritesheet('buttonB', '../resume/assets/buttonB.png', 130, 130, 2);
         game.load.spritesheet('buttonC', '../resume/assets/buttonC.png', 130, 130, 2);
-        game.load.audio('bgm', '../resume/assets/bgm.mp3');
-        game.load.audio('enter', '../resume/assets/enter.mp3');
+        // game.load.audio('bgm', '../resume/assets/bgm.mp3');
+        // game.load.audio('enter', '../resume/assets/enter.mp3');
 
     },
     create:function(){
