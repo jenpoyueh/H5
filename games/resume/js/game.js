@@ -21,6 +21,7 @@ var game =new Phaser.Game(width, height, Phaser.CANVAS, 'game');
 
 // 遊戲階段
 game.State={};
+
 /************************/
 
 
@@ -182,7 +183,6 @@ game.State.works = {
 
 game.State.works_ai={
     create:function(){
-        this.swipe = new Swipe(this.game);
         // 背景
         this.bg = game.add.image(0,0,'movie_bg');
         this.picpage = 0;
@@ -228,30 +228,6 @@ game.State.works_ai={
             this.page2.alpha = 0;
             this.page3.alpha = 1;
         }
-        var direction = this.swipe.check();
-        if (direction!==null) {
-          // direction= { x: x, y: y, direction: direction }
-          switch(direction.direction) {
-             case this.swipe.DIRECTION_LEFT:
-                    this.picpage--;
-                    if(this.picpage<0){
-                        this.picpage = 0;
-                    }
-                    console.log('左'); // do something
-             case this.swipe.DIRECTION_RIGHT:
-                    this.picpage++;
-                    if(this.picpage>3){
-                        this.picpage = 3;
-                    }
-                    console.log('右');
-             case this.swipe.DIRECTION_UP:
-             case this.swipe.DIRECTION_DOWN:
-             case this.swipe.DIRECTION_UP_LEFT:
-             case this.swipe.DIRECTION_UP_RIGHT:
-             case this.swipe.DIRECTION_DOWN_LEFT:
-             case this.swipe.DIRECTION_DOWN_RIGHT:
-          }
-        }        
 
     },
     pageB:function(){
