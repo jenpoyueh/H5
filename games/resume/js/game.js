@@ -64,6 +64,10 @@ game.State.load={
         game.load.image('06', '../resume/assets/06.png');
         game.load.image('07', '../resume/assets/07.png');
         game.load.image('08', '../resume/assets/08.png');
+        game.load.image('09', '../resume/assets/09.png');
+        game.load.image('10', '../resume/assets/10.png');
+        game.load.image('11', '../resume/assets/11.png');
+        game.load.image('12', '../resume/assets/12.png');
         game.load.spritesheet('movie_ai', '../resume/assets/movie_ai_sprite.png', 350, 220, 2);
         game.load.spritesheet('movie_ps', '../resume/assets/movie_ps_sprite.png', 350, 220, 2);
         game.load.spritesheet('movie_sai', '../resume/assets/movie_sai_sprite.png', 350, 220, 2);
@@ -316,12 +320,68 @@ game.State.works_sai={
     create:function(){
         // 背景
         this.bg = game.add.image(0,0,'movie_bg');
+        this.picpage = 0;
+        this.page0 = game.add.image(0,0,'09');
+        this.page1 = game.add.image(0,0,'10');
+        this.page2 = game.add.image(0,0,'11');
+        this.page3 = game.add.image(0,0,'12');
+        this.page0.alpha = 0;
+        this.page1.alpha = 0;
+        this.page2.alpha = 0;
+        this.page3.alpha = 0;
+
         // 取消按鈕
         this.cancel = game.add.button(550,30,'cancel',this.pageB,this,1,0,1);
+        // 切頁按鈕
+        this.L = game.add.button(game.width/2-70,850,'pageL',this.paintWorksL,this,0,1,0,1);
+        this.R = game.add.button(game.width/2+70,850,'pageR',this.paintWorksR,this,1,0,1,0);
+        this.L.anchor.setTo(0.5);
+        this.R.anchor.setTo(0.5);
+    },
+    update:function(){
+        if(this.picpage === 0){
+            this.page0.alpha = 1;
+            this.page1.alpha = 0;
+            this.page2.alpha = 0;
+            this.page3.alpha = 0;
+        }
+        if(this.picpage === 1){
+            this.page0.alpha = 0;
+            this.page1.alpha = 1;
+            this.page2.alpha = 0;
+            this.page3.alpha = 0;
+        }
+        if(this.picpage === 2){
+            this.page0.alpha = 0;
+            this.page1.alpha = 0;
+            this.page2.alpha = 1;
+            this.page3.alpha = 0;
+        }
+        if(this.picpage === 3){
+            this.page0.alpha = 0;
+            this.page1.alpha = 0;
+            this.page2.alpha = 0;
+            this.page3.alpha = 1;
+        }
+
     },
     pageB:function(){
         game.state.start('works');
     },
+    paintWorksL:function(){
+        this.picpage--;
+        if(this.picpage<0){
+            this.picpage = 0;
+        }
+        console.log('左');
+    },
+    paintWorksR:function(){
+        this.picpage++;
+        if(this.picpage>3){
+            this.picpage = 3;
+        }
+        console.log('右');
+    }
 }
 
 
