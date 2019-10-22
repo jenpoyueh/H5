@@ -1,9 +1,5 @@
 /****************** 可連結資料庫變更的變數 ********************/
 
-var phaser_kinetic = require('phaser-kinetic-scrolling-plugin');
-console.log(phaser_kinetic);
-
-
 /******** 條件 *********/
 
 /**********************/
