@@ -1,6 +1,7 @@
 /****************** 可連結資料庫變更的變數 ********************/
 
-
+var phaser_kinetic = require('phaser-kinetic-scrolling-plugin');
+console.log(phaser_kinetic);
 
 
 /******** 條件 *********/
@@ -121,8 +122,8 @@ game.State.web={
         game.state.start('works');
     },
     pageC:function(){
-        // game.state.start('games');
-        window.location.href = '../web/index.html';
+        game.state.start('games');
+        // window.location.href = '../web/index.html';
     },
 }
 
@@ -167,8 +168,8 @@ game.State.works = {
         game.state.start('works');
     },
     pageC:function(){
-        // game.state.start('games');
-        window.location.href = '../web/index.html';
+        game.state.start('games');
+        // window.location.href = '../web/index.html';
     },
     pageAi:function(){
         game.state.start('works_ai');
@@ -403,6 +404,7 @@ game.State.games = {
         this.buttonA = game.add.button(110,820,'buttonA',this.pageA,this,1,0,1);
         this.buttonB = game.add.button(250,820,'buttonB',this.pageB,this,1,0,1);
         this.buttonc = game.add.button(390,820,'buttonC',this.pageC,this,1,1,1);
+        window.location.href = '../web/index.html';
     },
     // 聲音播放
     soundFx: function(name,value,loopFlag){
