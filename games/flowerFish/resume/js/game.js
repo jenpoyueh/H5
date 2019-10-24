@@ -51,6 +51,7 @@ game.State.load={
         game.load.image('title', '../resume/assets/title.png');
         game.load.image('light01', '../resume/assets/light01.png');
         game.load.image('light02', '../resume/assets/light02.png');
+        game.load.image('info', '../resume/assets/info.png');
         game.load.image('film', '../resume/assets/film.png');
         game.load.image('movie_bg', '../resume/assets/movie_bg.png');
         game.load.image('01', '../resume/assets/01.png');
@@ -89,6 +90,7 @@ game.State.web={
     create:function(){
         // 背景
         this.bg = game.add.image(0,0,'bg');
+        this.info = game.add.image(0,0,'info');
         // 閃亮亮01
         this.light01 = game.add.sprite(0,0,'light01');
         game.add.tween(this.light01).to({ alpha: 0 }, 500, Phaser.Easing.Linear.None, true, 0, -1, true);
@@ -119,7 +121,7 @@ game.State.web={
     },
     pageC:function(){
         game.state.start('games');
-        // window.location.href = '../web/index.html';
+        // window.location.href = '../games/index.html';
     },
 }
 
@@ -165,7 +167,7 @@ game.State.works = {
     },
     pageC:function(){
         game.state.start('games');
-        // window.location.href = '../web/index.html';
+        // window.location.href = '../games/index.html';
     },
     pageAi:function(){
         game.state.start('works_ai');
@@ -400,7 +402,7 @@ game.State.games = {
         this.buttonA = game.add.button(110,820,'buttonA',this.pageA,this,1,0,1);
         this.buttonB = game.add.button(250,820,'buttonB',this.pageB,this,1,0,1);
         this.buttonc = game.add.button(390,820,'buttonC',this.pageC,this,1,1,1);
-        window.location.href = '../web/index.html';
+        window.location.href = '../games/index.html';
     },
     // 聲音播放
     soundFx: function(name,value,loopFlag){

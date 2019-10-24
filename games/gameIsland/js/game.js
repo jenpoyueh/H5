@@ -28,7 +28,7 @@ game.State={};
 game.State.boot={
 
     preload:function(){
-        game.load.image('loading','../web/assets/preloader.gif');
+        game.load.image('loading','../gameIsland/assets/preloader.gif');
         //行動平台螢幕適應
         game.scale.pageAlignHorizontally = true;
         game.scale.pageAlignVertically = true;
@@ -49,17 +49,17 @@ game.State.web={
     preload:function(){
         var preloadSprite = game.add.sprite(game.width/2-220/2,game.height/2-19/2,'loading');
         game.load.setPreloadSprite(preloadSprite);
-        game.load.image('bg', '../web/assets/bg.png');
-        game.load.image('map', '../web/assets/map.png');
-        game.load.image('dot01', '../web/assets/dot01.png');
-        game.load.image('dot02', '../web/assets/dot02.png');
-        game.load.image('cactusBtn', '../web/assets/cactusBtn.png');
-        game.load.image('pipiBtn', '../web/assets/pipiBtn.png');
-        game.load.image('waterBtn', '../web/assets/waterBtn.png');
-        game.load.image('moonBtn', '../web/assets/moonBtn.png');
-        game.load.image('ghostBtn', '../web/assets/ghostBtn.png');
-        game.load.audio('bgm', '../web/assets/bgm.mp3');
-        game.load.audio('enter', '../web/assets/enter.mp3');
+        game.load.image('bg','assets/bg.png');
+        game.load.image('map', 'assets/map.png');
+        game.load.image('dot01', 'assets/dot01.png');
+        game.load.image('dot02', 'assets/dot02.png');
+        game.load.image('cactusBtn', 'assets/cactusBtn.png');
+        game.load.image('pipiBtn', 'assets/pipiBtn.png');
+        game.load.image('waterBtn', 'assets/waterBtn.png');
+        game.load.image('moonBtn', 'assets/moonBtn.png');
+        game.load.image('ghostBtn', 'assets/ghostBtn.png');
+        game.load.audio('bgm', 'assets/bgm.mp3');
+        game.load.audio('enter', 'assets/enter.mp3');
 
     },
     create:function(){
@@ -96,7 +96,7 @@ game.State.web={
             this.ghostBtn.inputEnabled = false;
             this.cactusBtnTween.stop();
             this.moonBtnTween.stop();
-            this.waterBtnTween.stop();
+            // this.waterBtnTween.stop();
             this.ghostBtnTween.stop();
             var pipiBtnTween = game.add.tween(this.pipiBtn.scale).to({x:1,y:1}, 500, Phaser.Easing.Sinusoidal.InOut, true, 0, 0, false);
             var pipiBtnTween = game.add.tween(this.pipiBtn).to({alpha: 0}, 800, Phaser.Easing.Linear.None, true, 0, 0, false);
@@ -122,7 +122,7 @@ game.State.web={
             this.ghostBtn.inputEnabled = false;
             this.pipiBtnTween.stop();
             this.moonBtnTween.stop();
-            this.waterBtnTween.stop();
+            // this.waterBtnTween.stop();
             this.ghostBtnTween.stop();
             var cactusBtnTween = game.add.tween(this.cactusBtn.scale).to({x:1,y:1}, 500, Phaser.Easing.Sinusoidal.InOut, true, 0, 0, false);
             var cactusBtnTween = game.add.tween(this.cactusBtn).to({alpha: 0}, 800, Phaser.Easing.Linear.None, true, 0, 0, false);
@@ -148,7 +148,7 @@ game.State.web={
             this.ghostBtn.inputEnabled = false;
             this.pipiBtnTween.stop();
             this.cactusBtnTween.stop();
-            this.waterBtnTween.stop();
+            // this.waterBtnTween.stop();
             this.ghostBtnTween.stop();
             var moonBtnTween = game.add.tween(this.moonBtn.scale).to({x:1.1,y:1.1}, 500, Phaser.Easing.Sinusoidal.InOut, true, 0, 0, false);
             var moonBtnTween = game.add.tween(this.moonBtn).to({alpha: 0}, 800, Phaser.Easing.Linear.None, true, 0, 0, false);
@@ -202,7 +202,7 @@ game.State.web={
             this.pipiBtnTween.stop();
             this.cactusBtnTween.stop();
             this.moonBtnTween.stop();
-            this.waterBtnTween.stop();
+            // this.waterBtnTween.stop();
             var ghostBtnTween = game.add.tween(this.ghostBtn.scale).to({x:1,y:1}, 500, Phaser.Easing.Sinusoidal.InOut, true, 0, 0, false);
             var ghostBtnTween = game.add.tween(this.ghostBtn).to({alpha: 0}, 800, Phaser.Easing.Linear.None, true, 0, 0, false);
             ghostBtnTween.onComplete.add(function(){

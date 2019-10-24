@@ -28,7 +28,7 @@ game.State={};
 game.State.boot={
 
     preload:function(){
-        game.load.image('loading','../web/assets/preloader.gif');
+        // game.load.image('loading','../games/assets/preloader.gif');
         //行動平台螢幕適應
         game.scale.pageAlignHorizontally = true;
         game.scale.pageAlignVertically = true;
@@ -47,20 +47,20 @@ game.State.boot={
 // 預載遊戲資材
 game.State.web={
     preload:function(){
-        var preloadSprite = game.add.sprite(game.width/2-220/2,game.height/2-19/2,'loading');
-        game.load.setPreloadSprite(preloadSprite);
-        game.load.image('bg', '../web/assets/bg.png');
-        game.load.image('map', '../web/assets/map.png');
-        game.load.image('dot01', '../web/assets/dot01.png');
-        game.load.image('dot02', '../web/assets/dot02.png');
-        game.load.image('cactusBtn', '../web/assets/cactusBtn.png');
-        game.load.image('pipiBtn', '../web/assets/pipiBtn.png');
-        game.load.image('waterBtn', '../web/assets/waterBtn.png');
-        game.load.image('moonBtn', '../web/assets/moonBtn.png');
-        game.load.image('ghostBtn', '../web/assets/ghostBtn.png');
-        game.load.spritesheet('cancel', '../resume/assets/cancel.png', 60, 60, 2);
-        game.load.audio('bgm', '../web/assets/bgm.mp3');
-        game.load.audio('enter', '../web/assets/enter.mp3');
+        // var preloadSprite = game.add.sprite(game.width/2-220/2,game.height/2-19/2,'loading');
+        // game.load.setPreloadSprite(preloadSprite);
+        game.load.image('bg', '../games/assets/bg.png');
+        game.load.image('map', '../games/assets/map.png');
+        game.load.image('dot01', '../games/assets/dot01.png');
+        game.load.image('dot02', '../games/assets/dot02.png');
+        game.load.image('cactusBtn', '../games/assets/cactusBtn.png');
+        game.load.image('pipiBtn', '../games/assets/pipiBtn.png');
+        game.load.image('waterBtn', '../games/assets/waterBtn.png');
+        game.load.image('moonBtn', '../games/assets/moonBtn.png');
+        game.load.image('ghostBtn', '../games/assets/ghostBtn.png');
+        game.load.spritesheet('return', '../games/assets/return.png', 90, 60, 2);
+        game.load.audio('bgm', '../games/assets/bgm.mp3');
+        game.load.audio('enter', '../games/assets/enter.mp3');
 
     },
     create:function(){
@@ -102,7 +102,7 @@ game.State.web={
             var pipiBtnTween = game.add.tween(this.pipiBtn.scale).to({x:1,y:1}, 500, Phaser.Easing.Sinusoidal.InOut, true, 0, 0, false);
             var pipiBtnTween = game.add.tween(this.pipiBtn).to({alpha: 0}, 800, Phaser.Easing.Linear.None, true, 0, 0, false);
             pipiBtnTween.onComplete.add(function(){
-                window.location.href = '../games008/index.html';
+                window.location.href = '../../games008/index.html';
             },this);
         },this);
 
@@ -128,7 +128,7 @@ game.State.web={
             var cactusBtnTween = game.add.tween(this.cactusBtn.scale).to({x:1,y:1}, 500, Phaser.Easing.Sinusoidal.InOut, true, 0, 0, false);
             var cactusBtnTween = game.add.tween(this.cactusBtn).to({alpha: 0}, 800, Phaser.Easing.Linear.None, true, 0, 0, false);
             cactusBtnTween.onComplete.add(function(){
-                window.location.href = '../games009/index.html';
+                window.location.href = '../../games009/index.html';
             },this);
         },this);
 
@@ -154,7 +154,7 @@ game.State.web={
             var moonBtnTween = game.add.tween(this.moonBtn.scale).to({x:1.1,y:1.1}, 500, Phaser.Easing.Sinusoidal.InOut, true, 0, 0, false);
             var moonBtnTween = game.add.tween(this.moonBtn).to({alpha: 0}, 800, Phaser.Easing.Linear.None, true, 0, 0, false);
             moonBtnTween.onComplete.add(function(){
-                window.location.href = '../games010/index.html';
+                window.location.href = '../../games010/index.html';
             },this);
         },this);
 
@@ -181,7 +181,7 @@ game.State.web={
             var waterBtnTween = game.add.tween(this.waterBtn.scale).to({x:1.1,y:1.1}, 500, Phaser.Easing.Sinusoidal.InOut, true, 0, 0, false);
             var waterBtnTween = game.add.tween(this.waterBtn).to({alpha: 0}, 800, Phaser.Easing.Linear.None, true, 0, 0, false);
             waterBtnTween.onComplete.add(function(){
-                window.location.href = '../games011/index.html';
+                window.location.href = '../../games011/index.html';
             },this);
         },this);
 
@@ -207,11 +207,11 @@ game.State.web={
             var ghostBtnTween = game.add.tween(this.ghostBtn.scale).to({x:1,y:1}, 500, Phaser.Easing.Sinusoidal.InOut, true, 0, 0, false);
             var ghostBtnTween = game.add.tween(this.ghostBtn).to({alpha: 0}, 800, Phaser.Easing.Linear.None, true, 0, 0, false);
             ghostBtnTween.onComplete.add(function(){
-                window.location.href = '../games012/index.html';
+                window.location.href = '../../games012/index.html';
             },this);
         },this);
-         // 取消按鈕
-         this.cancel = game.add.button(550,30,'cancel',this.resume,this,1,0,1);
+         // 返回履歷
+         this.return = game.add.button(30,30,'return',this.resume,this,1,0,1);
     },
     update:function(){
 
