@@ -101,7 +101,7 @@ game.State.web={
         this.joker = game.add.image(0,0,'joker');
         this.info01 = game.add.image(game.width/2,740,'info01');
         this.info02 = game.add.image(game.width/2,740,'info02');
-        this.infoBtn01 = game.add.button(85,637,'infoBtn01',function(){
+        this.infoBtn01 = game.add.button(87,637,'infoBtn01',function(){
             this.info01.alpha = 1;
             this.infoBtn01.alpha = 0;
             this.infoTitle01.alpha = 1;
@@ -109,7 +109,7 @@ game.State.web={
             this.infoBtn02.alpha = 1;
             this.infoTitle02.alpha = 0;
         },this,1,1,0);
-        this.infoBtn02 = game.add.button(182,637,'infoBtn02',function(){
+        this.infoBtn02 = game.add.button(184,637,'infoBtn02',function(){
             this.info01.alpha = 0;
             this.infoBtn01.alpha = 1;
             this.infoTitle01.alpha = 0;
@@ -117,8 +117,8 @@ game.State.web={
             this.infoBtn02.alpha = 0;
             this.infoTitle02.alpha = 1;
         },this,1,1,0);
-        this.infoTitle01 = game.add.image(85,637,'infoTitle01');
-        this.infoTitle02 = game.add.image(182,637,'infoTitle02');
+        this.infoTitle01 = game.add.image(87,637,'infoTitle01');
+        this.infoTitle02 = game.add.image(184,637,'infoTitle02');
         this.info01.anchor.setTo(0.5);
         this.info02.anchor.setTo(0.5);
         this.info01.alpha = 1;
