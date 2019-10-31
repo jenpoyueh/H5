@@ -49,6 +49,8 @@ game.State.load={
         // game.load.setPreloadSprite(preloadSprite);
         game.load.image('bg', '../resume/assets/bg.png');
         game.load.image('title', '../resume/assets/title.png');
+        game.load.image('btn01', '../resume/assets/btn01.png');
+        game.load.image('btn02', '../resume/assets/btn02.png');
         game.load.image('light01', '../resume/assets/light01.png');
         game.load.image('light02', '../resume/assets/light02.png');
         game.load.image('joker', '../resume/assets/joker.png');
@@ -155,7 +157,11 @@ game.State.web={
     },
     pageC:function(){
         // game.state.start('games');
-        window.location.href = '../games/index.html';
+        this.buttonA.kill();
+        this,btn01 = game.add.image(110,820,'btn01');
+        setTimeout(function(){
+            window.location.href = '../games/index.html';
+        },500);
     },
 }
 
@@ -200,8 +206,11 @@ game.State.works = {
         game.state.start('works');
     },
     pageC:function(){
-        // game.state.start('games');
-        window.location.href = '../games/index.html';
+        this.buttonB.kill();
+        this,btn02 = game.add.image(250,820,'btn02');
+        setTimeout(function(){
+            window.location.href = '../games/index.html';
+        },500);
     },
     pageAi:function(){
         game.state.start('works_ai');
