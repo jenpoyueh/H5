@@ -51,7 +51,11 @@ game.State.load={
         game.load.image('title', '../resume/assets/title.png');
         game.load.image('light01', '../resume/assets/light01.png');
         game.load.image('light02', '../resume/assets/light02.png');
-        game.load.image('info', '../resume/assets/info.png');
+        game.load.image('joker', '../resume/assets/joker.png');
+        game.load.image('info01', '../resume/assets/info01.png');
+        game.load.image('info02', '../resume/assets/info02.png');
+        game.load.image('infoTitle01', '../resume/assets/infoTitle01.png');
+        game.load.image('infoTitle02', '../resume/assets/infoTitle02.png');
         game.load.image('film', '../resume/assets/film.png');
         game.load.image('movie_bg', '../resume/assets/movie_bg.png');
         game.load.image('01', '../resume/assets/01.png');
@@ -69,6 +73,8 @@ game.State.load={
         game.load.spritesheet('movie_ai', '../resume/assets/movie_ai_sprite.png', 350, 220, 2);
         game.load.spritesheet('movie_ps', '../resume/assets/movie_ps_sprite.png', 350, 220, 2);
         game.load.spritesheet('movie_sai', '../resume/assets/movie_sai_sprite.png', 350, 220, 2);
+        game.load.spritesheet('infoBtn01', '../resume/assets/infoBtn01.png', 110, 50, 2);
+        game.load.spritesheet('infoBtn02', '../resume/assets/infoBtn02.png', 110, 50, 2);
         game.load.spritesheet('cancel', '../resume/assets/cancel.png', 60, 60, 2);
         game.load.spritesheet('pageL', '../resume/assets/pageL.png', 50, 80, 2);
         game.load.spritesheet('pageR', '../resume/assets/pageR.png', 50, 80, 2);
@@ -90,7 +96,35 @@ game.State.web={
     create:function(){
         // 背景
         this.bg = game.add.image(0,0,'bg');
-        this.info = game.add.image(0,0,'info');
+        this.joker = game.add.image(0,0,'joker');
+        this.info01 = game.add.image(game.width/2,740,'info01');
+        this.info02 = game.add.image(game.width/2,740,'info02');
+        this.infoBtn01 = game.add.button(83,637,'infoBtn01',(function(){
+            this.info01.alpha = 1;
+            this.infoBtn01.alpha = 0;
+            this.infoTitle01.alpha = 1;
+            this.info02.alpha = 0;
+            this.infoBtn02.alpha = 1;
+            this.infoTitle02.alpha = 0;
+        }),this,1,1,0);
+        this.infoBtn02 = game.add.button(180,637,'infoBtn02',(function(){
+            this.info01.alpha = 0;
+            this.infoBtn01.alpha = 1;
+            this.infoTitle01.alpha = 0;
+            this.info02.alpha = 1;
+            this.infoBtn02.alpha = 0;
+            this.infoTitle02.alpha = 1;
+        }),this,1,1,0);
+        this.infoTitle01 = game.add.image(83,637,'infoTitle01');
+        this.infoTitle02 = game.add.image(180,637,'infoTitle02');
+        this.info01.anchor.setTo(0.5);
+        this.info02.anchor.setTo(0.5);
+        this.info01.alpha = 1;
+        this.infoBtn01.alpha = 0;
+        this.infoTitle01.alpha = 1;
+        this.info02.alpha = 0;
+        this.infoBtn02.alpha = 1;
+        this.infoTitle02.alpha = 0;
         // 閃亮亮01
         this.light01 = game.add.sprite(0,0,'light01');
         game.add.tween(this.light01).to({ alpha: 0 }, 500, Phaser.Easing.Linear.None, true, 0, -1, true);
@@ -120,8 +154,8 @@ game.State.web={
         game.state.start('works');
     },
     pageC:function(){
-        game.state.start('games');
-        // window.location.href = '../games/index.html';
+        // game.state.start('games');
+        window.location.href = '../games/index.html';
     },
 }
 
@@ -166,8 +200,8 @@ game.State.works = {
         game.state.start('works');
     },
     pageC:function(){
-        game.state.start('games');
-        // window.location.href = '../games/index.html';
+        // game.state.start('games');
+        window.location.href = '../games/index.html';
     },
     pageAi:function(){
         game.state.start('works_ai');
@@ -322,11 +356,11 @@ game.State.works_sai={
         this.page0 = game.add.image(0,0,'09');
         this.page1 = game.add.image(0,0,'10');
         this.page2 = game.add.image(0,0,'11');
-        this.page3 = game.add.image(0,0,'12');
+        // this.page3 = game.add.image(0,0,'12');
         this.page0.alpha = 0;
         this.page1.alpha = 0;
         this.page2.alpha = 0;
-        this.page3.alpha = 0;
+        // this.page3.alpha = 0;
 
         // 取消按鈕
         this.cancel = game.add.button(550,30,'cancel',this.pageB,this,1,0,1);
@@ -341,26 +375,26 @@ game.State.works_sai={
             this.page0.alpha = 1;
             this.page1.alpha = 0;
             this.page2.alpha = 0;
-            this.page3.alpha = 0;
+            // this.page3.alpha = 0;
         }
         if(this.picpage === 1){
             this.page0.alpha = 0;
             this.page1.alpha = 1;
             this.page2.alpha = 0;
-            this.page3.alpha = 0;
+            // this.page3.alpha = 0;
         }
         if(this.picpage === 2){
             this.page0.alpha = 0;
             this.page1.alpha = 0;
             this.page2.alpha = 1;
-            this.page3.alpha = 0;
+            // this.page3.alpha = 0;
         }
-        if(this.picpage === 3){
-            this.page0.alpha = 0;
-            this.page1.alpha = 0;
-            this.page2.alpha = 0;
-            this.page3.alpha = 1;
-        }
+        // if(this.picpage === 3){
+        //     this.page0.alpha = 0;
+        //     this.page1.alpha = 0;
+        //     this.page2.alpha = 0;
+        //     // this.page3.alpha = 1;
+        // }
 
     },
     pageB:function(){
@@ -375,8 +409,8 @@ game.State.works_sai={
     },
     paintWorksR:function(){
         this.picpage++;
-        if(this.picpage>3){
-            this.picpage = 3;
+        if(this.picpage>2){
+            this.picpage = 2;
         }
         console.log('右');
     }
@@ -389,6 +423,7 @@ game.State.games = {
     create:function(){
         // 背景
         this.bg = game.add.image(0,0,'bg');
+        this.joker = game.add.image(0,0,'joker');
         // 閃亮亮01
         this.light01 = game.add.sprite(0,0,'light01');
         game.add.tween(this.light01).to({ alpha: 0 }, 500, Phaser.Easing.Linear.None, true, 0, -1, true);
@@ -418,7 +453,8 @@ game.State.games = {
         game.state.start('works');
     },
     pageC:function(){
-        game.state.start('games');
+        // game.state.start('games');
+        window.location.href = '../games/index.html';
     },
 }
 

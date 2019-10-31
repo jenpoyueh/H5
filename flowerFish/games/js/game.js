@@ -212,6 +212,7 @@ game.State.web={
         },this);
          // 返回履歷
          this.return = game.add.button(30,30,'return',this.resume,this,1,0,1);
+        //  this.return.alpha = 0.5;
     },
     update:function(){
 
