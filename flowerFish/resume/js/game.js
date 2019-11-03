@@ -224,10 +224,7 @@ game.State.works = {
 }
 
 game.State.works_ai={
-    init:function() {
-        Phaser.Canvas.setTouchAction(game.canvas, 'auto');
-        // this.input.touch.preventDefault = false;
-    },
+
     create:function(){
         // 背景
         this.bg = game.add.image(0,0,'movie_bg');
@@ -244,7 +241,7 @@ game.State.works_ai={
         this.page1.x = game.width;
         this.page2.x = game.width;
         this.page3.x = game.width;
-
+        this.input.touch.preventDefault = false;
         // 取消按鈕
         this.cancel = game.add.button(550,30,'cancel',this.pageB,this,1,0,1);
         // 切頁按鈕
@@ -255,7 +252,6 @@ game.State.works_ai={
     },
     update:function(){
         Phaser.Canvas.setTouchAction(game.canvas, 'auto');
-        // this.input.touch.preventDefault = false;
         console.log(this.picpage);
         if(this.picpage === 0 && this.tap === true){
             this.tap = false;
@@ -324,7 +320,7 @@ game.State.works_ai={
     },
     paintWorksL:function(){
         this.tap = true;
-        this.picpage--;
+        this.picpage= this.picpage-0.5;
         if(this.picpage<0){
             this.picpage = 0;
         }
@@ -332,7 +328,7 @@ game.State.works_ai={
     },
     paintWorksR:function(){
         this.tap = true;
-        this.picpage++;
+        this.picpage = this.picpage+0.5;
         if(this.picpage>3){
             this.picpage = 3;
         }
