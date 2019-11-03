@@ -255,6 +255,8 @@ game.State.works_ai={
         this.R.anchor.setTo(0.5);
     },
     update:function(){
+        Phaser.Canvas.setTouchAction(game.canvas, 'auto');
+        this.input.touch.preventDefault = false;
         if(this.picpage === 0 && this.tap === true){
             this.tap = false;
             // this.page0.alpha = 1;
