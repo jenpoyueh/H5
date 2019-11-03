@@ -13,7 +13,6 @@ var tStyle = {fill: '#ffb64d', font: "42px YARDSALE"};
 var width = 640;
 var height = 960;
 var game =new Phaser.Game(width, height, Phaser.CANVAS, 'game');
-this.document.body.style.touchAction = 'auto';
 
 /******** 遊戲物件 ********/
 
@@ -35,6 +34,7 @@ game.State.boot={
         this.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
         this.scale.forcePortrait = false;
         this.scale.refresh();  
+        game.input.touch.preventDefault = false;
     },   
 
     create:function(){  
@@ -225,6 +225,10 @@ game.State.works = {
 }
 
 game.State.works_ai={
+    init:function() {
+        Phaser.Canvas.setTouchAction(game.canvas, 'auto');
+        this.input.touch.preventDefault = false;
+    },
     create:function(){
         // 背景
         this.bg = game.add.image(0,0,'movie_bg');
