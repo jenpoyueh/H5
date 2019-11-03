@@ -28,12 +28,12 @@ game.State.boot={
     preload:function(){
         // game.load.image('loading','../resume/assets/preloader.gif');
         //行動平台螢幕適應
-        // game.scale.pageAlignHorizontally = true;
-        // game.scale.pageAlignVertically = true;
-        // game.stage.backgroundColor = '#000000';
-        // this.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
-        // this.scale.forcePortrait = false;
-        // this.scale.refresh();  
+        game.scale.pageAlignHorizontally = true;
+        game.scale.pageAlignVertically = true;
+        game.stage.backgroundColor = '#000000';
+        this.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
+        this.scale.forcePortrait = false;
+        this.scale.refresh();  
     },   
 
     create:function(){  
@@ -232,10 +232,14 @@ game.State.works_ai={
         this.page1 = game.add.image(0,0,'02');
         this.page2 = game.add.image(0,0,'03');
         this.page3 = game.add.image(0,0,'04');
+        this.tap = true;
         this.page0.alpha = 0;
         this.page1.alpha = 0;
         this.page2.alpha = 0;
         this.page3.alpha = 0;
+        this.page1.x = game.width;
+        this.page2.x = game.width;
+        this.page3.x = game.width;
 
         // 取消按鈕
         this.cancel = game.add.button(550,30,'cancel',this.pageB,this,1,0,1);
@@ -246,36 +250,73 @@ game.State.works_ai={
         this.R.anchor.setTo(0.5);
     },
     update:function(){
-        if(this.picpage === 0){
-            this.page0.alpha = 1;
-            this.page1.alpha = 0;
-            this.page2.alpha = 0;
-            this.page3.alpha = 0;
-        }
-        if(this.picpage === 1){
-            this.page0.alpha = 0;
-            this.page1.alpha = 1;
-            this.page2.alpha = 0;
-            this.page3.alpha = 0;
-        }
-        if(this.picpage === 2){
-            this.page0.alpha = 0;
-            this.page1.alpha = 0;
-            this.page2.alpha = 1;
-            this.page3.alpha = 0;
-        }
-        if(this.picpage === 3){
-            this.page0.alpha = 0;
-            this.page1.alpha = 0;
-            this.page2.alpha = 0;
-            this.page3.alpha = 1;
-        }
+        if(this.picpage === 0 && this.tap === true){
+            this.tap = false;
+            // this.page0.alpha = 1;
+            // this.page1.alpha = 0;
+            // this.page2.alpha = 0;
+            // this.page3.alpha = 0;
+            game.add.tween(this.page0).to({ alpha: 1 }, 500, Phaser.Easing.Linear.None, true, 0, 0, false);
+            game.add.tween(this.page1).to({ alpha: 0 }, 500, Phaser.Easing.Linear.None, true, 0, 0, false);
+            game.add.tween(this.page2).to({ alpha: 0 }, 500, Phaser.Easing.Linear.None, true, 0, 0, false);
+            game.add.tween(this.page3).to({ alpha: 0 }, 500, Phaser.Easing.Linear.None, true, 0, 0, false);
+            game.add.tween(this.page0).to({ x:0 }, 300, Phaser.Easing.Linear.None, true, 0, 0, false);
+            game.add.tween(this.page1).to({ x:game.width }, 300, Phaser.Easing.Linear.None, true, 0, 0, false);
+            game.add.tween(this.page2).to({ x:game.width }, 300, Phaser.Easing.Linear.None, true, 0, 0, false);
+            game.add.tween(this.page3).to({ x:game.width }, 300, Phaser.Easing.Linear.None, true, 0, 0, false);
 
+        }
+        if(this.picpage === 1 && this.tap === true){
+            this.tap = false;
+            // this.page0.alpha = 0;
+            // this.page1.alpha = 1;
+            // this.page2.alpha = 0;
+            // this.page3.alpha = 0;
+            game.add.tween(this.page0).to({ alpha: 0 }, 500, Phaser.Easing.Linear.None, true, 0, 0, false);
+            game.add.tween(this.page1).to({ alpha: 1 }, 500, Phaser.Easing.Linear.None, true, 0, 0, false);
+            game.add.tween(this.page2).to({ alpha: 0 }, 500, Phaser.Easing.Linear.None, true, 0, 0, false);
+            game.add.tween(this.page3).to({ alpha: 0 }, 500, Phaser.Easing.Linear.None, true, 0, 0, false);
+            game.add.tween(this.page0).to({ x:-game.width }, 300, Phaser.Easing.Linear.None, true, 0, 0, false);
+            game.add.tween(this.page1).to({ x:0 }, 300, Phaser.Easing.Linear.None, true, 0, 0, false);
+            game.add.tween(this.page2).to({ x:game.width }, 300, Phaser.Easing.Linear.None, true, 0, 0, false);
+            game.add.tween(this.page3).to({ x:game.width }, 300, Phaser.Easing.Linear.None, true, 0, 0, false);
+        }
+        if(this.picpage === 2 && this.tap === true){
+            this.tap = false;
+            // this.page0.alpha = 0;
+            // this.page1.alpha = 0;
+            // this.page2.alpha = 1;
+            // this.page3.alpha = 0;
+            game.add.tween(this.page0).to({ alpha: 0 }, 500, Phaser.Easing.Linear.None, true, 0, 0, false);
+            game.add.tween(this.page1).to({ alpha: 0 }, 500, Phaser.Easing.Linear.None, true, 0, 0, false);
+            game.add.tween(this.page2).to({ alpha: 1 }, 500, Phaser.Easing.Linear.None, true, 0, 0, false);
+            game.add.tween(this.page3).to({ alpha: 0 }, 500, Phaser.Easing.Linear.None, true, 0, 0, false);
+            game.add.tween(this.page0).to({ x:-game.width }, 300, Phaser.Easing.Linear.None, true, 0, 0, false);
+            game.add.tween(this.page1).to({ x:-game.width }, 300, Phaser.Easing.Linear.None, true, 0, 0, false);
+            game.add.tween(this.page2).to({ x:0 }, 300, Phaser.Easing.Linear.None, true, 0, 0, false);
+            game.add.tween(this.page3).to({ x:game.width }, 300, Phaser.Easing.Linear.None, true, 0, 0, false);
+        }
+        if(this.picpage === 3 && this.tap === true){
+            this.tap = false;
+            // this.page0.alpha = 0;
+            // this.page1.alpha = 0;
+            // this.page2.alpha = 0;
+            // this.page3.alpha = 1;
+            game.add.tween(this.page0).to({ alpha: 0 }, 500, Phaser.Easing.Linear.None, true, 0, 0, false);
+            game.add.tween(this.page1).to({ alpha: 0 }, 500, Phaser.Easing.Linear.None, true, 0, 0, false);
+            game.add.tween(this.page2).to({ alpha: 0 }, 500, Phaser.Easing.Linear.None, true, 0, 0, false);
+            game.add.tween(this.page3).to({ alpha: 1 }, 500, Phaser.Easing.Linear.None, true, 0, 0, false);
+            game.add.tween(this.page0).to({ x:-game.width }, 300, Phaser.Easing.Linear.None, true, 0, 0, false);
+            game.add.tween(this.page1).to({ x:-game.width }, 300, Phaser.Easing.Linear.None, true, 0, 0, false);
+            game.add.tween(this.page2).to({ x:-game.width }, 300, Phaser.Easing.Linear.None, true, 0, 0, false);
+            game.add.tween(this.page3).to({ x:0 }, 300, Phaser.Easing.Linear.None, true, 0, 0, false);
+        }
     },
     pageB:function(){
         game.state.start('works');
     },
     paintWorksL:function(){
+        this.tap = true;
         this.picpage--;
         if(this.picpage<0){
             this.picpage = 0;
@@ -283,6 +324,7 @@ game.State.works_ai={
         console.log('左');
     },
     paintWorksR:function(){
+        this.tap = true;
         this.picpage++;
         if(this.picpage>3){
             this.picpage = 3;
@@ -299,10 +341,14 @@ game.State.works_ps={
         this.page1 = game.add.image(0,0,'06');
         this.page2 = game.add.image(0,0,'07');
         this.page3 = game.add.image(0,0,'08');
+        this.tap = true;
         this.page0.alpha = 0;
         this.page1.alpha = 0;
         this.page2.alpha = 0;
         this.page3.alpha = 0;
+        this.page1.x = game.width;
+        this.page2.x = game.width;
+        this.page3.x = game.width;
 
         // 取消按鈕
         this.cancel = game.add.button(550,30,'cancel',this.pageB,this,1,0,1);
@@ -313,29 +359,66 @@ game.State.works_ps={
         this.R.anchor.setTo(0.5);
     },
     update:function(){
-        if(this.picpage === 0){
-            this.page0.alpha = 1;
-            this.page1.alpha = 0;
-            this.page2.alpha = 0;
-            this.page3.alpha = 0;
+        if(this.picpage === 0 && this.tap === true){
+            this.tap = false;
+            // this.page0.alpha = 1;
+            // this.page1.alpha = 0;
+            // this.page2.alpha = 0;
+            // this.page3.alpha = 0;
+            game.add.tween(this.page0).to({ alpha: 1 }, 500, Phaser.Easing.Linear.None, true, 0, 0, false);
+            game.add.tween(this.page1).to({ alpha: 0 }, 500, Phaser.Easing.Linear.None, true, 0, 0, false);
+            game.add.tween(this.page2).to({ alpha: 0 }, 500, Phaser.Easing.Linear.None, true, 0, 0, false);
+            game.add.tween(this.page3).to({ alpha: 0 }, 500, Phaser.Easing.Linear.None, true, 0, 0, false);
+            game.add.tween(this.page0).to({ x:0 }, 300, Phaser.Easing.Linear.None, true, 0, 0, false);
+            game.add.tween(this.page1).to({ x:game.width }, 300, Phaser.Easing.Linear.None, true, 0, 0, false);
+            game.add.tween(this.page2).to({ x:game.width }, 300, Phaser.Easing.Linear.None, true, 0, 0, false);
+            game.add.tween(this.page3).to({ x:game.width }, 300, Phaser.Easing.Linear.None, true, 0, 0, false);
+
         }
-        if(this.picpage === 1){
-            this.page0.alpha = 0;
-            this.page1.alpha = 1;
-            this.page2.alpha = 0;
-            this.page3.alpha = 0;
+        if(this.picpage === 1 && this.tap === true){
+            this.tap = false;
+            // this.page0.alpha = 0;
+            // this.page1.alpha = 1;
+            // this.page2.alpha = 0;
+            // this.page3.alpha = 0;
+            game.add.tween(this.page0).to({ alpha: 0 }, 500, Phaser.Easing.Linear.None, true, 0, 0, false);
+            game.add.tween(this.page1).to({ alpha: 1 }, 500, Phaser.Easing.Linear.None, true, 0, 0, false);
+            game.add.tween(this.page2).to({ alpha: 0 }, 500, Phaser.Easing.Linear.None, true, 0, 0, false);
+            game.add.tween(this.page3).to({ alpha: 0 }, 500, Phaser.Easing.Linear.None, true, 0, 0, false);
+            game.add.tween(this.page0).to({ x:-game.width }, 300, Phaser.Easing.Linear.None, true, 0, 0, false);
+            game.add.tween(this.page1).to({ x:0 }, 300, Phaser.Easing.Linear.None, true, 0, 0, false);
+            game.add.tween(this.page2).to({ x:game.width }, 300, Phaser.Easing.Linear.None, true, 0, 0, false);
+            game.add.tween(this.page3).to({ x:game.width }, 300, Phaser.Easing.Linear.None, true, 0, 0, false);
         }
-        if(this.picpage === 2){
-            this.page0.alpha = 0;
-            this.page1.alpha = 0;
-            this.page2.alpha = 1;
-            this.page3.alpha = 0;
+        if(this.picpage === 2 && this.tap === true){
+            this.tap = false;
+            // this.page0.alpha = 0;
+            // this.page1.alpha = 0;
+            // this.page2.alpha = 1;
+            // this.page3.alpha = 0;
+            game.add.tween(this.page0).to({ alpha: 0 }, 500, Phaser.Easing.Linear.None, true, 0, 0, false);
+            game.add.tween(this.page1).to({ alpha: 0 }, 500, Phaser.Easing.Linear.None, true, 0, 0, false);
+            game.add.tween(this.page2).to({ alpha: 1 }, 500, Phaser.Easing.Linear.None, true, 0, 0, false);
+            game.add.tween(this.page3).to({ alpha: 0 }, 500, Phaser.Easing.Linear.None, true, 0, 0, false);
+            game.add.tween(this.page0).to({ x:-game.width }, 300, Phaser.Easing.Linear.None, true, 0, 0, false);
+            game.add.tween(this.page1).to({ x:-game.width }, 300, Phaser.Easing.Linear.None, true, 0, 0, false);
+            game.add.tween(this.page2).to({ x:0 }, 300, Phaser.Easing.Linear.None, true, 0, 0, false);
+            game.add.tween(this.page3).to({ x:game.width }, 300, Phaser.Easing.Linear.None, true, 0, 0, false);
         }
-        if(this.picpage === 3){
-            this.page0.alpha = 0;
-            this.page1.alpha = 0;
-            this.page2.alpha = 0;
-            this.page3.alpha = 1;
+        if(this.picpage === 3 && this.tap === true){
+            this.tap = false;
+            // this.page0.alpha = 0;
+            // this.page1.alpha = 0;
+            // this.page2.alpha = 0;
+            // this.page3.alpha = 1;
+            game.add.tween(this.page0).to({ alpha: 0 }, 500, Phaser.Easing.Linear.None, true, 0, 0, false);
+            game.add.tween(this.page1).to({ alpha: 0 }, 500, Phaser.Easing.Linear.None, true, 0, 0, false);
+            game.add.tween(this.page2).to({ alpha: 0 }, 500, Phaser.Easing.Linear.None, true, 0, 0, false);
+            game.add.tween(this.page3).to({ alpha: 1 }, 500, Phaser.Easing.Linear.None, true, 0, 0, false);
+            game.add.tween(this.page0).to({ x:-game.width }, 300, Phaser.Easing.Linear.None, true, 0, 0, false);
+            game.add.tween(this.page1).to({ x:-game.width }, 300, Phaser.Easing.Linear.None, true, 0, 0, false);
+            game.add.tween(this.page2).to({ x:-game.width }, 300, Phaser.Easing.Linear.None, true, 0, 0, false);
+            game.add.tween(this.page3).to({ x:0 }, 300, Phaser.Easing.Linear.None, true, 0, 0, false);
         }
 
     },
@@ -343,6 +426,7 @@ game.State.works_ps={
         game.state.start('works');
     },
     paintWorksL:function(){
+        this.tap = true;
         this.picpage--;
         if(this.picpage<0){
             this.picpage = 0;
@@ -350,6 +434,7 @@ game.State.works_ps={
         console.log('左');
     },
     paintWorksR:function(){
+        this.tap = true;
         this.picpage++;
         if(this.picpage>3){
             this.picpage = 3;
@@ -366,10 +451,14 @@ game.State.works_sai={
         this.page1 = game.add.image(0,0,'10');
         this.page2 = game.add.image(0,0,'11');
         // this.page3 = game.add.image(0,0,'12');
+        this.tap = true;
         this.page0.alpha = 0;
         this.page1.alpha = 0;
         this.page2.alpha = 0;
         // this.page3.alpha = 0;
+        this.page1.x = game.width;
+        this.page2.x = game.width;
+        // this.page3.x = game.width;
 
         // 取消按鈕
         this.cancel = game.add.button(550,30,'cancel',this.pageB,this,1,0,1);
@@ -380,29 +469,66 @@ game.State.works_sai={
         this.R.anchor.setTo(0.5);
     },
     update:function(){
-        if(this.picpage === 0){
-            this.page0.alpha = 1;
-            this.page1.alpha = 0;
-            this.page2.alpha = 0;
+        if(this.picpage === 0 && this.tap === true){
+            this.tap = false;
+            // this.page0.alpha = 1;
+            // this.page1.alpha = 0;
+            // this.page2.alpha = 0;
             // this.page3.alpha = 0;
+            game.add.tween(this.page0).to({ alpha: 1 }, 500, Phaser.Easing.Linear.None, true, 0, 0, false);
+            game.add.tween(this.page1).to({ alpha: 0 }, 500, Phaser.Easing.Linear.None, true, 0, 0, false);
+            game.add.tween(this.page2).to({ alpha: 0 }, 500, Phaser.Easing.Linear.None, true, 0, 0, false);
+            // game.add.tween(this.page3).to({ alpha: 0 }, 500, Phaser.Easing.Linear.None, true, 0, 0, false);
+            game.add.tween(this.page0).to({ x:0 }, 300, Phaser.Easing.Linear.None, true, 0, 0, false);
+            game.add.tween(this.page1).to({ x:game.width }, 300, Phaser.Easing.Linear.None, true, 0, 0, false);
+            game.add.tween(this.page2).to({ x:game.width }, 300, Phaser.Easing.Linear.None, true, 0, 0, false);
+            // game.add.tween(this.page3).to({ x:game.width }, 300, Phaser.Easing.Linear.None, true, 0, 0, false);
+
         }
-        if(this.picpage === 1){
-            this.page0.alpha = 0;
-            this.page1.alpha = 1;
-            this.page2.alpha = 0;
+        if(this.picpage === 1 && this.tap === true){
+            this.tap = false;
+            // this.page0.alpha = 0;
+            // this.page1.alpha = 1;
+            // this.page2.alpha = 0;
             // this.page3.alpha = 0;
+            game.add.tween(this.page0).to({ alpha: 0 }, 500, Phaser.Easing.Linear.None, true, 0, 0, false);
+            game.add.tween(this.page1).to({ alpha: 1 }, 500, Phaser.Easing.Linear.None, true, 0, 0, false);
+            game.add.tween(this.page2).to({ alpha: 0 }, 500, Phaser.Easing.Linear.None, true, 0, 0, false);
+            // game.add.tween(this.page3).to({ alpha: 0 }, 500, Phaser.Easing.Linear.None, true, 0, 0, false);
+            game.add.tween(this.page0).to({ x:-game.width }, 300, Phaser.Easing.Linear.None, true, 0, 0, false);
+            game.add.tween(this.page1).to({ x:0 }, 300, Phaser.Easing.Linear.None, true, 0, 0, false);
+            game.add.tween(this.page2).to({ x:game.width }, 300, Phaser.Easing.Linear.None, true, 0, 0, false);
+            // game.add.tween(this.page3).to({ x:game.width }, 300, Phaser.Easing.Linear.None, true, 0, 0, false);
         }
-        if(this.picpage === 2){
-            this.page0.alpha = 0;
-            this.page1.alpha = 0;
-            this.page2.alpha = 1;
+        if(this.picpage === 2 && this.tap === true){
+            this.tap = false;
+            // this.page0.alpha = 0;
+            // this.page1.alpha = 0;
+            // this.page2.alpha = 1;
             // this.page3.alpha = 0;
+            game.add.tween(this.page0).to({ alpha: 0 }, 500, Phaser.Easing.Linear.None, true, 0, 0, false);
+            game.add.tween(this.page1).to({ alpha: 0 }, 500, Phaser.Easing.Linear.None, true, 0, 0, false);
+            game.add.tween(this.page2).to({ alpha: 1 }, 500, Phaser.Easing.Linear.None, true, 0, 0, false);
+            // game.add.tween(this.page3).to({ alpha: 0 }, 500, Phaser.Easing.Linear.None, true, 0, 0, false);
+            game.add.tween(this.page0).to({ x:-game.width }, 300, Phaser.Easing.Linear.None, true, 0, 0, false);
+            game.add.tween(this.page1).to({ x:-game.width }, 300, Phaser.Easing.Linear.None, true, 0, 0, false);
+            game.add.tween(this.page2).to({ x:0 }, 300, Phaser.Easing.Linear.None, true, 0, 0, false);
+            // game.add.tween(this.page3).to({ x:game.width }, 300, Phaser.Easing.Linear.None, true, 0, 0, false);
         }
-        // if(this.picpage === 3){
-        //     this.page0.alpha = 0;
-        //     this.page1.alpha = 0;
-        //     this.page2.alpha = 0;
+        // if(this.picpage === 3 && this.tap === true){
+        //     this.tap = false;
+        //     // this.page0.alpha = 0;
+        //     // this.page1.alpha = 0;
+        //     // this.page2.alpha = 0;
         //     // this.page3.alpha = 1;
+        //     game.add.tween(this.page0).to({ alpha: 0 }, 500, Phaser.Easing.Linear.None, true, 0, 0, false);
+        //     game.add.tween(this.page1).to({ alpha: 0 }, 500, Phaser.Easing.Linear.None, true, 0, 0, false);
+        //     game.add.tween(this.page2).to({ alpha: 0 }, 500, Phaser.Easing.Linear.None, true, 0, 0, false);
+        //     game.add.tween(this.page3).to({ alpha: 1 }, 500, Phaser.Easing.Linear.None, true, 0, 0, false);
+        //     game.add.tween(this.page0).to({ x:-game.width }, 300, Phaser.Easing.Linear.None, true, 0, 0, false);
+        //     game.add.tween(this.page1).to({ x:-game.width }, 300, Phaser.Easing.Linear.None, true, 0, 0, false);
+        //     game.add.tween(this.page2).to({ x:-game.width }, 300, Phaser.Easing.Linear.None, true, 0, 0, false);
+        //     game.add.tween(this.page3).to({ x:0 }, 300, Phaser.Easing.Linear.None, true, 0, 0, false);
         // }
 
     },
@@ -410,6 +536,7 @@ game.State.works_sai={
         game.state.start('works');
     },
     paintWorksL:function(){
+        this.tap = true;
         this.picpage--;
         if(this.picpage<0){
             this.picpage = 0;
@@ -417,6 +544,7 @@ game.State.works_sai={
         console.log('左');
     },
     paintWorksR:function(){
+        this.tap = true;
         this.picpage++;
         if(this.picpage>2){
             this.picpage = 2;
