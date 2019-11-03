@@ -519,13 +519,20 @@ game.State.works_ai={
     },
     paintWorksL:function(){
         tap = true;
-        picpage= picpage-0.5;
+        if(!game.device.desktop){
+            picpage= picpage-0.5;
+        }else{
+            picpage--;
+        }
         console.log('左');
     },
     paintWorksR:function(){
         tap = true;
-        picpage = picpage+0.5;
-        console.log('右');
+        if(!game.device.desktop){
+            picpage= picpage+0.5;
+        }else{
+            picpage++;
+        }
     }
 }
 game.State.works_ps={
@@ -631,13 +638,20 @@ game.State.works_ps={
     },
     paintWorksL:function(){
         tap = true;
-        picpage= picpage-0.5;
+        if(!game.device.desktop){
+            picpage= picpage-0.5;
+        }else{
+            picpage--;
+        }
         console.log('左');
     },
     paintWorksR:function(){
         tap = true;
-        picpage= picpage+0.5;
-        console.log('右');
+        if(!game.device.desktop){
+            picpage= picpage+0.5;
+        }else{
+            picpage++;
+        }
     }
 }
 game.State.works_sai={
@@ -743,13 +757,20 @@ game.State.works_sai={
     },
     paintWorksL:function(){
         tap = true;
-        picpage= picpage-0.5;
+        if(!game.device.desktop){
+            picpage= picpage-0.5;
+        }else{
+            picpage--;
+        }
         console.log('左');
     },
     paintWorksR:function(){
         tap = true;
-        picpage= picpage+0.5;
-        console.log('右');
+        if(!game.device.desktop){
+            picpage= picpage+0.5;
+        }else{
+            picpage++;
+        }
     }
 }
 
