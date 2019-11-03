@@ -1,3 +1,4 @@
+//JavaScript實現監聽移動端上下左右滑動事件 https://www.itread01.com/content/1547211091.html
 var EventUtil = {
     addHandler: function (element, type, handler) {
         if (element.addEventListener)
