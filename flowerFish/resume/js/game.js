@@ -224,6 +224,10 @@ game.State.works = {
 }
 
 game.State.works_ai={
+    init:function() {
+        Phaser.Canvas.setTouchAction(game.canvas, 'auto');
+        // this.input.touch.preventDefault = false;
+    },
     create:function(){
         // 背景
         this.bg = game.add.image(0,0,'movie_bg');
@@ -251,6 +255,7 @@ game.State.works_ai={
     },
     update:function(){
         Phaser.Canvas.setTouchAction(game.canvas, 'auto');
+        // this.input.touch.preventDefault = false;
         console.log(this.picpage);
         if(this.picpage === 0 && this.tap === true){
             this.tap = false;
@@ -361,7 +366,6 @@ game.State.works_ps={
         this.R.anchor.setTo(0.5);
     },
     update:function(){
-        Phaser.Canvas.setTouchAction(game.canvas, 'auto');
         if(this.picpage === 0 && this.tap === true){
             this.tap = false;
             // this.page0.alpha = 1;
@@ -472,7 +476,6 @@ game.State.works_sai={
         this.R.anchor.setTo(0.5);
     },
     update:function(){
-        Phaser.Canvas.setTouchAction(game.canvas, 'auto');
         if(this.picpage === 0 && this.tap === true){
             this.tap = false;
             // this.page0.alpha = 1;
