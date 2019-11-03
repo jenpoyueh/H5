@@ -32,7 +32,7 @@ game.State.boot={
         game.scale.pageAlignVertically = true;
         game.stage.backgroundColor = '#000000';
         this.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
-        this.scale.forcePortrait = true;
+        this.scale.forcePortrait = false;
         this.scale.refresh();  
     },   
 
