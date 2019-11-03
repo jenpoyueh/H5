@@ -227,7 +227,7 @@ game.State.web={
         this.infobtn02 = game.add.button(440,220,'infobtn',function(){
             this.infobtn02.alpha=0;
             this.infobtn01.alpha=1;
-            game.add.tween(this.info).to({ alpha: 0 }, 800, Phaser.Easing.Linear.None, true, 0, 0, false).onComplete.add(function(){
+            game.add.tween(this.info).to({ alpha: 0 }, 500, Phaser.Easing.Linear.None, true, 0, 0, false).onComplete.add(function(){
                 this.infoBtn01.inputEnabled = false;
                 this.infoBtn02.inputEnabled = false;
                 this.infobtn02.input.priorityID = 1;
@@ -238,7 +238,7 @@ game.State.web={
         this.expbtn02 = game.add.button(440,310,'expbtn',function(){
             this.expbtn02.alpha=0;
             this.expbtn01.alpha=1;
-            game.add.tween(this.exp).to({ alpha: 0 }, 800, Phaser.Easing.Linear.None, true, 0, 0, false).onComplete.add(function(){
+            game.add.tween(this.exp).to({ alpha: 0 }, 500, Phaser.Easing.Linear.None, true, 0, 0, false).onComplete.add(function(){
                 this.expbtn02.input.priorityID = 1;
                 this.expbtn01.input.priorityID = 2;
             },this);
@@ -251,13 +251,13 @@ game.State.web={
             this.infobtn02.alpha=1;
             this.expbtn02.alpha=0;
             this.expbtn01.alpha=1;
-            game.add.tween(this.exp).to({ alpha: 0 }, 800, Phaser.Easing.Linear.None, true, 0, 0, false).onComplete.add(function(){
+            game.add.tween(this.exp).to({ alpha: 0 }, 500, Phaser.Easing.Linear.None, true, 0, 0, false).onComplete.add(function(){
                 this.expbtn02.input.priorityID = 1;
                 this.expbtn01.input.priorityID = 2;
                 
             },this);
 
-            game.add.tween(this.info).to({ alpha: 1 }, 800, Phaser.Easing.Linear.None, true, 0, 0, false).onComplete.add(function(){
+            game.add.tween(this.info).to({ alpha: 1 }, 500, Phaser.Easing.Linear.None, true, 0, 0, false).onComplete.add(function(){
                 this.infoBtn01.inputEnabled = true;
                 this.infoBtn02.inputEnabled = true;
                 this.infobtn01.input.priorityID = 1;
@@ -271,13 +271,13 @@ game.State.web={
             this.expbtn02.alpha=1;
             this.infobtn02.alpha=0;
             this.infobtn01.alpha=1;
-            game.add.tween(this.info).to({ alpha: 0 }, 800, Phaser.Easing.Linear.None, true, 0, 0, false).onComplete.add(function(){
+            game.add.tween(this.info).to({ alpha: 0 }, 500, Phaser.Easing.Linear.None, true, 0, 0, false).onComplete.add(function(){
                 this.infoBtn01.inputEnabled = false;
                 this.infoBtn02.inputEnabled = false;
                 this.infobtn02.input.priorityID = 1;
                 this.infobtn01.input.priorityID = 2;
             },this);
-            game.add.tween(this.exp).to({ alpha: 1 }, 800, Phaser.Easing.Linear.None, true, 0, 0, false).onComplete.add(function(){
+            game.add.tween(this.exp).to({ alpha: 1 }, 500, Phaser.Easing.Linear.None, true, 0, 0, false).onComplete.add(function(){
                 this.expbtn02.input.priorityID = 2;
                 this.expbtn01.input.priorityID = 1;
             },this);
