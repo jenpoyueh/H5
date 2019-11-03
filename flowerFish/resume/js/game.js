@@ -72,8 +72,6 @@ var EventUtil = {
     }
 };
 
-/******** 條件 *********/
-
 /**********************/
 
 // 文字樣式
@@ -141,9 +139,11 @@ game.State.load={
         game.load.image('joker', '../resume/assets/joker.png');
         game.load.image('info01', '../resume/assets/info01.png');
         game.load.image('info02', '../resume/assets/info02.png');
+        game.load.image('info03', '../resume/assets/info03.png');
         game.load.image('exp', '../resume/assets/exp.png');
         game.load.image('infoTitle01', '../resume/assets/infoTitle01.png');
         game.load.image('infoTitle02', '../resume/assets/infoTitle02.png');
+        game.load.image('infoTitle03', '../resume/assets/infoTitle03.png');
         game.load.image('film', '../resume/assets/film.png');
         game.load.image('movie_bg', '../resume/assets/movie_bg.png');
         game.load.image('01', '../resume/assets/01.png');
@@ -163,6 +163,7 @@ game.State.load={
         game.load.spritesheet('movie_sai', '../resume/assets/movie_sai_sprite.png', 350, 220, 2);
         game.load.spritesheet('infoBtn01', '../resume/assets/infoBtn01.png', 110, 50, 2);
         game.load.spritesheet('infoBtn02', '../resume/assets/infoBtn02.png', 110, 50, 2);
+        game.load.spritesheet('infoBtn03', '../resume/assets/infoBtn03.png', 110, 50, 2);
         game.load.spritesheet('infobtn', '../resume/assets/infobtn.png', 130, 70, 2);
         game.load.spritesheet('expbtn', '../resume/assets/expbtn.png', 130, 70, 2);
         game.load.spritesheet('cancel', '../resume/assets/cancel.png', 60, 60, 2);
@@ -195,6 +196,7 @@ game.State.web={
         this.exp.alpha = 0;
         this.info01 =this.info.addChild(game.add.image(game.width/2,740,'info01'));
         this.info02 = this.info.addChild(game.add.image(game.width/2,740,'info02'));
+        this.info03 = this.info.addChild(game.add.image(game.width/2,740,'info03'));
         this.infoBtn01 = this.info.addChild(game.add.button(86,637,'infoBtn01',function(){
             this.info01.alpha = 1;
             this.infoBtn01.alpha = 0;
@@ -202,6 +204,9 @@ game.State.web={
             this.info02.alpha = 0;
             this.infoBtn02.alpha = 1;
             this.infoTitle02.alpha = 0;
+            this.info03.alpha = 0;
+            this.infoBtn03.alpha = 1;
+            this.infoTitle03.alpha = 0;
         },this,1,1,0));
         this.infoBtn02 = this.info.addChild(game.add.button(183,637,'infoBtn02',function(){
             this.info01.alpha = 0;
@@ -210,26 +215,47 @@ game.State.web={
             this.info02.alpha = 1;
             this.infoBtn02.alpha = 0;
             this.infoTitle02.alpha = 1;
+            this.info03.alpha = 0;
+            this.infoBtn03.alpha = 1;
+            this.infoTitle03.alpha = 0;
+        },this,1,1,0));
+        this.infoBtn03 = this.info.addChild(game.add.button(280,637,'infoBtn03',function(){
+            this.info01.alpha = 0;
+            this.infoBtn01.alpha = 1;
+            this.infoTitle01.alpha = 0;
+            this.info02.alpha = 0;
+            this.infoBtn02.alpha = 1;
+            this.infoTitle02.alpha = 0;
+            this.info03.alpha = 1;
+            this.infoBtn03.alpha = 0;
+            this.infoTitle03.alpha = 1;
         },this,1,1,0));
         this.infoBtn01.inputEnabled = false;
         this.infoBtn02.inputEnabled = false;
+        this.infoBtn03.inputEnabled = false;
         this.infoTitle01 = this.info.addChild(game.add.image(86,637,'infoTitle01'));
         this.infoTitle02 = this.info.addChild(game.add.image(183,637,'infoTitle02'));
+        this.infoTitle03 = this.info.addChild(game.add.image(280,637,'infoTitle03'));
         this.info01.anchor.setTo(0.5);
         this.info02.anchor.setTo(0.5);
+        this.info03.anchor.setTo(0.5);
         this.info01.alpha = 1;
         this.infoBtn01.alpha = 0;
         this.infoTitle01.alpha = 1;
         this.info02.alpha = 0;
         this.infoBtn02.alpha = 1;
         this.infoTitle02.alpha = 0;
+        this.info03.alpha = 0;
+        this.infoBtn03.alpha = 1;
+        this.infoTitle03.alpha = 0;
 
         this.infobtn02 = game.add.button(440,220,'infobtn',function(){
             this.infobtn02.alpha=0;
             this.infobtn01.alpha=1;
-            game.add.tween(this.info).to({ alpha: 0 }, 500, Phaser.Easing.Linear.None, true, 0, 0, false).onComplete.add(function(){
+            game.add.tween(this.info).to({ alpha: 0 }, 300, Phaser.Easing.Linear.None, true, 0, 0, false).onComplete.add(function(){
                 this.infoBtn01.inputEnabled = false;
                 this.infoBtn02.inputEnabled = false;
+                this.infoBtn03.inputEnabled = false;
                 this.infobtn02.input.priorityID = 1;
                 this.infobtn01.input.priorityID = 2;
             },this);
@@ -238,7 +264,7 @@ game.State.web={
         this.expbtn02 = game.add.button(440,310,'expbtn',function(){
             this.expbtn02.alpha=0;
             this.expbtn01.alpha=1;
-            game.add.tween(this.exp).to({ alpha: 0 }, 500, Phaser.Easing.Linear.None, true, 0, 0, false).onComplete.add(function(){
+            game.add.tween(this.exp).to({ alpha: 0 }, 300, Phaser.Easing.Linear.None, true, 0, 0, false).onComplete.add(function(){
                 this.expbtn02.input.priorityID = 1;
                 this.expbtn01.input.priorityID = 2;
             },this);
@@ -251,15 +277,16 @@ game.State.web={
             this.infobtn02.alpha=1;
             this.expbtn02.alpha=0;
             this.expbtn01.alpha=1;
-            game.add.tween(this.exp).to({ alpha: 0 }, 500, Phaser.Easing.Linear.None, true, 0, 0, false).onComplete.add(function(){
+            game.add.tween(this.exp).to({ alpha: 0 }, 300, Phaser.Easing.Linear.None, true, 0, 0, false).onComplete.add(function(){
                 this.expbtn02.input.priorityID = 1;
                 this.expbtn01.input.priorityID = 2;
                 
             },this);
 
-            game.add.tween(this.info).to({ alpha: 1 }, 500, Phaser.Easing.Linear.None, true, 0, 0, false).onComplete.add(function(){
+            game.add.tween(this.info).to({ alpha: 1 }, 300, Phaser.Easing.Linear.None, true, 0, 0, false).onComplete.add(function(){
                 this.infoBtn01.inputEnabled = true;
                 this.infoBtn02.inputEnabled = true;
+                this.infoBtn03.inputEnabled = true;
                 this.infobtn01.input.priorityID = 1;
                 this.infobtn02.input.priorityID = 2;
             },this);
@@ -271,13 +298,14 @@ game.State.web={
             this.expbtn02.alpha=1;
             this.infobtn02.alpha=0;
             this.infobtn01.alpha=1;
-            game.add.tween(this.info).to({ alpha: 0 }, 500, Phaser.Easing.Linear.None, true, 0, 0, false).onComplete.add(function(){
+            game.add.tween(this.info).to({ alpha: 0 }, 300, Phaser.Easing.Linear.None, true, 0, 0, false).onComplete.add(function(){
                 this.infoBtn01.inputEnabled = false;
                 this.infoBtn02.inputEnabled = false;
+                this.infoBtn03.inputEnabled = false;
                 this.infobtn02.input.priorityID = 1;
                 this.infobtn01.input.priorityID = 2;
             },this);
-            game.add.tween(this.exp).to({ alpha: 1 }, 500, Phaser.Easing.Linear.None, true, 0, 0, false).onComplete.add(function(){
+            game.add.tween(this.exp).to({ alpha: 1 }, 300, Phaser.Easing.Linear.None, true, 0, 0, false).onComplete.add(function(){
                 this.expbtn02.input.priorityID = 2;
                 this.expbtn01.input.priorityID = 1;
             },this);
