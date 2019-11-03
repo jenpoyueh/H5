@@ -533,6 +533,7 @@ game.State.works_ai={
         }else{
             picpage++;
         }
+        console.log('右');
     }
 }
 game.State.works_ps={
@@ -652,6 +653,7 @@ game.State.works_ps={
         }else{
             picpage++;
         }
+        console.log('右');
     }
 }
 game.State.works_sai={
@@ -771,6 +773,7 @@ game.State.works_sai={
         }else{
             picpage++;
         }
+        console.log('右');
     }
 }
 
