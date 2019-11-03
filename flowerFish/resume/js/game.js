@@ -62,8 +62,8 @@ var EventUtil = {
                     break;
                 case "touchmove":
                     //阻止預設行為
-                    if(isPreventDefault)
-                        event.preventDefault();
+                    // if(isPreventDefault)
+                    //     event.preventDefault();
                     break;
             }
         }
