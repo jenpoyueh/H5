@@ -1,4 +1,6 @@
 //JavaScript實現監聽移動端上下左右滑動事件 https://www.itread01.com/content/1547211091.html
+var picpage = 0;
+var tap = true;
 var EventUtil = {
     addHandler: function (element, type, handler) {
         if (element.addEventListener)
@@ -83,6 +85,16 @@ var tStyle = {fill: '#ffb64d', font: "42px YARDSALE"};
 var width = 640;
 var height = 960;
 var game =new Phaser.Game(width, height, Phaser.CANVAS, 'game');
+EventUtil.listenTouchDirection(document, true, false,function(){
+        tap = true;
+        picpage--;
+        console.log('滑右');
+    }, false,function(){
+        tap = true;
+        picpage++;
+        console.log('滑左');
+    },
+);
 
 /******** 遊戲物件 ********/
 
@@ -302,12 +314,12 @@ game.State.works_ai={
     create:function(){
         // 背景
         this.bg = game.add.image(0,0,'movie_bg');
-        this.picpage = 0;
+        picpage = 0;
         this.page0 = game.add.image(0,0,'01');
         this.page1 = game.add.image(0,0,'02');
         this.page2 = game.add.image(0,0,'03');
         this.page3 = game.add.image(0,0,'04');
-        this.tap = true;
+        tap = true;
         this.page0.alpha = 0;
         this.page1.alpha = 0;
         this.page2.alpha = 0;
@@ -323,29 +335,17 @@ game.State.works_ai={
         this.R = game.add.button(game.width/2+70,850,'pageR',this.paintWorksR,this,1,0,1,0);
         this.L.anchor.setTo(0.5);
         this.R.anchor.setTo(0.5);
-        var that = this;
-        this.EventUtil = EventUtil;
-        this.EventUtil.listenTouchDirection(document, true, false,function(){
-                that.tap = true;
-                that.picpage--;
-                console.log('滑右');
-            }, false,function(){
-                that.tap = true;
-                that.picpage++;
-                console.log('滑左');
-            },
-        );
     },
     update:function(){
-        if(this.picpage<0){
-            this.picpage = 0;
+        if(picpage<0){
+            picpage = 0;
         }
-        if(this.picpage>3){
-            this.picpage = 3;
+        if(picpage>3){
+            picpage = 3;
         }
-        console.log(this.picpage);
-        if(this.picpage === 0 && this.tap === true){
-            this.tap = false;
+        console.log(picpage);
+        if(picpage === 0 && tap === true){
+            tap = false;
             // this.page0.alpha = 1;
             // this.page1.alpha = 0;
             // this.page2.alpha = 0;
@@ -360,8 +360,8 @@ game.State.works_ai={
             game.add.tween(this.page3).to({ x:game.width }, 300, Phaser.Easing.Linear.None, true, 0, 0, false);
 
         }
-        if(this.picpage === 1 && this.tap === true){
-            this.tap = false;
+        if(picpage === 1 && tap === true){
+            tap = false;
             // this.page0.alpha = 0;
             // this.page1.alpha = 1;
             // this.page2.alpha = 0;
@@ -375,8 +375,8 @@ game.State.works_ai={
             game.add.tween(this.page2).to({ x:game.width }, 300, Phaser.Easing.Linear.None, true, 0, 0, false);
             game.add.tween(this.page3).to({ x:game.width }, 300, Phaser.Easing.Linear.None, true, 0, 0, false);
         }
-        if(this.picpage === 2 && this.tap === true){
-            this.tap = false;
+        if(picpage === 2 && tap === true){
+            tap = false;
             // this.page0.alpha = 0;
             // this.page1.alpha = 0;
             // this.page2.alpha = 1;
@@ -390,8 +390,8 @@ game.State.works_ai={
             game.add.tween(this.page2).to({ x:0 }, 300, Phaser.Easing.Linear.None, true, 0, 0, false);
             game.add.tween(this.page3).to({ x:game.width }, 300, Phaser.Easing.Linear.None, true, 0, 0, false);
         }
-        if(this.picpage === 3 && this.tap === true){
-            this.tap = false;
+        if(picpage === 3 && tap === true){
+            tap = false;
             // this.page0.alpha = 0;
             // this.page1.alpha = 0;
             // this.page2.alpha = 0;
@@ -410,13 +410,13 @@ game.State.works_ai={
         game.state.start('works');
     },
     paintWorksL:function(){
-        this.tap = true;
-        this.picpage= this.picpage-0.5;
+        tap = true;
+        picpage= picpage-0.5;
         console.log('左');
     },
     paintWorksR:function(){
-        this.tap = true;
-        this.picpage = this.picpage+0.5;
+        tap = true;
+        picpage = picpage+0.5;
         console.log('右');
     }
 }
@@ -424,13 +424,13 @@ game.State.works_ps={
     create:function(){
         // 背景
         this.bg = game.add.image(0,0,'movie_bg');
-        this.picpage = 0;
+        picpage = 0;
         this.page0 = game.add.image(0,0,'05');
         this.page1 = game.add.image(0,0,'06');
         this.page2 = game.add.image(0,0,'07');
         this.page3 = game.add.image(0,0,'08');
         // this.input.touch.preventDefault = false;
-        this.tap = true;
+        tap = true;
         this.page0.alpha = 0;
         this.page1.alpha = 0;
         this.page2.alpha = 0;
@@ -446,29 +446,17 @@ game.State.works_ps={
         this.R = game.add.button(game.width/2+70,850,'pageR',this.paintWorksR,this,1,0,1,0);
         this.L.anchor.setTo(0.5);
         this.R.anchor.setTo(0.5);
-        var that = this;
-        this.EventUtil = EventUtil;
-        this.EventUtil.listenTouchDirection(document, true, false,function(){
-                that.tap = true;
-                that.picpage--;
-                console.log('滑右');
-            }, false,function(){
-                that.tap = true;
-                that.picpage++;
-                console.log('滑左');
-            },
-        );
     },
     update:function(){
-        if(this.picpage<0){
-            this.picpage = 0;
+        if(picpage<0){
+            picpage = 0;
         }
-        if(this.picpage>3){
-            this.picpage = 3;
+        if(picpage>3){
+            picpage = 3;
         }
-        console.log(this.picpage);
-        if(this.picpage === 0 && this.tap === true){
-            this.tap = false;
+        console.log(picpage);
+        if(picpage === 0 && tap === true){
+            tap = false;
             // this.page0.alpha = 1;
             // this.page1.alpha = 0;
             // this.page2.alpha = 0;
@@ -483,8 +471,8 @@ game.State.works_ps={
             game.add.tween(this.page3).to({ x:game.width }, 300, Phaser.Easing.Linear.None, true, 0, 0, false);
 
         }
-        if(this.picpage === 1 && this.tap === true){
-            this.tap = false;
+        if(picpage === 1 && tap === true){
+            tap = false;
             // this.page0.alpha = 0;
             // this.page1.alpha = 1;
             // this.page2.alpha = 0;
@@ -498,8 +486,8 @@ game.State.works_ps={
             game.add.tween(this.page2).to({ x:game.width }, 300, Phaser.Easing.Linear.None, true, 0, 0, false);
             game.add.tween(this.page3).to({ x:game.width }, 300, Phaser.Easing.Linear.None, true, 0, 0, false);
         }
-        if(this.picpage === 2 && this.tap === true){
-            this.tap = false;
+        if(picpage === 2 && tap === true){
+            tap = false;
             // this.page0.alpha = 0;
             // this.page1.alpha = 0;
             // this.page2.alpha = 1;
@@ -513,8 +501,8 @@ game.State.works_ps={
             game.add.tween(this.page2).to({ x:0 }, 300, Phaser.Easing.Linear.None, true, 0, 0, false);
             game.add.tween(this.page3).to({ x:game.width }, 300, Phaser.Easing.Linear.None, true, 0, 0, false);
         }
-        if(this.picpage === 3 && this.tap === true){
-            this.tap = false;
+        if(picpage === 3 && tap === true){
+            tap = false;
             // this.page0.alpha = 0;
             // this.page1.alpha = 0;
             // this.page2.alpha = 0;
@@ -534,13 +522,13 @@ game.State.works_ps={
         game.state.start('works');
     },
     paintWorksL:function(){
-        this.tap = true;
-        this.picpage= this.picpage-0.5;
+        tap = true;
+        picpage= picpage-0.5;
         console.log('左');
     },
     paintWorksR:function(){
-        this.tap = true;
-        this.picpage= this.picpage+0.5;
+        tap = true;
+        picpage= picpage+0.5;
         console.log('右');
     }
 }
@@ -548,12 +536,12 @@ game.State.works_sai={
     create:function(){
         // 背景
         this.bg = game.add.image(0,0,'movie_bg');
-        this.picpage = 0;
+        picpage = 0;
         this.page0 = game.add.image(0,0,'09');
         this.page1 = game.add.image(0,0,'10');
         this.page2 = game.add.image(0,0,'11');
         // this.page3 = game.add.image(0,0,'12');
-        this.tap = true;
+        tap = true;
         this.page0.alpha = 0;
         this.page1.alpha = 0;
         this.page2.alpha = 0;
@@ -570,29 +558,17 @@ game.State.works_sai={
         this.R = game.add.button(game.width/2+70,850,'pageR',this.paintWorksR,this,1,0,1,0);
         this.L.anchor.setTo(0.5);
         this.R.anchor.setTo(0.5);
-        var that = this;
-        this.EventUtil = EventUtil;
-        this.EventUtil.listenTouchDirection(document, true, false,function(){
-                that.tap = true;
-                that.picpage--;
-                console.log('滑右');
-            }, false,function(){
-                that.tap = true;
-                that.picpage++;
-                console.log('滑左');
-            },
-        );
     },
     update:function(){
-        if(this.picpage<0){
-            this.picpage = 0;
+        if(picpage<0){
+            picpage = 0;
         }
-        if(this.picpage>3){
-            this.picpage = 3;
+        if(picpage>3){
+            picpage = 3;
         }
-        console.log(this.picpage);
-        if(this.picpage === 0 && this.tap === true){
-            this.tap = false;
+        console.log(picpage);
+        if(picpage === 0 && tap === true){
+            tap = false;
             // this.page0.alpha = 1;
             // this.page1.alpha = 0;
             // this.page2.alpha = 0;
@@ -607,8 +583,8 @@ game.State.works_sai={
             // game.add.tween(this.page3).to({ x:game.width }, 300, Phaser.Easing.Linear.None, true, 0, 0, false);
 
         }
-        if(this.picpage === 1 && this.tap === true){
-            this.tap = false;
+        if(picpage === 1 && tap === true){
+            tap = false;
             // this.page0.alpha = 0;
             // this.page1.alpha = 1;
             // this.page2.alpha = 0;
@@ -622,8 +598,8 @@ game.State.works_sai={
             game.add.tween(this.page2).to({ x:game.width }, 300, Phaser.Easing.Linear.None, true, 0, 0, false);
             // game.add.tween(this.page3).to({ x:game.width }, 300, Phaser.Easing.Linear.None, true, 0, 0, false);
         }
-        if(this.picpage === 2 && this.tap === true){
-            this.tap = false;
+        if(picpage === 2 && tap === true){
+            tap = false;
             // this.page0.alpha = 0;
             // this.page1.alpha = 0;
             // this.page2.alpha = 1;
@@ -658,13 +634,13 @@ game.State.works_sai={
         game.state.start('works');
     },
     paintWorksL:function(){
-        this.tap = true;
-        this.picpage= this.picpage-0.5;
+        tap = true;
+        picpage= picpage-0.5;
         console.log('左');
     },
     paintWorksR:function(){
-        this.tap = true;
-        this.picpage= this.picpage+0.5;
+        tap = true;
+        picpage= picpage+0.5;
         console.log('右');
     }
 }
