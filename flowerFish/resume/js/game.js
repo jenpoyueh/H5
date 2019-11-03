@@ -1,4 +1,73 @@
-/****************** 可連結資料庫變更的變數 ********************/
+var EventUtil = {
+    addHandler: function (element, type, handler) {
+        if (element.addEventListener)
+            element.addEventListener(type, handler, false);
+        else if (element.attachEvent)
+            element.attachEvent("on" + type, handler);
+        else
+            element["on" + type] = handler;
+    },
+    removeHandler: function (element, type, handler) {
+        if(element.removeEventListener)
+            element.removeEventListener(type, handler, false);
+        else if(element.detachEvent)
+            element.detachEvent("on" + type, handler);
+        else
+            element["on" + type] = handler;
+    },
+    /**
+     * 監聽觸控的方向
+     * @param target            要繫結監聽的目標元素
+     * @param isPreventDefault  是否遮蔽掉觸控滑動的預設行為（例如頁面的上下滾動，縮放等）
+     * @param upCallback        向上滑動的監聽回撥（若不關心，可以不傳，或傳false）
+     * @param rightCallback     向右滑動的監聽回撥（若不關心，可以不傳，或傳false）
+     * @param downCallback      向下滑動的監聽回撥（若不關心，可以不傳，或傳false）
+     * @param leftCallback      向左滑動的監聽回撥（若不關心，可以不傳，或傳false）
+     */
+    listenTouchDirection: function (target, isPreventDefault, upCallback, rightCallback, downCallback, leftCallback) {
+        this.addHandler(target, "touchstart", handleTouchEvent);
+        this.addHandler(target, "touchend", handleTouchEvent);
+        this.addHandler(target, "touchmove", handleTouchEvent);
+        var startX;
+        var startY;
+        function handleTouchEvent(event) {
+            switch (event.type){
+                case "touchstart":
+                    startX = event.touches[0].pageX;
+                    startY = event.touches[0].pageY;
+                    break;
+                case "touchend":
+                    var spanX = event.changedTouches[0].pageX - startX;
+                    var spanY = event.changedTouches[0].pageY - startY;
+
+                    if(Math.abs(spanX) > Math.abs(spanY)){      //認定為水平方向滑動
+                        if(spanX > 30){         //向右
+                            if(rightCallback)
+                                rightCallback();
+                        } else if(spanX < -30){ //向左
+                            if(leftCallback)
+                                leftCallback();
+                        }
+                    } else {                                    //認定為垂直方向滑動
+                        if(spanY > 30){         //向下
+                            if(downCallback)
+                                downCallback();
+                        } else if (spanY < -30) {//向上
+                            if(upCallback)
+                                upCallback();
+                        }
+                    }
+
+                    break;
+                case "touchmove":
+                    //阻止預設行為
+                    // if(isPreventDefault)
+                    //     event.preventDefault();
+                    // break;
+            }
+        }
+    }
+};
 
 /******** 條件 *********/
 
@@ -194,6 +263,7 @@ game.State.works = {
         this.buttonA = game.add.button(110,820,'buttonA',this.pageA,this,1,0,1);
         this.buttonB = game.add.button(250,820,'buttonB',this.pageB,this,1,1,1);
         this.buttonc = game.add.button(390,820,'buttonC',this.pageC,this,1,0,1);
+        
     },
     // 聲音播放
     soundFx: function(name,value,loopFlag){
@@ -252,6 +322,23 @@ game.State.works_ai={
         this.R = game.add.button(game.width/2+70,850,'pageR',this.paintWorksR,this,1,0,1,0);
         this.L.anchor.setTo(0.5);
         this.R.anchor.setTo(0.5);
+        var that = this;
+        EventUtil.listenTouchDirection(document, true, false,function(){
+                that.tap = true;
+                that.picpage++;
+                if(that.picpage<0){
+                    this.picpage = 0;
+                }
+                console.log('滑右');
+            }, false,function(){
+                that.tap = true;
+                that.picpage--;
+                if(that.picpage<0){
+                    that.picpage = 0;
+                }
+                console.log('滑左');
+            }, 
+        );
     },
     update:function(){
         Phaser.Canvas.setTouchAction(game.canvas, 'auto');
@@ -364,6 +451,23 @@ game.State.works_ps={
         this.R = game.add.button(game.width/2+70,850,'pageR',this.paintWorksR,this,1,0,1,0);
         this.L.anchor.setTo(0.5);
         this.R.anchor.setTo(0.5);
+        var that = this;
+        EventUtil.listenTouchDirection(document, true, false,function(){
+                that.tap = true;
+                that.picpage++;
+                if(that.picpage<0){
+                    this.picpage = 0;
+                }
+                console.log('滑右');
+            }, false,function(){
+                that.tap = true;
+                that.picpage--;
+                if(that.picpage<0){
+                    that.picpage = 0;
+                }
+                console.log('滑左');
+            }, 
+        );
     },
     update:function(){
         Phaser.Canvas.setTouchAction(game.canvas, 'auto');
@@ -476,6 +580,23 @@ game.State.works_sai={
         this.R = game.add.button(game.width/2+70,850,'pageR',this.paintWorksR,this,1,0,1,0);
         this.L.anchor.setTo(0.5);
         this.R.anchor.setTo(0.5);
+        var that = this;
+        EventUtil.listenTouchDirection(document, true, false,function(){
+                that.tap = true;
+                that.picpage++;
+                if(that.picpage<0){
+                    this.picpage = 0;
+                }
+                console.log('滑右');
+            }, false,function(){
+                that.tap = true;
+                that.picpage--;
+                if(that.picpage<0){
+                    that.picpage = 0;
+                }
+                console.log('滑左');
+            }, 
+        );
     },
     update:function(){
         Phaser.Canvas.setTouchAction(game.canvas, 'auto');
