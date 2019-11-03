@@ -98,6 +98,8 @@ game.State.boot={
     preload:function(){
         // game.load.image('loading','../resume/assets/preloader.gif');
         //行動平台螢幕適應
+        Phaser.Canvas.setTouchAction(game.canvas, 'auto');
+        game.input.touch.preventDefault = false;
         game.scale.pageAlignHorizontally = true;
         game.scale.pageAlignVertically = true;
         game.stage.backgroundColor = '#000000';
@@ -171,8 +173,7 @@ game.State.web={
         this.joker = game.add.image(0,0,'joker');
         this.info01 = game.add.image(game.width/2,740,'info01');
         this.info02 = game.add.image(game.width/2,740,'info02');
-        Phaser.Canvas.setTouchAction(game.canvas, 'auto');
-        this.input.touch.preventDefault = false;
+        // this.input.touch.preventDefault = false;
         this.infoBtn01 = game.add.button(86,637,'infoBtn01',function(){
             this.info01.alpha = 1;
             this.infoBtn01.alpha = 0;
@@ -242,8 +243,7 @@ game.State.works = {
         // 背景
         this.bg = game.add.image(0,0,'bg');
         this.film = game.add.image(0,0,'film');
-        Phaser.Canvas.setTouchAction(game.canvas, 'auto');
-        this.input.touch.preventDefault = false;
+        // this.input.touch.preventDefault = false;
         // 閃亮亮01
         this.light01 = game.add.sprite(0,0,'light01');
         game.add.tween(this.light01).to({ alpha: 0 }, 500, Phaser.Easing.Linear.None, true, 0, -1, true);
@@ -315,7 +315,7 @@ game.State.works_ai={
         this.page1.x = game.width;
         this.page2.x = game.width;
         this.page3.x = game.width;
-        this.input.touch.preventDefault = false;
+        // this.input.touch.preventDefault = false;
         // 取消按鈕
         this.cancel = game.add.button(550,30,'cancel',this.pageB,this,1,0,1);
         // 切頁按鈕
@@ -324,7 +324,8 @@ game.State.works_ai={
         this.L.anchor.setTo(0.5);
         this.R.anchor.setTo(0.5);
         var that = this;
-        EventUtil.listenTouchDirection(document, true, false,function(){
+        this.EventUtil = EventUtil;
+        this.EventUtil.listenTouchDirection(document, true, false,function(){
                 that.tap = true;
                 that.picpage--;
                 console.log('滑右');
@@ -336,7 +337,6 @@ game.State.works_ai={
         );
     },
     update:function(){
-        Phaser.Canvas.setTouchAction(game.canvas, 'auto');
         if(this.picpage<0){
             this.picpage = 0;
         }
@@ -429,7 +429,7 @@ game.State.works_ps={
         this.page1 = game.add.image(0,0,'06');
         this.page2 = game.add.image(0,0,'07');
         this.page3 = game.add.image(0,0,'08');
-        this.input.touch.preventDefault = false;
+        // this.input.touch.preventDefault = false;
         this.tap = true;
         this.page0.alpha = 0;
         this.page1.alpha = 0;
@@ -447,7 +447,8 @@ game.State.works_ps={
         this.L.anchor.setTo(0.5);
         this.R.anchor.setTo(0.5);
         var that = this;
-        EventUtil.listenTouchDirection(document, true, false,function(){
+        this.EventUtil = EventUtil;
+        this.EventUtil.listenTouchDirection(document, true, false,function(){
                 that.tap = true;
                 that.picpage--;
                 console.log('滑右');
@@ -455,11 +456,10 @@ game.State.works_ps={
                 that.tap = true;
                 that.picpage++;
                 console.log('滑左');
-            }, { passive: false }
+            },
         );
     },
     update:function(){
-        Phaser.Canvas.setTouchAction(game.canvas, 'auto');
         if(this.picpage<0){
             this.picpage = 0;
         }
@@ -561,7 +561,7 @@ game.State.works_sai={
         this.page1.x = game.width;
         this.page2.x = game.width;
         // this.page3.x = game.width;
-        this.input.touch.preventDefault = false;
+        // this.input.touch.preventDefault = false;
 
         // 取消按鈕
         this.cancel = game.add.button(550,30,'cancel',this.pageB,this,1,0,1);
@@ -571,7 +571,8 @@ game.State.works_sai={
         this.L.anchor.setTo(0.5);
         this.R.anchor.setTo(0.5);
         var that = this;
-        EventUtil.listenTouchDirection(document, true, false,function(){
+        this.EventUtil = EventUtil;
+        this.EventUtil.listenTouchDirection(document, true, false,function(){
                 that.tap = true;
                 that.picpage--;
                 console.log('滑右');
@@ -583,7 +584,6 @@ game.State.works_sai={
         );
     },
     update:function(){
-        Phaser.Canvas.setTouchAction(game.canvas, 'auto');
         if(this.picpage<0){
             this.picpage = 0;
         }
