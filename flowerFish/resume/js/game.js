@@ -62,9 +62,9 @@ var EventUtil = {
                     break;
                 case "touchmove":
                     //阻止預設行為
-                    // if(isPreventDefault)
-                    //     event.preventDefault();
-                    // break;
+                    if(isPreventDefault)
+                        event.preventDefault();
+                    break;
             }
         }
     }
@@ -327,22 +327,22 @@ game.State.works_ai={
         EventUtil.listenTouchDirection(document, true, false,function(){
                 that.tap = true;
                 that.picpage--;
-                if(that.picpage<0){
-                    this.picpage = 0;
-                }
                 console.log('滑右');
             }, false,function(){
                 that.tap = true;
                 that.picpage++;
-                if(that.picpage<0){
-                    that.picpage = 0;
-                }
                 console.log('滑左');
-            }, 
+            },
         );
     },
     update:function(){
         Phaser.Canvas.setTouchAction(game.canvas, 'auto');
+        if(this.picpage<0){
+            this.picpage = 0;
+        }
+        if(this.picpage>3){
+            this.picpage = 3;
+        }
         console.log(this.picpage);
         if(this.picpage === 0 && this.tap === true){
             this.tap = false;
@@ -412,17 +412,11 @@ game.State.works_ai={
     paintWorksL:function(){
         this.tap = true;
         this.picpage= this.picpage-0.5;
-        if(this.picpage<0){
-            this.picpage = 0;
-        }
         console.log('左');
     },
     paintWorksR:function(){
         this.tap = true;
         this.picpage = this.picpage+0.5;
-        if(this.picpage>3){
-            this.picpage = 3;
-        }
         console.log('右');
     }
 }
@@ -456,22 +450,23 @@ game.State.works_ps={
         EventUtil.listenTouchDirection(document, true, false,function(){
                 that.tap = true;
                 that.picpage--;
-                if(that.picpage<0){
-                    this.picpage = 0;
-                }
                 console.log('滑右');
             }, false,function(){
                 that.tap = true;
                 that.picpage++;
-                if(that.picpage<0){
-                    that.picpage = 0;
-                }
                 console.log('滑左');
-            }, 
+            }, { passive: false }
         );
     },
     update:function(){
         Phaser.Canvas.setTouchAction(game.canvas, 'auto');
+        if(this.picpage<0){
+            this.picpage = 0;
+        }
+        if(this.picpage>3){
+            this.picpage = 3;
+        }
+        console.log(this.picpage);
         if(this.picpage === 0 && this.tap === true){
             this.tap = false;
             // this.page0.alpha = 1;
@@ -541,17 +536,11 @@ game.State.works_ps={
     paintWorksL:function(){
         this.tap = true;
         this.picpage= this.picpage-0.5;
-        if(this.picpage<0){
-            this.picpage = 0;
-        }
         console.log('左');
     },
     paintWorksR:function(){
         this.tap = true;
         this.picpage= this.picpage+0.5;
-        if(this.picpage>3){
-            this.picpage = 3;
-        }
         console.log('右');
     }
 }
@@ -585,22 +574,23 @@ game.State.works_sai={
         EventUtil.listenTouchDirection(document, true, false,function(){
                 that.tap = true;
                 that.picpage--;
-                if(that.picpage<0){
-                    this.picpage = 0;
-                }
                 console.log('滑右');
             }, false,function(){
                 that.tap = true;
                 that.picpage++;
-                if(that.picpage<0){
-                    that.picpage = 0;
-                }
                 console.log('滑左');
-            }, 
+            },
         );
     },
     update:function(){
         Phaser.Canvas.setTouchAction(game.canvas, 'auto');
+        if(this.picpage<0){
+            this.picpage = 0;
+        }
+        if(this.picpage>3){
+            this.picpage = 3;
+        }
+        console.log(this.picpage);
         if(this.picpage === 0 && this.tap === true){
             this.tap = false;
             // this.page0.alpha = 1;
@@ -670,17 +660,11 @@ game.State.works_sai={
     paintWorksL:function(){
         this.tap = true;
         this.picpage= this.picpage-0.5;
-        if(this.picpage<0){
-            this.picpage = 0;
-        }
         console.log('左');
     },
     paintWorksR:function(){
         this.tap = true;
         this.picpage= this.picpage+0.5;
-        if(this.picpage>2){
-            this.picpage = 2;
-        }
         console.log('右');
     }
 }
