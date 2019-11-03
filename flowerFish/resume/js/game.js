@@ -326,14 +326,14 @@ game.State.works_ai={
         var that = this;
         EventUtil.listenTouchDirection(document, true, false,function(){
                 that.tap = true;
-                that.picpage++;
+                that.picpage--;
                 if(that.picpage<0){
                     this.picpage = 0;
                 }
                 console.log('滑右');
             }, false,function(){
                 that.tap = true;
-                that.picpage--;
+                that.picpage++;
                 if(that.picpage<0){
                     that.picpage = 0;
                 }
@@ -455,14 +455,14 @@ game.State.works_ps={
         var that = this;
         EventUtil.listenTouchDirection(document, true, false,function(){
                 that.tap = true;
-                that.picpage++;
+                that.picpage--;
                 if(that.picpage<0){
                     this.picpage = 0;
                 }
                 console.log('滑右');
             }, false,function(){
                 that.tap = true;
-                that.picpage--;
+                that.picpage++;
                 if(that.picpage<0){
                     that.picpage = 0;
                 }
@@ -584,14 +584,14 @@ game.State.works_sai={
         var that = this;
         EventUtil.listenTouchDirection(document, true, false,function(){
                 that.tap = true;
-                that.picpage++;
+                that.picpage--;
                 if(that.picpage<0){
                     this.picpage = 0;
                 }
                 console.log('滑右');
             }, false,function(){
                 that.tap = true;
-                that.picpage--;
+                that.picpage++;
                 if(that.picpage<0){
                     that.picpage = 0;
                 }
