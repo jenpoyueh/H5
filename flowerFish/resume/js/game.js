@@ -28,12 +28,12 @@ game.State.boot={
     preload:function(){
         // game.load.image('loading','../resume/assets/preloader.gif');
         //行動平台螢幕適應
-        game.scale.pageAlignHorizontally = true;
-        game.scale.pageAlignVertically = true;
-        game.stage.backgroundColor = '#000000';
-        this.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
-        this.scale.forcePortrait = false;
-        this.scale.refresh();  
+        // game.scale.pageAlignHorizontally = true;
+        // game.scale.pageAlignVertically = true;
+        // game.stage.backgroundColor = '#000000';
+        // this.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
+        // this.scale.forcePortrait = false;
+        // this.scale.refresh();  
     },   
 
     create:function(){  
