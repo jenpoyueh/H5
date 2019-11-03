@@ -101,6 +101,8 @@ game.State.web={
         this.joker = game.add.image(0,0,'joker');
         this.info01 = game.add.image(game.width/2,740,'info01');
         this.info02 = game.add.image(game.width/2,740,'info02');
+        Phaser.Canvas.setTouchAction(game.canvas, 'auto');
+        this.input.touch.preventDefault = false;
         this.infoBtn01 = game.add.button(86,637,'infoBtn01',function(){
             this.info01.alpha = 1;
             this.infoBtn01.alpha = 0;
@@ -170,7 +172,8 @@ game.State.works = {
         // 背景
         this.bg = game.add.image(0,0,'bg');
         this.film = game.add.image(0,0,'film');
-
+        Phaser.Canvas.setTouchAction(game.canvas, 'auto');
+        this.input.touch.preventDefault = false;
         // 閃亮亮01
         this.light01 = game.add.sprite(0,0,'light01');
         game.add.tween(this.light01).to({ alpha: 0 }, 500, Phaser.Easing.Linear.None, true, 0, -1, true);
@@ -344,6 +347,7 @@ game.State.works_ps={
         this.page1 = game.add.image(0,0,'06');
         this.page2 = game.add.image(0,0,'07');
         this.page3 = game.add.image(0,0,'08');
+        this.input.touch.preventDefault = false;
         this.tap = true;
         this.page0.alpha = 0;
         this.page1.alpha = 0;
@@ -362,6 +366,7 @@ game.State.works_ps={
         this.R.anchor.setTo(0.5);
     },
     update:function(){
+        Phaser.Canvas.setTouchAction(game.canvas, 'auto');
         if(this.picpage === 0 && this.tap === true){
             this.tap = false;
             // this.page0.alpha = 1;
@@ -430,7 +435,7 @@ game.State.works_ps={
     },
     paintWorksL:function(){
         this.tap = true;
-        this.picpage--;
+        this.picpage= this.picpage-0.5;
         if(this.picpage<0){
             this.picpage = 0;
         }
@@ -438,7 +443,7 @@ game.State.works_ps={
     },
     paintWorksR:function(){
         this.tap = true;
-        this.picpage++;
+        this.picpage= this.picpage+0.5;
         if(this.picpage>3){
             this.picpage = 3;
         }
@@ -462,6 +467,7 @@ game.State.works_sai={
         this.page1.x = game.width;
         this.page2.x = game.width;
         // this.page3.x = game.width;
+        this.input.touch.preventDefault = false;
 
         // 取消按鈕
         this.cancel = game.add.button(550,30,'cancel',this.pageB,this,1,0,1);
@@ -472,6 +478,7 @@ game.State.works_sai={
         this.R.anchor.setTo(0.5);
     },
     update:function(){
+        Phaser.Canvas.setTouchAction(game.canvas, 'auto');
         if(this.picpage === 0 && this.tap === true){
             this.tap = false;
             // this.page0.alpha = 1;
@@ -540,7 +547,7 @@ game.State.works_sai={
     },
     paintWorksL:function(){
         this.tap = true;
-        this.picpage--;
+        this.picpage= this.picpage-0.5;
         if(this.picpage<0){
             this.picpage = 0;
         }
@@ -548,15 +555,13 @@ game.State.works_sai={
     },
     paintWorksR:function(){
         this.tap = true;
-        this.picpage++;
+        this.picpage= this.picpage+0.5;
         if(this.picpage>2){
             this.picpage = 2;
         }
         console.log('右');
     }
 }
-
-
 
 
 game.State.games = {
