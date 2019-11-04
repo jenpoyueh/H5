@@ -1,0 +1,12 @@
+{
+"companyName": "DefaultCompany",
+"productName": "JumpGame2D",
+"dataUrl": "0905.data.unityweb",
+"wasmCodeUrl": "0905.wasm.code.unityweb",
+"wasmFrameworkUrl": "0905.wasm.framework.unityweb",
+"TOTAL_MEMORY": 33554432,
+"graphicsAPI": ["WebGL 2.0", "WebGL 1.0"],
+"webglContextAttributes": {"preserveDrawingBuffer": false},
+"splashScreenStyle": "Dark",
+"backgroundColor": "#231F20"
+}

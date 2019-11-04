@@ -1,16 +1,3 @@
-/****************** 可連結資料庫變更的變數 ********************/
-
-
-
-
-/******** 條件 *********/
-
-/**********************/
-
-// 文字樣式
-var style = {fill: '#ffb64d', font: "120px Bountifl"};
-var style2 = {fill: '#ffb64d', font: "48px Bountifl"};
-var tStyle = {fill: '#ffb64d', font: "42px YARDSALE"};
 
 // 遊戲主畫布
 var width = 640;
@@ -102,7 +89,7 @@ game.State.web={
             var pipiBtnTween = game.add.tween(this.pipiBtn.scale).to({x:1,y:1}, 500, Phaser.Easing.Sinusoidal.InOut, true, 0, 0, false);
             var pipiBtnTween = game.add.tween(this.pipiBtn).to({alpha: 0}, 800, Phaser.Easing.Linear.None, true, 0, 0, false);
             pipiBtnTween.onComplete.add(function(){
-                window.location.href = '../../games/games008/index.html';
+                window.location.href = '../games008/index.html';
             },this);
         },this);
 
@@ -128,7 +115,7 @@ game.State.web={
             var cactusBtnTween = game.add.tween(this.cactusBtn.scale).to({x:1,y:1}, 500, Phaser.Easing.Sinusoidal.InOut, true, 0, 0, false);
             var cactusBtnTween = game.add.tween(this.cactusBtn).to({alpha: 0}, 800, Phaser.Easing.Linear.None, true, 0, 0, false);
             cactusBtnTween.onComplete.add(function(){
-                window.location.href = '../../games/games009/index.html';
+                window.location.href = '../games009/index.html';
             },this);
         },this);
 
@@ -154,7 +141,7 @@ game.State.web={
             var moonBtnTween = game.add.tween(this.moonBtn.scale).to({x:1.1,y:1.1}, 500, Phaser.Easing.Sinusoidal.InOut, true, 0, 0, false);
             var moonBtnTween = game.add.tween(this.moonBtn).to({alpha: 0}, 800, Phaser.Easing.Linear.None, true, 0, 0, false);
             moonBtnTween.onComplete.add(function(){
-                window.location.href = '../../games/games010/index.html';
+                window.location.href = '../games010/index.html';
             },this);
         },this);
 
@@ -181,7 +168,7 @@ game.State.web={
             var waterBtnTween = game.add.tween(this.waterBtn.scale).to({x:1.1,y:1.1}, 500, Phaser.Easing.Sinusoidal.InOut, true, 0, 0, false);
             var waterBtnTween = game.add.tween(this.waterBtn).to({alpha: 0}, 800, Phaser.Easing.Linear.None, true, 0, 0, false);
             waterBtnTween.onComplete.add(function(){
-                window.location.href = '../../games/games011/index.html';
+                window.location.href = '../games011/index.html';
             },this);
         },this);
 
@@ -207,7 +194,7 @@ game.State.web={
             var ghostBtnTween = game.add.tween(this.ghostBtn.scale).to({x:1,y:1}, 500, Phaser.Easing.Sinusoidal.InOut, true, 0, 0, false);
             var ghostBtnTween = game.add.tween(this.ghostBtn).to({alpha: 0}, 800, Phaser.Easing.Linear.None, true, 0, 0, false);
             ghostBtnTween.onComplete.add(function(){
-                window.location.href = '../../games/games012/index.html';
+                window.location.href = '../games012/index.html';
             },this);
         },this);
          // 返回履歷

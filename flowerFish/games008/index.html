@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <!-- <script>
+            var URL = document.location.toString();
+            var useragent = navigator.userAgent;
+            useragent = useragent.toLowerCase();
+            if (useragent.indexOf('iphone') != -1) {
+                //location.replace("/game/game004");//iphone
+                console.log("ok");
+            } else if (useragent.indexOf('ipad') != -1 || useragent.indexOf('ipod') != -1) { //location.replace("/game/game004");//ipad
+                console.log("ok");
+            } else if (useragent.indexOf('android') != -1) {
+                if (ConsiderLimits()) {
+                    //location.replace("/game/game004"); // android pad
+                    console.log("ok");
+                } else {
+                    //location.replace("/game/game004"); // android phone
+                    console.log("ok");
+                }
+            } else {
+                location.replace("/game/game004_QRCode"); // PC
+            }
+
+            function ConsiderLimits() {
+                if (screen.width >= 1024 && screen.height >= 600)
+                    return 1;
+                return 0;
+            }
+        </script> -->
+        <meta charset="UTF-8">
+        <title>PIPI歷險記</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src='../Framework/phaser.min_v2.6.2.js'></script>
+        <script src='../Framework/jquery.min_v3.3.1.js'></script>
+        <style type="text/css">
+            * {
+                user-select: none;
+                -moz-user-select: none;
+                -webkit-user-select: none;
+                -ms-user-select: none;
+            }           
+            html,body {
+                margin: 0;
+                padding: 0;
+                background-color: #000;
+            }
+            
+            @font-face {
+                font-family: GrinchedRegular;
+                src: url('../Font/GrinchedRegular.otf');
+            }
+
+            #game {
+                position: absolute;
+                top: 0; left: 0; bottom: 0; right: 0;
+                background-color: black;
+            }
+        </style>
+    </head>
+
+    <body>
+
+        <div id="game"></div>
+        <script src="../games008/js/game.js"></script>
+    </body>
+
+</html>

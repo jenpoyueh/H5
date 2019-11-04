@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+    <title>幽靈串燒</title>
+    <style type="text/css">
+        * {
+            user-select: none;
+            -moz-user-select: none;
+            -webkit-user-select: none;
+            -ms-user-select: none;
+        }    
+        html,body {
+            margin: 0;
+            padding: 0;
+            background-color: #000;
+        }
+        
+        @font-face {
+            font-family: Mirage;
+            src: url('../Font/Mirage.ttf');
+        }
+
+        #game {
+            position: absolute;
+            top: 0; left: 0; bottom: 0; right: 0;
+            background-color: black;
+        }
+
+    </style>
+    <!--phaser 遊戲框架-->
+    <script src='../Framework/phaser.min_v2.6.2.js'></script>
+    <!--jquery-->
+    <script src='../Framework/jquery.min_v3.3.1.js'></script>
+
+</head>
+
+<body>
+
+    <div id="game"></div>
+     <!-- 強制橫軸模組 -->
+    <script src="../Model/scaleManager.js"></script>
+    <script type="text/javascript" src='../games012/js/game.js?v=0.1'></script>
+
+</body>
+
+</html>
