@@ -185,10 +185,15 @@ game.State.load={
 game.State.web={
 
     create:function(){
+
         // 背景
         this.bg = game.add.image(0,0,'bg');
         this.joker = game.add.image(0,0,'joker');
-
+        // 光點閃爍
+        this.lightdot = game.add.sprite(0,0,'lightdot');
+        this.lightdot.alpha = 0;
+        game.add.tween(this.lightdot).to({ alpha: 1 }, 1500, Phaser.Easing.Linear.None, true, 0, -1, true);
+        // 資訊版與按鈕
         this.info=game.add.sprite(0,0);
         this.info.alpha = 0;
         this.exp = game.add.image(game.width/2,740,'exp')
@@ -270,8 +275,6 @@ game.State.web={
             },this);
         },this,1,1,0);
 
-
-
         this.infobtn01 = game.add.button(440,220,'infobtn',function(){
             this.infobtn01.alpha=0;
             this.infobtn02.alpha=1;
@@ -280,9 +283,7 @@ game.State.web={
             game.add.tween(this.exp).to({ alpha: 0 }, 300, Phaser.Easing.Linear.None, true, 0, 0, false).onComplete.add(function(){
                 this.expbtn02.input.priorityID = 1;
                 this.expbtn01.input.priorityID = 2;
-                
             },this);
-
             game.add.tween(this.info).to({ alpha: 1 }, 300, Phaser.Easing.Linear.None, true, 0, 0, false).onComplete.add(function(){
                 this.infoBtn01.inputEnabled = true;
                 this.infoBtn02.inputEnabled = true;
@@ -291,7 +292,6 @@ game.State.web={
                 this.infobtn02.input.priorityID = 2;
             },this);
         },this,0,0,1);
-
 
         this.expbtn01 = game.add.button(440,310,'expbtn',function(){
             this.expbtn01.alpha=0;
@@ -323,10 +323,6 @@ game.State.web={
         this.light02 = game.add.sprite(0,0,'light02');
         this.light02.alpha = 0;
         game.add.tween(this.light02).to({ alpha: 1 }, 500, Phaser.Easing.Linear.None, true, 0, -1, true);
-        // 光點閃爍
-        this.lightdot = game.add.sprite(0,0,'lightdot');
-        this.lightdot.alpha = 0;
-        game.add.tween(this.lightdot).to({ alpha: 1 }, 1500, Phaser.Easing.Linear.None, true, 0, -1, true);
         // 標題
         this.title = game.add.image(0,-10,'title');
         // 按鈕們
