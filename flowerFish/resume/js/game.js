@@ -185,7 +185,8 @@ game.State.load={
 game.State.web={
 
     create:function(){
-
+        var infoy = 730;
+        var infoTitle = 623;
         // 背景
         this.bg = game.add.image(0,0,'bg');
         this.joker = game.add.image(0,0,'joker');
@@ -196,13 +197,13 @@ game.State.web={
         // 資訊版與按鈕
         this.info=game.add.sprite(0,0);
         this.info.alpha = 0;
-        this.exp = game.add.image(game.width/2,740,'exp')
+        this.exp = game.add.image(game.width/2,infoy,'exp')
         this.exp.anchor.setTo(0.5);
         this.exp.alpha = 0;
-        this.info01 =this.info.addChild(game.add.image(game.width/2,740,'info01'));
-        this.info02 = this.info.addChild(game.add.image(game.width/2,740,'info02'));
-        this.info03 = this.info.addChild(game.add.image(game.width/2,740,'info03'));
-        this.infoBtn01 = this.info.addChild(game.add.button(86,637,'infoBtn01',function(){
+        this.info01 =this.info.addChild(game.add.image(game.width/2,infoy,'info01'));
+        this.info02 = this.info.addChild(game.add.image(game.width/2,infoy,'info02'));
+        this.info03 = this.info.addChild(game.add.image(game.width/2,infoy,'info03'));
+        this.infoBtn01 = this.info.addChild(game.add.button(86,infoTitle,'infoBtn01',function(){
             this.info01.alpha = 1;
             this.infoBtn01.alpha = 0;
             this.infoTitle01.alpha = 1;
@@ -213,7 +214,7 @@ game.State.web={
             this.infoBtn03.alpha = 1;
             this.infoTitle03.alpha = 0;
         },this,1,1,0));
-        this.infoBtn02 = this.info.addChild(game.add.button(183,637,'infoBtn02',function(){
+        this.infoBtn02 = this.info.addChild(game.add.button(183,infoTitle,'infoBtn02',function(){
             this.info01.alpha = 0;
             this.infoBtn01.alpha = 1;
             this.infoTitle01.alpha = 0;
@@ -224,7 +225,7 @@ game.State.web={
             this.infoBtn03.alpha = 1;
             this.infoTitle03.alpha = 0;
         },this,1,1,0));
-        this.infoBtn03 = this.info.addChild(game.add.button(280,637,'infoBtn03',function(){
+        this.infoBtn03 = this.info.addChild(game.add.button(280,infoTitle,'infoBtn03',function(){
             this.info01.alpha = 0;
             this.infoBtn01.alpha = 1;
             this.infoTitle01.alpha = 0;
@@ -238,9 +239,9 @@ game.State.web={
         this.infoBtn01.inputEnabled = false;
         this.infoBtn02.inputEnabled = false;
         this.infoBtn03.inputEnabled = false;
-        this.infoTitle01 = this.info.addChild(game.add.image(86,637,'infoTitle01'));
-        this.infoTitle02 = this.info.addChild(game.add.image(183,637,'infoTitle02'));
-        this.infoTitle03 = this.info.addChild(game.add.image(280,637,'infoTitle03'));
+        this.infoTitle01 = this.info.addChild(game.add.image(86,infoTitle,'infoTitle01'));
+        this.infoTitle02 = this.info.addChild(game.add.image(183,infoTitle,'infoTitle02'));
+        this.infoTitle03 = this.info.addChild(game.add.image(280,infoTitle,'infoTitle03'));
         this.info01.anchor.setTo(0.5);
         this.info02.anchor.setTo(0.5);
         this.info03.anchor.setTo(0.5);
