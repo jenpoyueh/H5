@@ -310,11 +310,10 @@ game.State.start={
         game.startBtn.anchor.setTo(0.5,0.5);
         game.startBtn.alpha = 0;
         game.add.tween(game.startBtn).to({ alpha: 1 }, 300, Phaser.Easing.Linear.None, true, 0, 0, false);
-        this.return = game.add.button(-5,0,'return',function(){
+        this.return = game.add.button(20,20,'return',function(){
             window.location.href = '../games/index.html';
         },this,1,0,1);
-        this.return.input.priorityID = 9;
-        this.return.scale.setTo(0.8);
+        this.return.input.priorityID = 99;
     },
 
     // 遊戲設定
