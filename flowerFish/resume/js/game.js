@@ -74,11 +74,6 @@ var EventUtil = {
 
 /**********************/
 
-// 文字樣式
-var style = {fill: '#ffb64d', font: "120px Bountifl"};
-var style2 = {fill: '#ffb64d', font: "48px Bountifl"};
-var tStyle = {fill: '#ffb64d', font: "42px YARDSALE"};
-
 // 遊戲主畫布
 var width = 640;
 var height = 960;
@@ -773,7 +768,6 @@ game.State.works_sai={
         console.log('右');
     }
 }
-
 
 game.State.games = {
     create:function(){
