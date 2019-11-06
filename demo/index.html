@@ -12,19 +12,40 @@
                 -webkit-user-select: none;
                 -ms-user-select: none;
             }       
-            
+            #mainCanvas {
+                width: 400px;
+                height: 400px;
+                border: 1px solid #000;
+            }
 
         </style>
     </head>
 
     <body>
+        <canvas id ="mainCanvas"></canvas>
         <script src='node_modules/jquery/dist/jquery.min.js'></script>
+        <script src='node_modules/paper/dist/paper-full.min.js'></script>
         <script>
-            $(function(){
-                $('body').append('<h1>Hello Test!</h1>');
-                $('body').append('<div>Install jQuery</div>');
-                $('body').css('background-color','pink');
-            });        
+            // $(function(){
+            //     $('body').append('<h1>Hello Test!</h1>');
+            //     $('body').append('<div>Install jQuery</div>');
+            //     $('body').css('background-color','pink');
+            // });       
+            paper.install(window);
+            paper.setup(document.getElementById("mainCanvas"));
+            
+            //TODO
+
+            // var c = Shape.Circle(200,200,50);
+            // c.fillColor = 'green';
+
+            var c;
+            for(var x=25;x<400;x+=50){
+                for(var y=25;y<400;y+=50){
+                    var c = Shape.Circle(x,y,20);
+                    c.fillColor = 'green';  
+                }
+            }
         </script>
     </body>
 
